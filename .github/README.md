@@ -1,58 +1,109 @@
-<p align="center"><img src="../multiwarden/branding/icons/logo512.png" width="128" alt="Multiwarden icon"></p>
+<p align="center"><img src="../multiwarden/branding/icons/logo512.png" width="112" alt="Multiwarden"></p>
 
-# Multiwarden
+<h1 align="center">Multiwarden</h1>
 
-**Use several Bitwarden accounts at the same time in your browser.**
+<p align="center">
+  Every unlocked Bitwarden account, working at once.
+</p>
 
-Multiwarden is an unofficial fork of the open-source Bitwarden browser extension. The official
-extension lets you sign in to several accounts but only uses the _active_ one. If you run two
-copies of the extension side by side, they fight over autofill, the save-password prompt and
-passkeys. Multiwarden is one extension that keeps every unlocked account in play:
+<p align="center">
+  <a href="https://github.com/mteij/multiwarden/releases/latest"><img src="https://img.shields.io/github/v/release/mteij/multiwarden?style=flat-square&label=release&color=5e5feb" alt="Latest release"></a>
+  <a href="https://github.com/mteij/multiwarden/actions/workflows/multiwarden-ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/mteij/multiwarden/multiwarden-ci.yml?style=flat-square&label=build&color=5e5feb" alt="Build status"></a>
+  <img src="https://img.shields.io/badge/license-GPL--3.0-5e5feb?style=flat-square" alt="GPL-3.0">
+  <img src="https://img.shields.io/badge/status-experimental-473ecf?style=flat-square" alt="Experimental">
+</p>
 
-- **Autofill / inline menu:** suggestions from all unlocked accounts, each labelled with its
-  account's email.
-- **Save password prompt:** an account selector chooses where a new login goes. It defaults to
-  the account you last used for that site. Logins that already exist in _any_ account are
-  recognised, so you don't get a "save" prompt for something you have in your work vault.
-  Password updates go to the account that owns the login.
-- **Passkeys:** sign-in finds passkeys in every unlocked account. When you create a new passkey,
-  you pick the account to save it in.
-- **Keyboard shortcut:** falls back to your other accounts when the active one has no login for
-  the site.
-- **Combined view:** pick "Combined" in the account dropdown (top right) and the normal vault
-  shows every unlocked account's items together, each marked with its account's avatar. Search,
-  fill, copy, edit and delete work as usual; new items ask which vault they go into.
-- **Settings → Multiwarden:** remembering the save account per site, hiding Premium upgrade
-  notices, and version details.
+<p align="center">
+  <a href="https://multiwarden.mteij.nl">Website</a> ·
+  <a href="https://github.com/mteij/multiwarden/releases">Releases</a> ·
+  <a href="../multiwarden/README.md">Maintainer notes</a>
+</p>
 
-Sign in to each account through the normal account switcher (up to five), unlock them, and
-Multiwarden uses all of them.
+---
+
+## Overview
+
+The official Bitwarden extension lets you sign in to several accounts, but only the _active_
+account takes part in autofill, saving and passkeys. Running two copies side by side makes them
+compete for the same fields.
+
+Multiwarden is an unofficial fork of the Bitwarden browser extension in which every unlocked
+account takes part. It stays close to
+upstream: new behaviour lives in separate files, and upstream code only receives small, marked
+hooks.
+
+> [!NOTE]
+> Multiwarden is experimental. It is used daily, but it is not audited and not supported by
+> Bitwarden. Keep the official extension disabled while Multiwarden is installed.
+
+## What changes
+
+| Area                  | Upstream Bitwarden                    | Multiwarden                                                                                                     |
+| --------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Inline autofill**   | Active account only                   | Suggestions from all unlocked accounts, each labelled with its account                                          |
+| **Save prompt**       | Saves to the active account           | Account selector, pre-set to the account last used on that site; existing logins are recognised in any account |
+| **Password updates**  | Active account                        | Written to the account that owns the login                                                                      |
+| **Passkeys**          | Active account                        | Found in every unlocked account; new passkeys ask where to save                                                 |
+| **Keyboard shortcut** | Active account                        | Falls back to other unlocked accounts                                                                           |
+| **Vault view**        | One account at a time                 | Optional **Combined** view: all vaults in one list, each item marked with its account                           |
+| **New items**         | Active account                        | In combined view, asks which vault to save to                                                                   |
+| **Settings**          | —                                     | **Settings → Multiwarden**: combined view, per-site save account, account colours, hide Premium notices         |
+
+Also included: Multiwarden branding and icons, translations for every extension language,
+builds for Chromium browsers and Firefox, and an automated nightly sync with upstream.
+
+## Browser support
+
+| Browser                | Package                        | Notes                                                    |
+| ---------------------- | ------------------------------ | -------------------------------------------------------- |
+| Chrome, Vivaldi, Brave | `multiwarden-chrome-*.zip`     | Manifest V3                                              |
+| Edge                   | `multiwarden-edge-*.zip`       | Manifest V3                                              |
+| Opera                  | `multiwarden-opera-*.zip`      | Manifest V3                                              |
+| Firefox                | `multiwarden-firefox-*.zip`    | Manifest V2; temporary add-on until signed by Mozilla    |
+| Safari                 | —                              | Not built yet (requires macOS and Xcode)                 |
 
 ## Install
 
-Download the zip for your browser from [Releases](https://github.com/mteij/multiwarden/releases)
-and unzip it. Remove or turn off the official Bitwarden extension first, so the two don't both
-try to fill.
+Download the package for your browser from the
+[latest release](https://github.com/mteij/multiwarden/releases/latest) and unzip it. Disable the
+official Bitwarden extension first.
 
-- **Chrome, Vivaldi, Brave, Edge, Opera:** open the extensions page (`chrome://extensions`,
-  `vivaldi://extensions`, `edge://extensions`, `opera://extensions`), turn on **Developer mode**,
-  choose **Load unpacked** and pick the unzipped folder. Use the `edge` zip for Edge and the
-  `opera` zip for Opera; the others use `chrome`.
-- **Firefox:** open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on** and
-  pick `manifest.json` in the unzipped `firefox` folder. Firefox only keeps unsigned add-ons until
-  it restarts; a permanent install needs the add-on signed by Mozilla (addons.mozilla.org).
+**Chromium browsers**
 
-## Maintainers
+1. Open the extensions page (`chrome://extensions`, `edge://extensions`, `opera://extensions`, …).
+2. Turn on **Developer mode**, choose **Load unpacked** and select the unzipped folder.
 
-See [multiwarden/README.md](../multiwarden/README.md) for how the fork is structured, how it follows upstream,
-and how to build it.
+**Firefox**
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Choose **Load Temporary Add-on** and select `manifest.json` in the unzipped folder. Firefox
+   removes unsigned add-ons when it restarts.
+
+Then sign in to each account through the account switcher (up to five) and unlock them.
+
+## How it is built
+
+```
+bitwarden/clients  ──nightly sync──▶  multiwarden  ──CI──▶  tested, branded zips  ──tag──▶  release
+                                         │
+                                         ├─ multiwarden-only files   (all new logic)
+                                         └─ "Multiwarden:" hooks     (small, marked edits upstream)
+```
+
+- **Hooks, not rewrites.** `git grep -n "Multiwarden:"` lists every place upstream code is touched.
+- **Upstream sync.** A nightly workflow applies upstream changes with a 3-way merge and opens a PR.
+- **Branding after build.** Names, icons and strings are applied to the finished build, so they
+  never conflict with upstream.
+- **Open-source only.** Builds use the GPL code alone; nothing under `bitwarden_license/` is
+  included.
+
+Build steps, the file map and the sync process are in the
+[maintainer notes](../multiwarden/README.md).
 
 ## License and trademarks
 
-Multiwarden is distributed under the GNU GPL v3, like the upstream code it is based on. It is
-built only from the open-source parts of bitwarden/clients; code under `bitwarden_license/` is
-never included in builds.
+Multiwarden is licensed under the GNU GPL v3, like the upstream code it is based on.
 
-Multiwarden is **not affiliated with, endorsed by, or supported by Bitwarden, Inc.** "Bitwarden" is
-a registered trademark of Bitwarden Inc., used here only to describe compatibility. Please don't
-report Multiwarden issues to Bitwarden.
+Multiwarden is **not affiliated with, endorsed by, or supported by Bitwarden, Inc.** "Bitwarden"
+is a registered trademark of Bitwarden Inc., used here only to describe compatibility. Please
+report Multiwarden issues [here](https://github.com/mteij/multiwarden/issues), not to Bitwarden.
