@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "தோற்றம்"
   },
-  "multiwardenCombinedMode": {
-    "message": "இணைந்த காட்சி"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "பூட்டு திறந்த அனைத்து கணக்குகளின் உருப்படிகளையும் ஒன்றாகக் காட்டும். கணக்கு மெனுவில் \"இணைந்த\" என்பதையும் தேர்வு செய்யலாம்."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ஒவ்வொரு தளத்துக்கும் சேமிக்கும் கணக்கை நினைவில் வை"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "பெட்டகம்:"
-  },
-  "multiwardenAccountColors": {
-    "message": "கணக்கு நிறங்கள்"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ஒவ்வொரு கணக்குக்கும் ஒரு நிறத்தைத் தேர்வு செய்யவும். இது கணக்கில் சேமிக்கப்படுவதால் உங்கள் எல்லா சாதனங்களிலும் தெரியும்."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden பற்றி"

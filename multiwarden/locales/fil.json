@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Itsura"
   },
-  "multiwardenCombinedMode": {
-    "message": "Pinagsamang view"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Ipinapakita nang magkasama ang mga item ng lahat ng naka-unlock na account. Maaari mo ring piliin ang \"Pinagsama\" sa menu ng account."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Tandaan ang account na pang-save bawat site"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Mga kulay ng account"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Pumili ng kulay para sa bawat account. Naka-save ito sa account kaya lumalabas ito sa lahat ng device mo."
   },
   "multiwardenAboutSection": {
     "message": "Tungkol sa Multiwarden"

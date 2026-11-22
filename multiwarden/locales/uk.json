@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Вигляд"
   },
-  "multiwardenCombinedMode": {
-    "message": "Спільний перегляд"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Показує записи всіх розблокованих облікових записів разом. Також можна вибрати «Спільний» у меню облікового запису."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Запам'ятовувати обліковий запис для збереження на кожному сайті"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Сховище:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Кольори облікових записів"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Виберіть колір для кожного облікового запису. Він зберігається в обліковому записі й відображається на всіх ваших пристроях."
   },
   "multiwardenAboutSection": {
     "message": "Про Multiwarden"

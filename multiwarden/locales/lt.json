@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Išvaizda"
   },
-  "multiwardenCombinedMode": {
-    "message": "Bendras rodinys"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Rodo visų atrakintų paskyrų elementus kartu. Paskyros meniu taip pat galite pasirinkti „Bendras“."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Įsiminti išsaugojimo paskyrą kiekvienai svetainei"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Saugykla:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Paskyrų spalvos"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Pasirinkite spalvą kiekvienai paskyrai. Ji išsaugoma paskyroje, todėl rodoma visuose jūsų įrenginiuose."
   },
   "multiwardenAboutSection": {
     "message": "Apie Multiwarden"

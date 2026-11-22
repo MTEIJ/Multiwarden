@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "రూపం"
   },
-  "multiwardenCombinedMode": {
-    "message": "కలిపిన వీక్షణ"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "అన్‌లాక్ చేసిన అన్ని ఖాతాల అంశాలను కలిపి చూపిస్తుంది. ఖాతా మెనూలో \"కలిపి\" కూడా ఎంచుకోవచ్చు."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ప్రతి సైట్‌కు సేవ్ ఖాతాను గుర్తుంచుకోండి"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "వాల్ట్:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ఖాతా రంగులు"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ప్రతి ఖాతాకు ఒక రంగును ఎంచుకోండి. ఇది ఖాతాలో సేవ్ అవుతుంది, కాబట్టి మీ అన్ని పరికరాల్లో కనిపిస్తుంది."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden గురించి"

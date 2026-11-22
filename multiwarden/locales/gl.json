@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Aparencia"
   },
-  "multiwardenCombinedMode": {
-    "message": "Vista combinada"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Mostra xuntos os elementos de todas as contas desbloqueadas. Tamén podes escoller «Combinada» no menú da conta."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Lembrar a conta onde gardar en cada sitio"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Caixa forte:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Cores das contas"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Escolle unha cor para cada conta. Gárdase na conta, así que aparece en todos os teus dispositivos."
   },
   "multiwardenAboutSection": {
     "message": "Acerca de Multiwarden"

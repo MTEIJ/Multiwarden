@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "रूप"
   },
-  "multiwardenCombinedMode": {
-    "message": "संयुक्त दृश्य"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "अनलक गरिएका सबै खाताका वस्तुहरू सँगै देखाउँछ। खाता मेनुमा \"संयुक्त\" पनि छान्न सक्नुहुन्छ।"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "प्रत्येक साइटका लागि सुरक्षित गर्ने खाता सम्झनुहोस्"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "भल्ट:"
-  },
-  "multiwardenAccountColors": {
-    "message": "खाताका रङहरू"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "प्रत्येक खाताका लागि रङ छान्नुहोस्। यो खातामा सुरक्षित हुन्छ, त्यसैले तपाईंका सबै यन्त्रमा देखिन्छ।"
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden बारे"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Εμφάνιση"
   },
-  "multiwardenCombinedMode": {
-    "message": "Συνδυαστική προβολή"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Εμφανίζει μαζί τα στοιχεία όλων των ξεκλείδωτων λογαριασμών. Μπορείτε επίσης να επιλέξετε «Συνδυαστικά» στο μενού λογαριασμού."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Απομνημόνευση λογαριασμού αποθήκευσης ανά ιστότοπο"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Θησαυροφυλάκιο:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Χρώματα λογαριασμών"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Επιλέξτε χρώμα για κάθε λογαριασμό. Αποθηκεύεται στον λογαριασμό, οπότε εμφανίζεται σε όλες τις συσκευές σας."
   },
   "multiwardenAboutSection": {
     "message": "Σχετικά με το Multiwarden"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Ulkoasu"
   },
-  "multiwardenCombinedMode": {
-    "message": "Yhdistetty näkymä"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Näyttää kaikkien avattujen tilien kohteet yhdessä. Voit myös valita tilivalikosta \"Yhdistetty\"."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Muista tallennustili sivustokohtaisesti"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Holvi:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Tilien värit"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Valitse jokaiselle tilille väri. Se tallennetaan tiliin, joten se näkyy kaikilla laitteillasi."
   },
   "multiwardenAboutSection": {
     "message": "Tietoja Multiwardenista"

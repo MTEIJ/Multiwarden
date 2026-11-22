@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Megjelenés"
   },
-  "multiwardenCombinedMode": {
-    "message": "Összevont nézet"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Az összes feloldott fiók elemeit együtt mutatja. A fiókmenüben az „Összevont” lehetőséget is választhatod."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Mentési fiók megjegyzése webhelyenként"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Széf:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Fiókszínek"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Válassz színt minden fiókhoz. A fiókban tárolódik, így minden eszközödön megjelenik."
   },
   "multiwardenAboutSection": {
     "message": "A Multiwardenről"

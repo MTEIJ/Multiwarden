@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "外觀"
   },
-  "multiwardenCombinedMode": {
-    "message": "合併檢視"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "同時顯示所有已解鎖帳戶的項目。也可以在帳戶選單中選擇「合併」。"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "依網站記住儲存帳戶"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "密碼庫："
-  },
-  "multiwardenAccountColors": {
-    "message": "帳戶顏色"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "為每個帳戶選擇一種顏色。顏色會儲存在帳戶中，並顯示在你的所有裝置上。"
   },
   "multiwardenAboutSection": {
     "message": "關於 Multiwarden"

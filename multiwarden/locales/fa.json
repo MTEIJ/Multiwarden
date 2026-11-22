@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "نمایش"
   },
-  "multiwardenCombinedMode": {
-    "message": "نمای ترکیبی"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "موارد همه حساب‌های قفل‌نشده را با هم نشان می‌دهد. همچنین می‌توانید «ترکیبی» را از منوی حساب انتخاب کنید."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "به خاطر سپردن حساب ذخیره برای هر سایت"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "گاوصندوق:"
-  },
-  "multiwardenAccountColors": {
-    "message": "رنگ حساب‌ها"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "برای هر حساب یک رنگ انتخاب کنید. در حساب ذخیره می‌شود و در همه دستگاه‌هایتان نمایش داده می‌شود."
   },
   "multiwardenAboutSection": {
     "message": "درباره Multiwarden"

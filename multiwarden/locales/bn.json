@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "চেহারা"
   },
-  "multiwardenCombinedMode": {
-    "message": "সম্মিলিত দৃশ্য"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "সব আনলক করা অ্যাকাউন্টের আইটেম একসাথে দেখায়। অ্যাকাউন্ট মেনুতে \"সম্মিলিত\"ও বেছে নিতে পারেন।"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "প্রতিটি সাইটের জন্য সংরক্ষণের অ্যাকাউন্ট মনে রাখুন"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "ভল্ট:"
-  },
-  "multiwardenAccountColors": {
-    "message": "অ্যাকাউন্টের রং"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "প্রতিটি অ্যাকাউন্টের জন্য একটি রং বেছে নিন। এটি অ্যাকাউন্টে সংরক্ষিত হয়, তাই আপনার সব ডিভাইসে দেখা যায়।"
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden সম্পর্কে"

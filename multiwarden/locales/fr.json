@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Affichage"
   },
-  "multiwardenCombinedMode": {
-    "message": "Vue combinée"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Affiche ensemble les éléments de tous les comptes déverrouillés. Vous pouvez aussi choisir « Combiné » dans le menu du compte."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Mémoriser le compte d'enregistrement par site"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Coffre :"
-  },
-  "multiwardenAccountColors": {
-    "message": "Couleurs des comptes"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Choisissez une couleur pour chaque compte. Elle est enregistrée dans le compte et s'affiche sur tous vos appareils."
   },
   "multiwardenAboutSection": {
     "message": "À propos de Multiwarden"

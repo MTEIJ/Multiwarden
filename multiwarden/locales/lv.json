@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Izskats"
   },
-  "multiwardenCombinedMode": {
-    "message": "Apvienotais skats"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Rāda visu atslēgto kontu vienumus kopā. Konta izvēlnē var izvēlēties arī “Apvienots”."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Atcerēties saglabāšanas kontu katrai vietnei"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Glabātava:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontu krāsas"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Izvēlieties krāsu katram kontam. Tā tiek saglabāta kontā, tāpēc tā ir redzama visās jūsu ierīcēs."
   },
   "multiwardenAboutSection": {
     "message": "Par Multiwarden"

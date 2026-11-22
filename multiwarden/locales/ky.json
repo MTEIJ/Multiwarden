@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Көрүнүш"
   },
-  "multiwardenCombinedMode": {
-    "message": "Бириккен көрүнүш"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Кулпусу ачылган бардык аккаунттардын элементтерин чогуу көрсөтөт. Аккаунт менюсунан «Бириккен» дегенди да тандай аласыз."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Ар бир сайт үчүн сактоо аккаунтун эстеп калуу"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Сейф:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Аккаунт түстөрү"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Ар бир аккаунт үчүн түс тандаңыз. Ал аккаунтта сакталат, ошондуктан бардык түзмөктөрүңүздө көрүнөт."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden жөнүндө"

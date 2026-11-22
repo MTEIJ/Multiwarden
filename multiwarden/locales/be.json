@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Выгляд"
   },
-  "multiwardenCombinedMode": {
-    "message": "Агульны выгляд"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Паказвае элементы ўсіх разблакіраваных уліковых запісаў разам. Таксама можна выбраць «Агульны» ў меню ўліковага запісу."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Запамінаць уліковы запіс для захавання на кожным сайце"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Сховішча:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Колеры ўліковых запісаў"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Выберыце колер для кожнага ўліковага запісу. Ён захоўваецца ва ўліковым запісе і паказваецца на ўсіх вашых прыладах."
   },
   "multiwardenAboutSection": {
     "message": "Пра Multiwarden"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Aspeto"
   },
-  "multiwardenCombinedMode": {
-    "message": "Vista combinada"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Mostra em conjunto os itens de todas as contas desbloqueadas. Também pode escolher \"Combinada\" no menu da conta."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Memorizar a conta de gravação por site"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Cofre:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Cores das contas"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Escolha uma cor para cada conta. É guardada na conta e aparece em todos os seus dispositivos."
   },
   "multiwardenAboutSection": {
     "message": "Sobre o Multiwarden"

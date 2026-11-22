@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Weergave"
   },
-  "multiwardenCombinedMode": {
-    "message": "Gecombineerde weergave"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Toon de items van alle ontgrendelde accounts samen. Je kunt ook \"Gecombineerd\" kiezen in het accountmenu."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Onthoud het opslag-account per website"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Kluis:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Accountkleuren"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Kies een kleur voor elk account. Die wordt in het account opgeslagen, dus je ziet hem op al je apparaten."
   },
   "multiwardenAboutSection": {
     "message": "Over Multiwarden"

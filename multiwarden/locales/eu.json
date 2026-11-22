@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Itxura"
   },
-  "multiwardenCombinedMode": {
-    "message": "Ikuspegi konbinatua"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Desblokeatutako kontu guztien elementuak batera erakusten ditu. Kontuaren menuan \"Konbinatua\" ere hauta dezakezu."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Gogoratu gordetzeko kontua gune bakoitzerako"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Kutxa gotorra:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontuen koloreak"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Aukeratu kolore bat kontu bakoitzerako. Kontuan gordetzen da, beraz zure gailu guztietan agertzen da."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden-i buruz"

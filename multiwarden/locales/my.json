@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "အသွင်အပြင်"
   },
-  "multiwardenCombinedMode": {
-    "message": "ပေါင်းစပ်မြင်ကွင်း"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "သော့ဖွင့်ထားသော အကောင့်အားလုံး၏ အရာများကို အတူတကွ ပြသည်။ အကောင့်မီနူးတွင် \"ပေါင်းစပ်\" ကိုလည်း ရွေးနိုင်သည်။"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ဆိုက်တစ်ခုစီအတွက် သိမ်းသည့်အကောင့်ကို မှတ်ထားရန်"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
-  },
-  "multiwardenAccountColors": {
-    "message": "အကောင့်အရောင်များ"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "အကောင့်တစ်ခုစီအတွက် အရောင်ရွေးပါ။ အကောင့်တွင် သိမ်းထားသဖြင့် သင့်စက်အားလုံးတွင် ပြသည်။"
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden အကြောင်း"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "보기"
   },
-  "multiwardenCombinedMode": {
-    "message": "통합 보기"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "잠금 해제된 모든 계정의 항목을 함께 표시합니다. 계정 메뉴에서 '통합'을 선택할 수도 있습니다."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "사이트별 저장 계정 기억"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "보관함:"
-  },
-  "multiwardenAccountColors": {
-    "message": "계정 색상"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "계정마다 색상을 선택하세요. 색상은 계정에 저장되어 모든 기기에 표시됩니다."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden 정보"

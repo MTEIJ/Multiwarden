@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "រូបរាង"
   },
-  "multiwardenCombinedMode": {
-    "message": "ទិដ្ឋភាពរួម"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "បង្ហាញធាតុនៃគណនីដែលបានដោះសោទាំងអស់ជាមួយគ្នា។ អ្នកក៏អាចជ្រើស \"រួម\" ក្នុងម៉ឺនុយគណនីបានដែរ។"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ចងចាំគណនីរក្សាទុកសម្រាប់គេហទំព័រនីមួយៗ"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "ឃ្លាំង:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ពណ៌គណនី"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ជ្រើសពណ៌សម្រាប់គណនីនីមួយៗ។ វាត្រូវបានរក្សាទុកក្នុងគណនី ដូច្នេះវាបង្ហាញលើឧបករណ៍ទាំងអស់របស់អ្នក។"
   },
   "multiwardenAboutSection": {
     "message": "អំពី Multiwarden"

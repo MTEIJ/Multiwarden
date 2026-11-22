@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Görünüm"
   },
-  "multiwardenCombinedMode": {
-    "message": "Birleşik görünüm"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Kilidi açık tüm hesapların kayıtlarını birlikte gösterir. Hesap menüsünden \"Birleşik\" seçeneğini de seçebilirsiniz."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Site başına kaydetme hesabını hatırla"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Kasa:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Hesap renkleri"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Her hesap için bir renk seçin. Hesapta saklanır, bu yüzden tüm cihazlarınızda görünür."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden hakkında"

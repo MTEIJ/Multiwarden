@@ -10,19 +10,6 @@
       <h2 bitTypography="h6">{{ "multiwardenAccountsSection" | i18n }}</h2>
     </bit-section-header>
     <bit-card>
-      <bit-form-control>
-        <input
-          bitCheckbox
-          id="multiwarden-settings_input_combined-mode"
-          type="checkbox"
-          [checked]="settings().combinedMode"
-          (change)="toggle('combinedMode', $event)"
-        />
-        <bit-label for="multiwarden-settings_input_combined-mode">{{
-          "multiwardenCombinedMode" | i18n
-        }}</bit-label>
-        <bit-hint>{{ "multiwardenCombinedModeHint" | i18n }}</bit-hint>
-      </bit-form-control>
       <bit-form-control disableMargin>
         <input
           bitCheckbox
@@ -38,60 +25,6 @@
       </bit-form-control>
     </bit-card>
   </bit-section>
-
-  @if (accounts().length > 0) {
-    <bit-section>
-      <bit-section-header>
-        <h2 bitTypography="h6">{{ "multiwardenAccountColors" | i18n }}</h2>
-      </bit-section-header>
-      <bit-card>
-        <p bitTypography="body2" class="tw-mb-3 tw-text-muted">
-          {{ "multiwardenAccountColorsHint" | i18n }}
-        </p>
-        @for (account of accounts(); track account.userId; let last = $last) {
-          <div class="tw-flex tw-flex-col tw-gap-2" [class.tw-mb-4]="!last">
-            <div class="tw-flex tw-items-center tw-gap-2">
-              <bit-avatar
-                size="sm"
-                [id]="account.userId"
-                [text]="account.name"
-                [color]="account.avatarColor ?? undefined"
-                aria-hidden="true"
-              ></bit-avatar>
-              <span bitTypography="body2" class="tw-truncate">{{ account.email }}</span>
-              @if (!account.unlocked) {
-                <bit-icon
-                  name="bwi-lock"
-                  class="tw-text-muted"
-                  [ariaLabel]="'locked' | i18n"
-                ></bit-icon>
-              }
-            </div>
-            <div
-              class="tw-flex tw-flex-wrap tw-gap-2"
-              role="group"
-              [attr.aria-label]="account.email"
-            >
-              @for (color of colors; track color) {
-                <button
-                  [id]="'multiwarden-settings_button_color-' + $index"
-                  type="button"
-                  class="tw-size-6 tw-rounded-full tw-border-2 tw-border-solid tw-p-0 disabled:tw-opacity-50"
-                  [class.tw-border-primary-600]="account.avatarColor === color"
-                  [class.tw-border-transparent]="account.avatarColor !== color"
-                  [style.background-color]="color"
-                  [disabled]="!account.unlocked || savingColorFor() !== null"
-                  [attr.aria-pressed]="account.avatarColor === color"
-                  [title]="color"
-                  (click)="setColor(account, color)"
-                ></button>
-              }
-            </div>
-          </div>
-        }
-      </bit-card>
-    </bit-section>
-  }
 
   <bit-section>
     <bit-section-header>

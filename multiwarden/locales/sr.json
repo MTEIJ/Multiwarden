@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Изглед"
   },
-  "multiwardenCombinedMode": {
-    "message": "Комбиновани приказ"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Приказује ставке свих откључаних налога заједно. Можете изабрати и „Комбиновано” у менију налога."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Запамти налог за чување по сајту"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Трезор:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Боје налога"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Изаберите боју за сваки налог. Чува се у налогу, па се приказује на свим вашим уређајима."
   },
   "multiwardenAboutSection": {
     "message": "О Multiwarden-у"

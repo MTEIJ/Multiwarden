@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "രൂപം"
   },
-  "multiwardenCombinedMode": {
-    "message": "സംയോജിത കാഴ്ച"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "അൺലോക്ക് ചെയ്ത എല്ലാ അക്കൗണ്ടുകളിലെയും ഇനങ്ങൾ ഒരുമിച്ച് കാണിക്കുന്നു. അക്കൗണ്ട് മെനുവിൽ \"സംയോജിതം\" തിരഞ്ഞെടുക്കാനും കഴിയും."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ഓരോ സൈറ്റിനും സംരക്ഷിക്കുന്ന അക്കൗണ്ട് ഓർമ്മിക്കുക"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "വോൾട്ട്:"
-  },
-  "multiwardenAccountColors": {
-    "message": "അക്കൗണ്ട് നിറങ്ങൾ"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ഓരോ അക്കൗണ്ടിനും ഒരു നിറം തിരഞ്ഞെടുക്കുക. അത് അക്കൗണ്ടിൽ സംരക്ഷിക്കുന്നതിനാൽ നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കാണാം."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden-നെ കുറിച്ച്"

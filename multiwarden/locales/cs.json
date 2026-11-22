@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Vzhled"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinované zobrazení"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Zobrazí položky všech odemčených účtů dohromady. V nabídce účtu můžete také zvolit „Kombinované“."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Pamatovat účet pro ukládání pro každý web"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Trezor:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Barvy účtů"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Vyberte barvu pro každý účet. Uloží se do účtu, takže se zobrazí na všech vašich zařízeních."
   },
   "multiwardenAboutSection": {
     "message": "O aplikaci Multiwarden"

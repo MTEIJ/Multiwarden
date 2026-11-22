@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "外观"
   },
-  "multiwardenCombinedMode": {
-    "message": "合并视图"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "同时显示所有已解锁账户的项目。也可以在账户菜单中选择“合并”。"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "按网站记住保存账户"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "密码库："
-  },
-  "multiwardenAccountColors": {
-    "message": "账户颜色"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "为每个账户选择一种颜色。颜色保存在账户中，会在你的所有设备上显示。"
   },
   "multiwardenAboutSection": {
     "message": "关于 Multiwarden"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Utseende"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinerad vy"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Visar objekten från alla upplåsta konton tillsammans. Du kan också välja \"Kombinerad\" i kontomenyn."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Kom ihåg sparkonto per webbplats"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Valv:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontofärger"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Välj en färg för varje konto. Den sparas i kontot och syns på alla dina enheter."
   },
   "multiwardenAboutSection": {
     "message": "Om Multiwarden"

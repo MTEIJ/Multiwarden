@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "පෙනුම"
   },
-  "multiwardenCombinedMode": {
-    "message": "ඒකාබද්ධ දසුන"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "අගුළු හැරි සියලු ගිණුම්වල අයිතම එකට පෙන්වයි. ගිණුම් මෙනුවෙන් \"ඒකාබද්ධ\" ද තෝරාගත හැක."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "එක් එක් අඩවිය සඳහා සුරැකීමේ ගිණුම මතක තබාගන්න"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "සුරක්ෂිතාගාරය:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ගිණුම් වර්ණ"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "එක් එක් ගිණුම සඳහා වර්ණයක් තෝරන්න. එය ගිණුමේ සුරැකෙන බැවින් ඔබගේ සියලු උපාංගවල පෙන්වයි."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden ගැන"

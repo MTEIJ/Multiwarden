@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "תצוגה"
   },
-  "multiwardenCombinedMode": {
-    "message": "תצוגה משולבת"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "מציגה יחד את הפריטים של כל החשבונות שאינם נעולים. אפשר גם לבחור \"משולב\" בתפריט החשבון."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "לזכור את חשבון השמירה לכל אתר"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "כספת:"
-  },
-  "multiwardenAccountColors": {
-    "message": "צבעי חשבונות"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "בחר צבע לכל חשבון. הוא נשמר בחשבון, ולכן מופיע בכל המכשירים שלך."
   },
   "multiwardenAboutSection": {
     "message": "אודות Multiwarden"

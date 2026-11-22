@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Darstellung"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinierte Ansicht"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Zeigt die Einträge aller entsperrten Konten zusammen an. Du kannst auch „Kombiniert“ im Kontomenü wählen."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Speicherkonto pro Website merken"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Tresor:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontofarben"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Wähle eine Farbe für jedes Konto. Sie wird im Konto gespeichert und erscheint auf all deinen Geräten."
   },
   "multiwardenAboutSection": {
     "message": "Über Multiwarden"

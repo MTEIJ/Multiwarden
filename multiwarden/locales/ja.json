@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "表示"
   },
-  "multiwardenCombinedMode": {
-    "message": "統合ビュー"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "ロック解除済みのすべてのアカウントのアイテムをまとめて表示します。アカウントメニューで「統合」を選ぶこともできます。"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "サイトごとに保存先アカウントを記憶"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "保管庫:"
-  },
-  "multiwardenAccountColors": {
-    "message": "アカウントの色"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "アカウントごとに色を選びます。色はアカウントに保存されるため、すべてのデバイスに表示されます。"
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden について"

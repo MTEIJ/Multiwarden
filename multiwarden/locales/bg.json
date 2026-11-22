@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Изглед"
   },
-  "multiwardenCombinedMode": {
-    "message": "Обединен изглед"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Показва заедно елементите от всички отключени акаунти. Можете да изберете и „Обединен“ в менюто на акаунта."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Запомняне на акаунта за запазване за всеки сайт"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Трезор:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Цветове на акаунтите"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Изберете цвят за всеки акаунт. Той се запазва в акаунта и се показва на всичките ви устройства."
   },
   "multiwardenAboutSection": {
     "message": "За Multiwarden"

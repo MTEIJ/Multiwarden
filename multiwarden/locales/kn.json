@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "ಗೋಚರತೆ"
   },
-  "multiwardenCombinedMode": {
-    "message": "ಸಂಯೋಜಿತ ನೋಟ"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "ಅನ್‌ಲಾಕ್ ಆದ ಎಲ್ಲಾ ಖಾತೆಗಳ ಐಟಂಗಳನ್ನು ಒಟ್ಟಿಗೆ ತೋರಿಸುತ್ತದೆ. ಖಾತೆ ಮೆನುವಿನಲ್ಲಿ \"ಸಂಯೋಜಿತ\" ಅನ್ನು ಸಹ ಆಯ್ಕೆ ಮಾಡಬಹುದು."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ಪ್ರತಿ ಸೈಟ್‌ಗೆ ಉಳಿಸುವ ಖಾತೆಯನ್ನು ನೆನಪಿಡಿ"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "ವಾಲ್ಟ್:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ಖಾತೆ ಬಣ್ಣಗಳು"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ಪ್ರತಿ ಖಾತೆಗೆ ಒಂದು ಬಣ್ಣ ಆಯ್ಕೆಮಾಡಿ. ಅದು ಖಾತೆಯಲ್ಲಿ ಉಳಿಯುವುದರಿಂದ ನಿಮ್ಮ ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden ಕುರಿತು"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "स्वरूप"
   },
-  "multiwardenCombinedMode": {
-    "message": "एकत्रित दृश्य"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "सर्व अनलॉक केलेल्या खात्यांचे आयटम एकत्र दाखवते. खाते मेनूमध्ये \"एकत्रित\" देखील निवडू शकता."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "प्रत्येक साइटसाठी जतन करण्याचे खाते लक्षात ठेवा"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "व्हॉल्ट:"
-  },
-  "multiwardenAccountColors": {
-    "message": "खात्यांचे रंग"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "प्रत्येक खात्यासाठी रंग निवडा. तो खात्यात जतन होतो, त्यामुळे तुमच्या सर्व डिव्हाइसवर दिसतो."
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden बद्दल"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "ରୂପ"
   },
-  "multiwardenCombinedMode": {
-    "message": "ମିଳିତ ଦୃଶ୍ୟ"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "ଅନଲକ୍ ହୋଇଥିବା ସମସ୍ତ ଖାତାର ଆଇଟମ୍ ଏକାଠି ଦେଖାଏ। ଖାତା ମେନୁରେ \"ମିଳିତ\" ମଧ୍ୟ ବାଛିପାରିବେ।"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "ପ୍ରତି ସାଇଟ୍ ପାଇଁ ସେଭ୍ ଖାତା ମନେରଖନ୍ତୁ"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "ଭଲ୍ଟ:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ଖାତା ରଙ୍ଗ"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "ପ୍ରତ୍ୟେକ ଖାତା ପାଇଁ ଏକ ରଙ୍ଗ ବାଛନ୍ତୁ। ଏହା ଖାତାରେ ସେଭ୍ ହୁଏ, ତେଣୁ ଆପଣଙ୍କ ସମସ୍ତ ଡିଭାଇସରେ ଦେଖାଯାଏ।"
   },
   "multiwardenAboutSection": {
     "message": "Multiwarden ବିଷୟରେ"

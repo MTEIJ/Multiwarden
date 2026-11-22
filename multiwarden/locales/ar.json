@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "المظهر"
   },
-  "multiwardenCombinedMode": {
-    "message": "العرض المدمج"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "يعرض عناصر جميع الحسابات غير المقفلة معًا. يمكنك أيضًا اختيار \"مدمج\" من قائمة الحساب."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "تذكّر حساب الحفظ لكل موقع"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "الخزنة:"
-  },
-  "multiwardenAccountColors": {
-    "message": "ألوان الحسابات"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "اختر لونًا لكل حساب. يُحفظ في الحساب، لذا يظهر على جميع أجهزتك."
   },
   "multiwardenAboutSection": {
     "message": "حول Multiwarden"

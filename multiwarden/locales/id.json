@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Tampilan"
   },
-  "multiwardenCombinedMode": {
-    "message": "Tampilan gabungan"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Menampilkan item dari semua akun yang tidak terkunci secara bersamaan. Anda juga dapat memilih \"Gabungan\" di menu akun."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Ingat akun penyimpanan per situs"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Brankas:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Warna akun"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Pilih warna untuk setiap akun. Warna disimpan di akun, jadi tampil di semua perangkat Anda."
   },
   "multiwardenAboutSection": {
     "message": "Tentang Multiwarden"

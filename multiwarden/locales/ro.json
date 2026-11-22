@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Aspect"
   },
-  "multiwardenCombinedMode": {
-    "message": "Vizualizare combinată"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Afișează împreună elementele tuturor conturilor deblocate. Poți alege și „Combinat” din meniul contului."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Reține contul de salvare pentru fiecare site"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Seif:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Culorile conturilor"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Alege o culoare pentru fiecare cont. Este salvată în cont, deci apare pe toate dispozitivele tale."
   },
   "multiwardenAboutSection": {
     "message": "Despre Multiwarden"

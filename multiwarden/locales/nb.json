@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Utseende"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinert visning"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Viser elementene fra alle opplåste kontoer samlet. Du kan også velge «Kombinert» i kontomenyen."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Husk lagringskonto per nettsted"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Hvelv:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontofarger"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Velg en farge for hver konto. Den lagres i kontoen og vises på alle enhetene dine."
   },
   "multiwardenAboutSection": {
     "message": "Om Multiwarden"

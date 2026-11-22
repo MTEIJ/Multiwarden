@@ -134,9 +134,7 @@ new item. Combined mode stays on until you choose a single account.
 
 | Setting                            | Default | Effect                                                                                                                                                       |
 | ---------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Combined view                      | off     | Same as choosing "Combined" in the account dropdown.                                                                                                         |
 | Remember the save account per site | on      | The save-password prompt pre-selects the account last used on that site.                                                                                     |
-| Account colours                    | —       | Each account's avatar colour. Saved to the account on the server (like the web vault's "Customize avatar"), so it shows on every device.                     |
 | Hide Premium notices               | off     | Hides `app-premium-badge`, `billing-premium-upgrade-nudge` and anything marked `data-multiwarden-premium`. To hide another upsell, add that attribute to it. |
 
 ## Translations

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Golwg"
   },
-  "multiwardenCombinedMode": {
-    "message": "Golwg gyfunol"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Yn dangos eitemau pob cyfrif sydd wedi'i ddatgloi gyda'i gilydd. Gallwch hefyd ddewis \"Cyfunol\" yn newislen y cyfrif."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Cofio'r cyfrif cadw ar gyfer pob gwefan"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Cell:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Lliwiau cyfrifon"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Dewiswch liw ar gyfer pob cyfrif. Caiff ei gadw yn y cyfrif, felly mae'n ymddangos ar eich holl ddyfeisiau."
   },
   "multiwardenAboutSection": {
     "message": "Ynghylch Multiwarden"

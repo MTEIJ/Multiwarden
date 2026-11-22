@@ -9479,12 +9479,6 @@
   "multiwardenInterfaceSection": {
     "message": "Interface"
   },
-  "multiwardenCombinedMode": {
-    "message": "Combined view"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Show the items of all unlocked accounts together. You can also choose \"Combined\" in the account menu."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Remember the save account per site"
   },
@@ -9520,12 +9514,6 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Account colours"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Pick a colour for each account. It is saved to the account, so it shows on all your devices."
   },
   "multiwardenAboutSection": {
     "message": "About Multiwarden"

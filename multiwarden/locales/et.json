@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Välimus"
   },
-  "multiwardenCombinedMode": {
-    "message": "Ühendatud vaade"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Näitab kõigi lukust avatud kontode kirjeid koos. Kontomenüüst saad valida ka „Ühendatud“."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Jäta salvestuskonto iga saidi jaoks meelde"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Hoidla:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontode värvid"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Vali igale kontole värv. See salvestatakse kontole, nii et see on nähtav kõigis su seadmetes."
   },
   "multiwardenAboutSection": {
     "message": "Multiwardeni teave"

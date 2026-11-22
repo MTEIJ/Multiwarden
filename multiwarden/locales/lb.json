@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Ausgesinn"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinéiert Usiicht"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Weist d'Elementer vun all entspaarte Konten zesummen. Du kanns och „Kombinéiert“ am Kontomenü wielen."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Späicherkont pro Websäit erënneren"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Tresor:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontefaarwen"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Wiel eng Faarf fir all Kont. Si gëtt am Kont gespäichert a gëtt also op all dengen Apparater ugewisen."
   },
   "multiwardenAboutSection": {
     "message": "Iwwer Multiwarden"

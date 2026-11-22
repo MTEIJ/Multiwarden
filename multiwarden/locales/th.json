@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "การแสดงผล"
   },
-  "multiwardenCombinedMode": {
-    "message": "มุมมองรวม"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "แสดงรายการของทุกบัญชีที่ปลดล็อกแล้วรวมกัน คุณยังเลือก \"รวม\" ในเมนูบัญชีได้ด้วย"
-  },
   "multiwardenRememberSaveAccount": {
     "message": "จำบัญชีที่ใช้บันทึกสำหรับแต่ละเว็บไซต์"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "ตู้นิรภัย:"
-  },
-  "multiwardenAccountColors": {
-    "message": "สีของบัญชี"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "เลือกสีสำหรับแต่ละบัญชี สีจะถูกบันทึกไว้ในบัญชี จึงแสดงบนอุปกรณ์ทั้งหมดของคุณ"
   },
   "multiwardenAboutSection": {
     "message": "เกี่ยวกับ Multiwarden"

@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Внешний вид"
   },
-  "multiwardenCombinedMode": {
-    "message": "Общий вид"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Показывает элементы всех разблокированных аккаунтов вместе. Также можно выбрать «Общий» в меню аккаунта."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Запоминать аккаунт для сохранения на каждом сайте"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Хранилище:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Цвета аккаунтов"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Выберите цвет для каждого аккаунта. Он сохраняется в аккаунте и отображается на всех ваших устройствах."
   },
   "multiwardenAboutSection": {
     "message": "О Multiwarden"

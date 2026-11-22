@@ -23,12 +23,6 @@
   "multiwardenInterfaceSection": {
     "message": "Utsjånad"
   },
-  "multiwardenCombinedMode": {
-    "message": "Kombinert vising"
-  },
-  "multiwardenCombinedModeHint": {
-    "message": "Viser elementa frå alle opplåste kontoar saman. Du kan òg velje «Kombinert» i kontomenyen."
-  },
   "multiwardenRememberSaveAccount": {
     "message": "Hugs lagringskonto per nettstad"
   },
@@ -64,12 +58,6 @@
   },
   "multiwardenVault": {
     "message": "Kvelv:"
-  },
-  "multiwardenAccountColors": {
-    "message": "Kontofargar"
-  },
-  "multiwardenAccountColorsHint": {
-    "message": "Vel ein farge for kvar konto. Han blir lagra i kontoen og synest på alle einingane dine."
   },
   "multiwardenAboutSection": {
     "message": "Om Multiwarden"
