@@ -2,6 +2,7 @@ import { combineLatest, distinctUntilChanged, mergeMap, of, switchMap } from "rx
 
 import { AccountService } from "@bitwarden/common/auth/abstractions/account.service";
 import { BadgeSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/badge-settings.service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import { UserId } from "@bitwarden/common/types/guid";
 
@@ -58,10 +59,17 @@ export class AutofillBadgeUpdaterService {
       return;
     }
 
-    const ciphers = tab.url
-      ? await this.fillCipherPolicy.ciphersForUrl(tab.url, userId, CipherUse.Badge)
-      : [];
-    const cipherCount = ciphers.length;
+    const url = tab.url;
+    // Multiwarden: count matching logins in every unlocked account, each shared login once.
+    const scope = getMultiAccountScope();
+    const ciphers = !url
+      ? []
+      : scope
+        ? await scope.collectItems((id) =>
+            this.fillCipherPolicy.ciphersForUrl(url, id, CipherUse.Badge),
+          )
+        : await this.fillCipherPolicy.ciphersForUrl(url, userId, CipherUse.Badge);
+    const cipherCount = new Set(ciphers.map((c) => c.id)).size;
 
     if (cipherCount === 0) {
       return undefined;

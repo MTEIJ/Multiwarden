@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Prijavi težavo"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator za"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Nastavitve za"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Samodejno izpolnjevanje ob nalaganju uporabi"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Kateri račun lahko uporabi samodejno izpolnjevanje ob nalaganju strani, ko je odklenjenih več računov."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Račun, nazadnje uporabljen na mestu, sicer edinstveno ujemanje"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Samo prijavo, ki je edinstvena v vseh računih"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Samo aktivni račun"
   }
 }

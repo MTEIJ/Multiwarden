@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "ගැටලුවක් වාර්තා කරන්න"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "උත්පාදක ගිණුම"
+  },
+  "multiwardenSettingsFor": {
+    "message": "සැකසුම් ගිණුම"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "පිටුව පූරණය වන විට ස්වයං පිරවීම භාවිත කරන්නේ"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "ගිණුම් කිහිපයක් අගුළු හැර ඇති විට පිටු පූරණයේදී ස්වයං පිරවීමට භාවිත කළ හැකි ගිණුම."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "අඩවියේ අවසන් වරට භාවිත කළ ගිණුම, නැතිනම් අනන්‍ය ගැළපීමක්"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "සියලු ගිණුම් අතර අනන්‍ය පිවිසුමක් පමණි"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "සක්‍රිය ගිණුම පමණි"
   }
 }

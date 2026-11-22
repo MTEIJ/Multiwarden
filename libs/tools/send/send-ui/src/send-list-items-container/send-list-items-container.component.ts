@@ -6,6 +6,7 @@ import { RouterLink } from "@angular/router";
 import { firstValueFrom } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountBadgeComponent } from "@bitwarden/angular/multiwarden";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
@@ -34,6 +35,7 @@ import { getSendItemIcon } from "../send-item-icon";
 // eslint-disable-next-line @angular-eslint/prefer-on-push-component-change-detection
 @Component({
   imports: [
+    MultiwardenAccountBadgeComponent,
     CommonModule,
     ItemModule,
     ButtonModule,

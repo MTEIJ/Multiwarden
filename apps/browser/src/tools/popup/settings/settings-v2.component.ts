@@ -13,6 +13,7 @@ import {
 
 import { PremiumUpgradeDialogComponent } from "@bitwarden/angular/billing/components";
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountChipComponent } from "@bitwarden/angular/multiwarden";
 import { NudgesService, NudgeType } from "@bitwarden/angular/vault";
 import { AutomaticUserConfirmationService } from "@bitwarden/auto-confirm";
 import { Account, AccountService } from "@bitwarden/common/auth/abstractions/account.service";
@@ -37,6 +38,7 @@ import { PopupPageComponent } from "../../../platform/popup/layout/popup-page.co
 @Component({
   templateUrl: "settings-v2.component.html",
   imports: [
+    MultiwardenAccountChipComponent,
     CommonModule,
     JslibModule,
     RouterModule,

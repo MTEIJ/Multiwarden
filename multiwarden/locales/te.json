@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "సమస్యను నివేదించండి"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "జనరేటర్ ఖాతా"
+  },
+  "multiwardenSettingsFor": {
+    "message": "సెట్టింగ్‌ల ఖాతా"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "పేజీ లోడ్‌లో ఆటోఫిల్ ఉపయోగించేది"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "అనేక ఖాతాలు అన్‌లాక్ అయి ఉన్నప్పుడు పేజీ లోడ్‌లో ఆటోఫిల్ ఏ ఖాతాను ఉపయోగించవచ్చు."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "సైట్‌లో చివరిగా ఉపయోగించిన ఖాతా, లేకపోతే ప్రత్యేక సరిపోలిక"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "అన్ని ఖాతాల్లో ప్రత్యేకమైన లాగిన్ మాత్రమే"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "యాక్టివ్ ఖాతా మాత్రమే"
   }
 }

@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Ziņot par problēmu"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Ģenerators kontam"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Iestatījumi kontam"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Automātiskā aizpilde lapas ielādē izmanto"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Kuru kontu automātiskā aizpilde lapas ielādē drīkst izmantot, ja ir atslēgti vairāki konti."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Vietnē pēdējo izmantoto kontu, citādi unikālu atbilstību"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Tikai pieteikšanos, kas ir unikāla visos kontos"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Tikai aktīvo kontu"
   }
 }

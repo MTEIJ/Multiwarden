@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "문제 신고"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "생성기 대상"
+  },
+  "multiwardenSettingsFor": {
+    "message": "설정 대상"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "페이지 로드 시 자동 완성 사용"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "여러 계정이 잠금 해제되어 있을 때 페이지 로드 시 자동 완성이 사용할 수 있는 계정입니다."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "해당 사이트에서 마지막으로 사용한 계정, 없으면 유일하게 일치하는 항목"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "모든 계정에서 유일한 로그인만"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "활성 계정만"
   }
 }

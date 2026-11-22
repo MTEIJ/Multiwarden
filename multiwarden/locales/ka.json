@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "პრობლემის შეტყობინება"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "გენერატორი ანგარიშისთვის"
+  },
+  "multiwardenSettingsFor": {
+    "message": "პარამეტრები ანგარიშისთვის"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "გვერდის ჩატვირთვისას ავტოშევსება იყენებს"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "რომელი ანგარიში შეუძლია გამოიყენოს ავტოშევსებამ გვერდის ჩატვირთვისას, როცა რამდენიმე ანგარიშია განბლოკილი."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "საიტზე ბოლოს გამოყენებულ ანგარიშს, თორემ ერთადერთ დამთხვევას"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "მხოლოდ ყველა ანგარიშში უნიკალურ შესვლას"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "მხოლოდ აქტიურ ანგარიშს"
   }
 }

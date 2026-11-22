@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Sorun bildir"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Oluşturucu hesabı"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Ayarlar hesabı"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Sayfa yüklenince otomatik doldurma şunu kullanır"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Birden fazla hesabın kilidi açıkken sayfa yüklenince otomatik doldurmanın kullanabileceği hesap."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Sitede en son kullanılan hesap, yoksa benzersiz bir eşleşme"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Yalnızca tüm hesaplarda benzersiz olan bir hesap bilgisi"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Yalnızca etkin hesap"
   }
 }

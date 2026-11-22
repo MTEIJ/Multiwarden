@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountChipComponent } from "@bitwarden/angular/multiwarden";
 import { ItemModule } from "@bitwarden/components";
 import { GeneratorModule } from "@bitwarden/generator-components";
 
@@ -16,6 +17,7 @@ import { PopupPageComponent } from "../../../platform/popup/layout/popup-page.co
   selector: "credential-generator",
   templateUrl: "credential-generator.component.html",
   imports: [
+    MultiwardenAccountChipComponent,
     GeneratorModule,
     CurrentAccountComponent,
     JslibModule,

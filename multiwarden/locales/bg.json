@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Докладване на проблем"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Генератор за"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Настройки за"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Автоматичното попълване при зареждане използва"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Кой акаунт може да използва автоматичното попълване при зареждане на страница, когато са отключени няколко акаунта."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Акаунтът, използван последно на сайта, иначе уникално съвпадение"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Само вход, уникален във всички акаунти"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Само активният акаунт"
   }
 }

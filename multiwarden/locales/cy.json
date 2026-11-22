@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Adrodd problem"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generadur ar gyfer"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Gosodiadau ar gyfer"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Mae awtolenwi wrth lwytho yn defnyddio"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Pa gyfrif y caiff awtolenwi wrth lwytho tudalen ei ddefnyddio pan fydd sawl cyfrif wedi'u datgloi."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Y cyfrif a ddefnyddiwyd ddiwethaf ar y wefan, neu fel arall un cyfatebiaeth unigryw"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Dim ond mewngofnod sy'n unigryw ar draws pob cyfrif"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Y cyfrif gweithredol yn unig"
   }
 }

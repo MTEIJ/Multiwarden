@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "সমস্যা জানান"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "জেনারেটর যার জন্য"
+  },
+  "multiwardenSettingsFor": {
+    "message": "সেটিংস যার জন্য"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "পেজ লোডে অটোফিল ব্যবহার করে"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "একাধিক অ্যাকাউন্ট আনলক থাকলে পেজ লোডে অটোফিল কোন অ্যাকাউন্ট ব্যবহার করতে পারে।"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "সাইটে শেষবার ব্যবহৃত অ্যাকাউন্ট, নইলে একটি অনন্য মিল"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "শুধু সব অ্যাকাউন্টে অনন্য লগইন"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "শুধু সক্রিয় অ্যাকাউন্ট"
   }
 }

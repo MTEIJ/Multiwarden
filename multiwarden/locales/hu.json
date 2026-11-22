@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Hiba bejelentése"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generátor ehhez:"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Beállítások ehhez:"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Kitöltés betöltéskor ezt használja"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Melyik fiókot használhatja az automatikus kitöltés oldalbetöltéskor, ha több fiók is fel van oldva."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "A webhelyen legutóbb használt fiókot, egyébként egyedi találatot"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Csak az összes fiókban egyedi bejelentkezést"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Csak az aktív fiókot"
   }
 }

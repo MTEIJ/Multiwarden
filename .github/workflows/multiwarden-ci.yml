@@ -52,9 +52,14 @@ jobs:
         run: |
           (cd libs/common && npx jest src/multiwarden src/platform/services/fido2)
           (cd libs/angular && npx jest src/multiwarden)
+          (cd libs/tools/send/send-ui && npx jest)
           (cd apps/browser && npx jest --runInBand \
             src/multiwarden \
-            src/vault/popup/services/vault-popup-items.service.spec.ts \
+            src/autofill/multiwarden \
+            src/autofill/browser \
+            src/autofill/services/autofill-badge-updater.service.spec.ts \
+            src/vault/popup/services \
+            src/tools/popup \
             src/vault/popup/components/vault/vault-list-items-container \
             src/vault/popup/components/vault/vault-popup-list-table \
             src/vault/popup/components/vault/view \

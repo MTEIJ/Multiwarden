@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Rapportera ett problem"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator för"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Inställningar för"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Autofyll vid sidladdning använder"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Vilket konto autofyll vid sidladdning får använda när flera konton är upplåsta."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Kontot som senast användes på webbplatsen, annars en unik träff"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Bara en inloggning som är unik i alla konton"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Bara det aktiva kontot"
   }
 }

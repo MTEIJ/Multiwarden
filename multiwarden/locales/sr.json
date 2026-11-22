@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Пријави проблем"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Генератор за"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Подешавања за"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Ауто-попуњавање при учитавању користи"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Који налог ауто-попуњавање при учитавању странице сме да користи када је откључано више налога."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Налог последњи коришћен на сајту, иначе јединствено подударање"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Само пријаву јединствену у свим налозима"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Само активни налог"
   }
 }

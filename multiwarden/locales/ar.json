@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "الإبلاغ عن مشكلة"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "المولّد لـ"
+  },
+  "multiwardenSettingsFor": {
+    "message": "الإعدادات لـ"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "الملء التلقائي عند التحميل يستخدم"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "الحساب الذي يمكن للملء التلقائي عند تحميل الصفحة استخدامه عندما تكون عدة حسابات غير مقفلة."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "آخر حساب استُخدم على الموقع، وإلا تطابقًا فريدًا"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "فقط تسجيل دخول فريد عبر جميع الحسابات"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "الحساب النشط فقط"
   }
 }

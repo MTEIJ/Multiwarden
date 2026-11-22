@@ -24,6 +24,7 @@ import {
   DEFAULT_MULTIWARDEN_SETTINGS,
   MultiwardenSettings,
   multiwardenSettings$,
+  PageLoadAutofillAccount,
   updateMultiwardenSettings,
 } from "../multiwarden-settings";
 
@@ -66,6 +67,11 @@ export class MultiwardenSettingsComponent {
     initialValue: DEFAULT_MULTIWARDEN_SETTINGS,
   });
   protected readonly buildInfo = signal<MultiwardenBuildInfo | null>(null);
+  protected readonly pageLoadOptions: { value: PageLoadAutofillAccount; labelKey: string }[] = [
+    { value: PageLoadAutofillAccount.Remembered, labelKey: "multiwardenPageLoadRemembered" },
+    { value: PageLoadAutofillAccount.Unique, labelKey: "multiwardenPageLoadUnique" },
+    { value: PageLoadAutofillAccount.Active, labelKey: "multiwardenPageLoadActive" },
+  ];
   protected readonly appVersion = signal<string>("");
 
   constructor() {
@@ -91,6 +97,14 @@ export class MultiwardenSettingsComponent {
   protected async toggle(key: keyof MultiwardenSettings, event: Event) {
     const checked = (event.target as HTMLInputElement).checked;
     await updateMultiwardenSettings({ [key]: checked });
+  }
+
+  protected async setPageLoadAccount(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    const option = this.pageLoadOptions.find((o) => o.value === value);
+    if (option) {
+      await updateMultiwardenSettings({ pageLoadAutofillAccount: option.value });
+    }
   }
 
   protected open(path: "" | "releases" | "issues" | "upstream") {

@@ -58,6 +58,7 @@ import { InlineMenuFillTypes, type InlineMenuFillType } from "../enums/autofill-
 import AutofillField from "../models/autofill-field";
 import AutofillPageDetails from "../models/autofill-page-details";
 import AutofillScript from "../models/autofill-script";
+import { setLastAccountForSite } from "../multiwarden/last-account";
 import { AUTOFILL_DENIED, FillOccurred, FillResult } from "../types/fill-result";
 import {
   fieldContainsKeyword,
@@ -553,6 +554,8 @@ export default class AutofillService implements AutofillServiceInterface {
 
         if (!options.skipLastUsed && fillUserId) {
           await this.cipherService.updateLastUsedDate(options.cipher.id, fillUserId);
+          // Multiwarden: page-load autofill can prefer the account last used on this site.
+          void setLastAccountForSite(Utils.getDomain(tabUrl), fillUserId);
         }
 
         const showAnimations =

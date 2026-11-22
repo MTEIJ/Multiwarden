@@ -5,6 +5,7 @@ import { Component, Input, OnChanges, SimpleChanges, OnInit, OnDestroy } from "@
 import { ReplaySubject, Subject, firstValueFrom, map, switchMap, takeUntil } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountChipComponent } from "@bitwarden/angular/multiwarden";
 import { Account, AccountService } from "@bitwarden/common/auth/abstractions/account.service";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import {
@@ -31,6 +32,7 @@ import { PopupPageComponent } from "../../../platform/popup/layout/popup-page.co
   selector: "app-credential-generator-history",
   templateUrl: "credential-generator-history.component.html",
   imports: [
+    MultiwardenAccountChipComponent,
     ButtonModule,
     CommonModule,
     JslibModule,

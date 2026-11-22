@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Ilmoita ongelmasta"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generaattori tilille"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Asetukset tilille"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Automaattinen täyttö latauksessa käyttää"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Mitä tiliä automaattinen täyttö sivun latautuessa saa käyttää, kun useita tilejä on avattu."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Sivustolla viimeksi käytetty tili, muuten yksiselitteinen osuma"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Vain kirjautumistieto, joka on yksilöllinen kaikissa tileissä"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Vain aktiivinen tili"
   }
 }

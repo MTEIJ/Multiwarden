@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Probleem melden"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator voor"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Instellingen voor"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Automatisch invullen bij laden gebruikt"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Welk account automatisch invullen bij het laden van een pagina mag gebruiken als meerdere accounts ontgrendeld zijn."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Het laatst gebruikte account op de website, anders een unieke match"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Alleen een login die uniek is over alle accounts"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Alleen het actieve account"
   }
 }

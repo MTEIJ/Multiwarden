@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Informar dun problema"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Xerador para"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Axustes para"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "O autocompletado ao cargar usa"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Que conta pode usar o autocompletado ao cargar a páxina cando hai varias contas desbloqueadas."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "A última conta usada no sitio; se non, unha coincidencia única"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Só un inicio de sesión único entre todas as contas"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Só a conta activa"
   }
 }

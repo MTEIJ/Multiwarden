@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "报告问题"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "生成器账户"
+  },
+  "multiwardenSettingsFor": {
+    "message": "设置账户"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "页面加载时自动填充使用"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "当多个账户已解锁时，页面加载时自动填充可使用哪个账户。"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "该网站上次使用的账户，否则使用唯一匹配项"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "仅限在所有账户中唯一的登录"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "仅限活动账户"
   }
 }

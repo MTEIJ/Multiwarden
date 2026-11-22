@@ -23,6 +23,20 @@
         }}</bit-label>
         <bit-hint>{{ "multiwardenRememberSaveAccountHint" | i18n }}</bit-hint>
       </bit-form-control>
+      <bit-form-field disableMargin class="tw-mt-4">
+        <bit-label>{{ "multiwardenPageLoadAccount" | i18n }}</bit-label>
+        <select
+          bitInput
+          id="multiwarden-settings_select_page-load-account"
+          [value]="settings().pageLoadAutofillAccount"
+          (change)="setPageLoadAccount($event)"
+        >
+          @for (option of pageLoadOptions; track option.value) {
+            <option [value]="option.value">{{ option.labelKey | i18n }}</option>
+          }
+        </select>
+        <bit-hint>{{ "multiwardenPageLoadAccountHint" | i18n }}</bit-hint>
+      </bit-form-field>
     </bit-card>
   </bit-section>
 

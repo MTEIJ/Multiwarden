@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Problem mellen"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator fir"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Astellunge fir"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Autofill beim Lueden benotzt"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Wéi ee Kont den Autofill beim Lueden vun enger Säit benotze dierf, wann e puer Konten entspaart sinn."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "De Kont, deen op der Websäit fir d'lescht benotzt gouf, soss en eendeitegen Treffer"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Nëmmen e Login, deen iwwer all Konten eendeiteg ass"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Nëmmen den aktive Kont"
   }
 }

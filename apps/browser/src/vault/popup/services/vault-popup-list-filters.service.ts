@@ -12,9 +12,11 @@ import {
   startWith,
   switchMap,
   take,
+  of,
 } from "rxjs";
 
 import { CollectionService } from "@bitwarden/admin-console/common";
+import { MultiwardenCombinedService } from "@bitwarden/angular/multiwarden";
 import { ViewCacheService } from "@bitwarden/angular/platform/view-cache";
 import { DynamicTreeNode } from "@bitwarden/angular/vault/vault-filter/models/dynamic-tree-node.model";
 import { sortDefaultCollections } from "@bitwarden/angular/vault/vault-filter/services/vault-filter.service";
@@ -97,6 +99,80 @@ const INITIAL_FILTERS: PopupListFilter = {
 })
 export class VaultPopupListFiltersService {
   private readonly vfo1TerminologyService = inject(Vfo1TerminologyService);
+  private readonly multiwardenCombined = inject(MultiwardenCombinedService);
+
+  /**
+   * Multiwarden: in combined mode, the folders of every unlocked account, each named
+   * "account · folder" (the prefix keeps nested folders grouped per account). One "no folder"
+   * entry is kept for all accounts.
+   */
+  private multiwardenFolders$(userId: UserId): Observable<FolderView[]> {
+    return this.multiwardenCombined.enabled$.pipe(
+      switchMap((enabled) => {
+        if (!enabled) {
+          return this.folderService.folderViews$(userId);
+        }
+        return this.multiwardenCombined.userIds$.pipe(
+          switchMap((userIds) =>
+            userIds.length === 0
+              ? of<FolderView[]>([])
+              : combineLatest([
+                  this.multiwardenCombined.accounts$,
+                  combineLatest(userIds.map((id) => this.folderService.folderViews$(id))),
+                ]).pipe(
+                  map(([accounts, perAccount]) => {
+                    const merged: FolderView[] = [];
+                    let noFolder: FolderView | undefined;
+                    perAccount.forEach((folders, index) => {
+                      const email = accounts.find((a) => a.userId === userIds[index])?.email ?? "";
+                      const label = email.split("@")[0];
+                      for (const folder of folders) {
+                        if (!folder.id) {
+                          noFolder ??= folder;
+                          continue;
+                        }
+                        const labelled: FolderView = Object.assign(
+                          Object.create(Object.getPrototypeOf(folder)),
+                          folder,
+                          { name: `${label} · ${folder.name}` },
+                        );
+                        merged.push(labelled);
+                      }
+                    });
+                    return noFolder ? [...merged, noFolder] : merged;
+                  }),
+                ),
+          ),
+        );
+      }),
+    );
+  }
+
+  /** Multiwarden: in combined mode, the organizations of every unlocked account. */
+  private multiwardenOrganizations$(userId: UserId): Observable<Organization[]> {
+    return this.multiwardenCombined.enabled$.pipe(
+      switchMap((enabled) =>
+        enabled
+          ? this.multiwardenCombined.mergeForUsers((id) =>
+              this.organizationService.memberOrganizations$(id),
+            )
+          : this.organizationService.memberOrganizations$(userId),
+      ),
+    );
+  }
+
+  /** Multiwarden: in combined mode, the collections of every unlocked account. */
+  private multiwardenCollections$(userId: UserId): Observable<CollectionView[]> {
+    return this.multiwardenCombined.enabled$.pipe(
+      switchMap((enabled) =>
+        enabled
+          ? this.multiwardenCombined.mergeForUsers((id) =>
+              this.collectionService.decryptedCollections$(id),
+            )
+          : this.collectionService.decryptedCollections$(userId),
+      ),
+    );
+  }
 
   /**
    * UI form for all filters
@@ -146,7 +222,7 @@ export class VaultPopupListFiltersService {
     combineLatest([
       this.organizations$,
       this.collections$,
-      this.activeUserId$.pipe(switchMap((userId) => this.folderService.folderViews$(userId))),
+      this.activeUserId$.pipe(switchMap((userId) => this.multiwardenFolders$(userId))),
     ])
       .pipe(take(1))
       .subscribe(([orgOptions, collectionOptions, folderViews]) => {
@@ -325,7 +401,7 @@ export class VaultPopupListFiltersService {
       getUserId,
       switchMap((userId) =>
         combineLatest([
-          this.organizationService.memberOrganizations$(userId),
+          this.multiwardenOrganizations$(userId),
           this.policyService.policyAppliesToUser$(PolicyType.OrganizationDataOwnership, userId),
         ]),
       ),
@@ -408,7 +484,7 @@ export class VaultPopupListFiltersService {
               previousFilter.organization?.id === currentFilter.organization?.id,
           ),
         ),
-        this.folderService.folderViews$(userId),
+        this.multiwardenFolders$(userId),
         cipherViews$,
       ]).pipe(
         map(
@@ -486,8 +562,8 @@ export class VaultPopupListFiltersService {
           this.filters$.pipe(
             distinctUntilChanged((prev, curr) => prev.organization?.id === curr.organization?.id),
           ),
-          this.collectionService.decryptedCollections$(userId),
-          this.organizationService.memberOrganizations$(userId),
+          this.multiwardenCollections$(userId),
+          this.multiwardenOrganizations$(userId),
         ]),
       ),
       map(([filters, allCollections, orgs]) => {

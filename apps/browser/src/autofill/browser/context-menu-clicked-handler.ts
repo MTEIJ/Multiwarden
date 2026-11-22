@@ -22,7 +22,9 @@ import {
   NOOP_COMMAND_SUFFIX,
 } from "@bitwarden/common/autofill/constants";
 import { EventCollectionService, EventType } from "@bitwarden/common/dirt/event-logs";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { IntraprocessMessageSender } from "@bitwarden/common/platform/messaging";
+import { UserId } from "@bitwarden/common/types/guid";
 import { TotpService } from "@bitwarden/common/vault/abstractions/totp.service";
 import { CipherType } from "@bitwarden/common/vault/enums";
 import { CipherRepromptType } from "@bitwarden/common/vault/enums/cipher-reprompt-type";
@@ -202,17 +204,27 @@ export class ContextMenuClickedHandler {
       // This NOOP item has come through which is generally only for no access state but since we got here
       // we are actually unlocked we will do our best to find a good match of an item to autofill this is useful
       // in scenarios like unlock on autofill
-      const ciphers = await this.fillCipherPolicy.ciphersForUrl(
-        tab.url,
-        activeUserId,
-        CipherUse.UserFill,
-        { includeOtherTypes: additionalCiphersToGet },
-      );
+      const url = tab.url;
+      // Multiwarden: the first match in any unlocked account.
+      const scope = getMultiAccountScope();
+      const load = (userId: UserId) =>
+        this.fillCipherPolicy.ciphersForUrl(url, userId, CipherUse.UserFill, {
+          includeOtherTypes: additionalCiphersToGet,
+        });
+      const ciphers = scope ? await scope.collectItems(load) : await load(activeUserId);
 
       cipher = ciphers[0];
     } else {
+      // Multiwarden: load the item from the account that owns it.
+      const ownerUserId =
+        (await getMultiAccountScope()?.resolveOwner(
+          menuItemId,
+          async (userId) =>
+            (await this.fillCipherPolicy.ciphersForIds(userId, [menuItemId], CipherUse.UserFill))
+              .length > 0,
+        )) ?? activeUserId;
       [cipher] = await this.fillCipherPolicy.ciphersForIds(
-        activeUserId,
+        ownerUserId,
         [menuItemId],
         CipherUse.UserFill,
       );

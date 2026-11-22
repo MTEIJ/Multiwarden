@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Көйгөй тууралуу билдирүү"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Генератор аккаунту"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Жөндөөлөр аккаунту"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Барак жүктөлгөндө автотолтуруу колдонот"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Бир нече аккаунттун кулпусу ачык болгондо барак жүктөлгөндө автотолтуруу колдоно ала турган аккаунт."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Сайтта акыркы колдонулган аккаунт, болбосо уникалдуу дал келүү"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Бардык аккаунттарда уникалдуу кирүү гана"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Активдүү аккаунт гана"
   }
 }

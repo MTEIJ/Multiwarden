@@ -16,12 +16,28 @@ export type MultiwardenSettings = {
   hidePremiumNotices: boolean;
   /** Pre-select the account last used on a site in the save-password prompt. */
   rememberSaveAccountPerSite: boolean;
+  /** Which account autofill on page load may use when several are unlocked. */
+  pageLoadAutofillAccount: PageLoadAutofillAccount;
 };
+
+/**
+ * - remembered: the account last used on the site; if none, as "unique".
+ * - unique: only when exactly one login across all unlocked accounts matches.
+ * - active: only the active account (Bitwarden's behaviour).
+ */
+export const PageLoadAutofillAccount = Object.freeze({
+  Remembered: "remembered",
+  Unique: "unique",
+  Active: "active",
+} as const);
+export type PageLoadAutofillAccount =
+  (typeof PageLoadAutofillAccount)[keyof typeof PageLoadAutofillAccount];
 
 export const DEFAULT_MULTIWARDEN_SETTINGS: MultiwardenSettings = Object.freeze({
   combinedMode: false,
   hidePremiumNotices: false,
   rememberSaveAccountPerSite: true,
+  pageLoadAutofillAccount: PageLoadAutofillAccount.Remembered,
 });
 
 const STORAGE_KEY = "multiwarden_settings";

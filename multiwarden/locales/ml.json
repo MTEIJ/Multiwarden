@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ജനറേറ്റർ അക്കൗണ്ട്"
+  },
+  "multiwardenSettingsFor": {
+    "message": "ക്രമീകരണ അക്കൗണ്ട്"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "പേജ് ലോഡിൽ ഓട്ടോഫിൽ ഉപയോഗിക്കുന്നത്"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "പല അക്കൗണ്ടുകൾ അൺലോക്ക് ചെയ്തിരിക്കുമ്പോൾ പേജ് ലോഡിൽ ഓട്ടോഫിൽ ഏത് അക്കൗണ്ട് ഉപയോഗിക്കാം."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "സൈറ്റിൽ അവസാനം ഉപയോഗിച്ച അക്കൗണ്ട്, അല്ലെങ്കിൽ ഏക പൊരുത്തം"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "എല്ലാ അക്കൗണ്ടുകളിലും ഏകമായ ലോഗിൻ മാത്രം"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "സജീവ അക്കൗണ്ട് മാത്രം"
   }
 }

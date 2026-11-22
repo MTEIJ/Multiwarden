@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "ಸಮಸ್ಯೆ ವರದಿ ಮಾಡಿ"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ಜನರೇಟರ್ ಖಾತೆ"
+  },
+  "multiwardenSettingsFor": {
+    "message": "ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಖಾತೆ"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "ಪುಟ ಲೋಡ್‌ನಲ್ಲಿ ಸ್ವಯಂ ಭರ್ತಿ ಬಳಸುವುದು"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "ಹಲವು ಖಾತೆಗಳು ಅನ್‌ಲಾಕ್ ಆಗಿರುವಾಗ ಪುಟ ಲೋಡ್‌ನಲ್ಲಿ ಸ್ವಯಂ ಭರ್ತಿ ಯಾವ ಖಾತೆ ಬಳಸಬಹುದು."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "ಸೈಟ್‌ನಲ್ಲಿ ಕೊನೆಯದಾಗಿ ಬಳಸಿದ ಖಾತೆ, ಇಲ್ಲದಿದ್ದರೆ ಅನನ್ಯ ಹೊಂದಾಣಿಕೆ"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "ಎಲ್ಲಾ ಖಾತೆಗಳಲ್ಲಿ ಅನನ್ಯ ಲಾಗಿನ್ ಮಾತ್ರ"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "ಸಕ್ರಿಯ ಖಾತೆ ಮಾತ್ರ"
   }
 }

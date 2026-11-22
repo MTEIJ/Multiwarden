@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "問題を報告"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ジェネレーターの対象"
+  },
+  "multiwardenSettingsFor": {
+    "message": "設定の対象"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "ページ読み込み時の自動入力で使用"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "複数のアカウントがロック解除されているとき、ページ読み込み時の自動入力に使うアカウント。"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "そのサイトで最後に使ったアカウント、なければ一意に一致するもの"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "すべてのアカウントで一意のログインのみ"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "アクティブなアカウントのみ"
   }
 }

@@ -1,10 +1,11 @@
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import {
   BehaviorSubject,
   combineLatest,
   distinctUntilChanged,
   from,
   map,
+  of,
   merge,
   Observable,
   shareReplay,
@@ -14,6 +15,7 @@ import {
   tap,
 } from "rxjs";
 
+import { MultiwardenCombinedService } from "@bitwarden/angular/multiwarden";
 import { AccountService } from "@bitwarden/common/auth/abstractions/account.service";
 import { getUserId } from "@bitwarden/common/auth/services/account.service";
 import { SendView } from "@bitwarden/common/tools/send/models/view/send.view";
@@ -38,7 +40,24 @@ export class SendItemsService {
   private _sendsLoading$ = new Subject<void>();
 
   latestSearchText$: Observable<string> = this._searchText$.asObservable();
-  private _sendList$: Observable<SendView[]> = this.sendService.sendViews$;
+  // Multiwarden: optional so the service still works where combined mode doesn't exist.
+  private readonly multiwardenCombined = inject(MultiwardenCombinedService, { optional: true });
+
+  /** Multiwarden: in combined mode, the Sends of every unlocked account. */
+  private _sendList$: Observable<SendView[]> = (
+    this.multiwardenCombined?.enabled$ ?? of(false)
+  ).pipe(
+    switchMap((enabled) =>
+      enabled && this.multiwardenCombined
+        ? this.multiwardenCombined.mergeForUsers((userId) =>
+            // Re-read every account's Sends whenever the active account's Sends change.
+            this.sendService.sendViews$.pipe(
+              switchMap(() => from(this.sendService.getAllDecryptedFromState(userId))),
+            ),
+          )
+        : this.sendService.sendViews$,
+    ),
+  );
 
   /**
    * Observable that emits the list of sends, filtered and sorted based on the current search text and filters.

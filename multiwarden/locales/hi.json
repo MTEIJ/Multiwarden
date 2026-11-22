@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "समस्या की रिपोर्ट करें"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "जनरेटर इसके लिए"
+  },
+  "multiwardenSettingsFor": {
+    "message": "सेटिंग्स इसके लिए"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "पेज लोड पर ऑटोफ़िल उपयोग करता है"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "कई खाते अनलॉक होने पर पेज लोड पर ऑटोफ़िल किस खाते का उपयोग कर सकता है।"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "साइट पर पिछली बार उपयोग किया गया खाता, अन्यथा एक अद्वितीय मिलान"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "केवल सभी खातों में अद्वितीय लॉगिन"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "केवल सक्रिय खाता"
   }
 }

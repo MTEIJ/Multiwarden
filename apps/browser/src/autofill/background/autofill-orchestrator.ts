@@ -19,14 +19,21 @@ import { AutofillSettingsServiceAbstraction } from "@bitwarden/common/autofill/s
 import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
+import { Utils } from "@bitwarden/common/platform/misc/utils";
 import { withLatestReady } from "@bitwarden/common/tools/rx";
 import { UserId } from "@bitwarden/common/types/guid";
 import { CipherType } from "@bitwarden/common/vault/enums";
 import { CipherRepromptType } from "@bitwarden/common/vault/enums/cipher-reprompt-type";
 import { CipherView } from "@bitwarden/common/vault/models/view/cipher.view";
 
+import {
+  getMultiwardenSettings,
+  PageLoadAutofillAccount,
+} from "../../multiwarden/multiwarden-settings";
 import { BrowserApi } from "../../platform/browser/browser-api";
 import { AutofillOutcome } from "../enums/autofill-outcome.enum";
+import { getLastAccountForSite } from "../multiwarden/last-account";
+import { choosePageLoadAccount } from "../multiwarden/page-load-account";
 import {
   AutofillLifecycleService,
   AutomationWorkflow,
@@ -36,7 +43,7 @@ import {
   AutofillService,
   PageDetail,
 } from "../services/abstractions/autofill.service";
-import { FillCipherPolicy } from "../services/abstractions/fill-cipher-policy";
+import { CipherUse, FillCipherPolicy } from "../services/abstractions/fill-cipher-policy";
 import { AutofillTriageResponse } from "../types/autofill-triage";
 import {
   AUTOFILL_ABSENT,
@@ -449,9 +456,17 @@ export class DefaultAutofillOrchestrator implements AutofillOrchestrator {
     request: FillRequest,
     target: chrome.tabs.Tab,
   ): Promise<PlannedFill | undefined> {
-    const activeUserId = await this.activeUserId();
+    let activeUserId = await this.activeUserId();
     if (activeUserId == null || !target.url) {
       return undefined;
+    }
+    // Multiwarden: page-load fills pick their account by the configured rule.
+    if (request.kind === "pageLoad") {
+      const pageLoadUserId = await this.pageLoadAccount(target.url, activeUserId);
+      if (pageLoadUserId == null) {
+        return undefined;
+      }
+      activeUserId = pageLoadUserId;
     }
     const fromCommand = request.kind !== "pageLoad";
 
@@ -479,6 +494,7 @@ export class DefaultAutofillOrchestrator implements AutofillOrchestrator {
     if (cipher == null) {
       return undefined;
     }
+    getMultiAccountScope()?.remember(cipher.id, activeUserId);
     return {
       cipher,
       cycleKey: target.url,
@@ -528,6 +544,31 @@ export class DefaultAutofillOrchestrator implements AutofillOrchestrator {
       return lastLaunchedCipher;
     }
     return this.fillCipherPolicy.lastUsedForUrl(tabUrl, activeUserId, isAutomatic);
+  }
+
+  /**
+   * Multiwarden: the account a page-load fill may use, or undefined to not fill.
+   * See PageLoadAutofillAccount in multiwarden-settings.ts.
+   */
+  private async pageLoadAccount(url: string, activeUserId: UserId): Promise<UserId | undefined> {
+    const scope = getMultiAccountScope();
+    if (scope == null || !(await scope.hasMultipleUnlocked())) {
+      return activeUserId;
+    }
+    const { pageLoadAutofillAccount } = await getMultiwardenSettings();
+    if (pageLoadAutofillAccount === PageLoadAutofillAccount.Active) {
+      return activeUserId;
+    }
+    const lastUsed = await getLastAccountForSite(Utils.getDomain(url));
+    const remembered =
+      lastUsed != null && (await scope.isUnlocked(lastUsed)) ? lastUsed : undefined;
+    const matches = await scope.collect((userId) =>
+      this.fillCipherPolicy.ciphersForUrl(url, userId, CipherUse.AutomaticFill),
+    );
+    const logins = matches
+      .filter(({ item }) => item.type === CipherType.Login)
+      .map(({ item, userId }) => ({ id: item.id, userId }));
+    return choosePageLoadAccount(pageLoadAutofillAccount, activeUserId, remembered, logins);
   }
 
   /** Multiwarden: the first fillable login for the URL in another unlocked account. */

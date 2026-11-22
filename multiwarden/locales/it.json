@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Segnala un problema"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generatore per"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Impostazioni per"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Il riempimento al caricamento usa"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Quale account può usare il riempimento automatico al caricamento quando più account sono sbloccati."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "L'ultimo account usato sul sito, altrimenti una corrispondenza unica"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Solo un login unico tra tutti gli account"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Solo l'account attivo"
   }
 }

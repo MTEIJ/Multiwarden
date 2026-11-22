@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Signaler un problème"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Générateur pour"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Paramètres pour"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "La saisie automatique au chargement utilise"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Le compte que la saisie automatique au chargement peut utiliser lorsque plusieurs comptes sont déverrouillés."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Le dernier compte utilisé sur le site, sinon une correspondance unique"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Uniquement un identifiant unique parmi tous les comptes"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Uniquement le compte actif"
   }
 }

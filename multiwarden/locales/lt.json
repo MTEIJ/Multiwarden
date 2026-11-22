@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Pranešti apie problemą"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generatorius paskyrai"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Nustatymai paskyrai"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Automatinis pildymas įkeliant naudoja"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Kurią paskyrą gali naudoti automatinis pildymas įkeliant puslapį, kai atrakintos kelios paskyros."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Paskutinę svetainėje naudotą paskyrą, kitaip unikalų atitikmenį"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Tik prisijungimą, unikalų visose paskyrose"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Tik aktyvią paskyrą"
   }
 }

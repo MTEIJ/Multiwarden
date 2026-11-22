@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Повідомити про проблему"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Генератор для"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Налаштування для"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Автозаповнення під час завантаження використовує"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Який обліковий запис може використовувати автозаповнення під час завантаження сторінки, коли розблоковано кілька облікових записів."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Обліковий запис, востаннє використаний на сайті, інакше однозначний збіг"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Лише запис входу, унікальний серед усіх облікових записів"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Лише активний обліковий запис"
   }
 }

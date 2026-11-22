@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Raportează o problemă"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator pentru"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Setări pentru"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Completarea la încărcare folosește"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Ce cont poate folosi completarea automată la încărcarea paginii când sunt deblocate mai multe conturi."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Contul folosit ultima dată pe site, altfel o potrivire unică"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Doar o autentificare unică în toate conturile"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Doar contul activ"
   }
 }

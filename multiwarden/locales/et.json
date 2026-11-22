@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Teata probleemist"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generaator kontole"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Seaded kontole"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Lehe laadimisel automaatne täitmine kasutab"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Millist kontot võib automaatne täitmine lehe laadimisel kasutada, kui mitu kontot on lukust avatud."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Saidil viimati kasutatud kontot, muidu unikaalset vastet"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Ainult kõigi kontode lõikes unikaalset sisselogimist"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Ainult aktiivset kontot"
   }
 }

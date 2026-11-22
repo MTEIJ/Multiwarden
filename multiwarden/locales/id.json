@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Laporkan masalah"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator untuk"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Pengaturan untuk"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Isi otomatis saat memuat menggunakan"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Akun yang boleh digunakan isi otomatis saat memuat halaman jika beberapa akun tidak terkunci."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Akun yang terakhir digunakan di situs, jika tidak, kecocokan unik"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Hanya login yang unik di semua akun"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Hanya akun aktif"
   }
 }

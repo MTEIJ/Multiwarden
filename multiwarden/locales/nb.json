@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Rapporter et problem"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator for"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Innstillinger for"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Autofyll ved lasting bruker"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Hvilken konto autofyll ved sidelasting kan bruke når flere kontoer er låst opp."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Kontoen sist brukt på nettstedet, ellers et unikt treff"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Bare en pålogging som er unik på tvers av alle kontoer"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Bare den aktive kontoen"
   }
 }

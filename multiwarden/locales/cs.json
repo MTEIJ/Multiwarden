@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Nahlásit problém"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generátor pro"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Nastavení pro"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Automatické vyplnění při načtení používá"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Který účet smí automatické vyplnění při načtení stránky použít, když je odemčeno více účtů."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Účet naposledy použitý na webu, jinak jedinečnou shodu"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Pouze přihlášení jedinečné napříč všemi účty"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Pouze aktivní účet"
   }
 }

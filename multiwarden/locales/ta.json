@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "சிக்கலைப் புகாரளி"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ஜெனரேட்டர் கணக்கு"
+  },
+  "multiwardenSettingsFor": {
+    "message": "அமைப்புகள் கணக்கு"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "பக்கம் ஏற்றும்போது தானியங்கு நிரப்பல் பயன்படுத்துவது"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "பல கணக்குகள் திறந்திருக்கும்போது பக்கம் ஏற்றும்போது தானியங்கு நிரப்பல் எந்தக் கணக்கைப் பயன்படுத்தலாம்."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "தளத்தில் கடைசியாகப் பயன்படுத்திய கணக்கு, இல்லையெனில் தனித்த பொருத்தம்"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "அனைத்து கணக்குகளிலும் தனித்த உள்நுழைவு மட்டும்"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "செயலில் உள்ள கணக்கு மட்டும்"
   }
 }

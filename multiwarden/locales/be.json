@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Паведаміць пра праблему"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Генератар для"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Налады для"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Аўтазапаўненне пры загрузцы выкарыстоўвае"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Які ўліковы запіс можа выкарыстоўваць аўтазапаўненне пры загрузцы старонкі, калі разблакіравана некалькі ўліковых запісаў."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Уліковы запіс, апошнім выкарыстаны на сайце, інакш адназначнае супадзенне"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Толькі ўваход, унікальны сярод усіх уліковых запісаў"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Толькі актыўны ўліковы запіс"
   }
 }

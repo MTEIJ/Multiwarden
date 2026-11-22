@@ -461,13 +461,13 @@ const routes: Routes = [
   {
     path: "add-send",
     component: SendAddEditV2Component,
-    canActivate: [authGuard, filePickerPopoutGuard()],
+    canActivate: [multiwardenNewItemTargetGuard, authGuard, filePickerPopoutGuard()],
     data: { elevation: 1 } satisfies RouteDataProperties,
   },
   {
     path: "edit-send",
     component: SendAddEditV2Component,
-    canActivate: [authGuard],
+    canActivate: [multiwardenCipherOwnerGuard, authGuard],
     data: { elevation: 1 } satisfies RouteDataProperties,
   },
   {

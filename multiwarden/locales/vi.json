@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Báo cáo sự cố"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Trình tạo cho"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Cài đặt cho"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Tự động điền khi tải trang dùng"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Tài khoản mà tự động điền khi tải trang được dùng khi nhiều tài khoản đang mở khóa."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Tài khoản dùng gần nhất trên trang, nếu không thì kết quả duy nhất"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Chỉ đăng nhập duy nhất trên mọi tài khoản"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Chỉ tài khoản đang hoạt động"
   }
 }

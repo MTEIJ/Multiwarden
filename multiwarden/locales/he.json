@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "דיווח על בעיה"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "מחולל עבור"
+  },
+  "multiwardenSettingsFor": {
+    "message": "הגדרות עבור"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "מילוי אוטומטי בטעינה משתמש ב"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "באיזה חשבון יכול המילוי האוטומטי בטעינת דף להשתמש כשכמה חשבונות אינם נעולים."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "החשבון האחרון שבו השתמשת באתר, ואחרת התאמה יחידה"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "רק כניסה ייחודית בכל החשבונות"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "רק החשבון הפעיל"
   }
 }

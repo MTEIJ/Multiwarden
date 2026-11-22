@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "ସମସ୍ୟା ରିପୋର୍ଟ କରନ୍ତୁ"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ଜେନେରେଟର୍ ଖାତା"
+  },
+  "multiwardenSettingsFor": {
+    "message": "ସେଟିଂସ୍ ଖାତା"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "ପୃଷ୍ଠା ଲୋଡରେ ଅଟୋଫିଲ୍ ବ୍ୟବହାର କରେ"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "ଏକାଧିକ ଖାତା ଅନଲକ୍ ଥିବାବେଳେ ପୃଷ୍ଠା ଲୋଡରେ ଅଟୋଫିଲ୍ କେଉଁ ଖାତା ବ୍ୟବହାର କରିପାରିବ।"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "ସାଇଟରେ ଶେଷଥର ବ୍ୟବହୃତ ଖାତା, ନଚେତ୍ ଏକ ଅନନ୍ୟ ମେଳ"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "କେବଳ ସମସ୍ତ ଖାତାରେ ଅନନ୍ୟ ଲଗଇନ୍"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "କେବଳ ସକ୍ରିୟ ଖାତା"
   }
 }

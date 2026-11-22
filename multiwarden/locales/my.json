@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "ပြဿနာ တိုင်ကြားရန်"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ထုတ်ပေးစက် အကောင့်"
+  },
+  "multiwardenSettingsFor": {
+    "message": "ဆက်တင် အကောင့်"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "စာမျက်နှာဖွင့်ချိန် အလိုအလျောက်ဖြည့်ရာတွင် သုံးသည်"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "အကောင့်များစွာ သော့ဖွင့်ထားချိန် စာမျက်နှာဖွင့်ချိန် အလိုအလျောက်ဖြည့်ခြင်း သုံးနိုင်သည့် အကောင့်။"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "ဆိုက်တွင် နောက်ဆုံးသုံးခဲ့သော အကောင့်၊ မရှိလျှင် တစ်ခုတည်းကိုက်ညီမှု"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "အကောင့်အားလုံးတွင် တစ်ခုတည်းဖြစ်သော လော့ဂ်အင်သာ"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "လက်ရှိအကောင့်သာ"
   }
 }

@@ -32,31 +32,36 @@ call into them. Every hook is marked with a `Multiwarden:` comment, so
 
 ### Upstream files with hooks
 
-| File                                                                                                                   | Hook                                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `apps/browser/src/background/main.background.ts`                                                                       | Creates and registers the `MultiAccountScope` (with avatar colours); passes it to the passkey authenticator.                                     |
-| `apps/browser/src/popup/services/services.module.ts`                                                                   | Provides `BrowserMultiwardenPlatform`.                                                                                                           |
-| `apps/browser/src/background/runtime.background.ts`                                                                    | `multiwardenActivateAccount` message: makes an unlocked account active without a full switch.                                                    |
-| `apps/browser/src/autofill/background/overlay.background.ts`                                                           | Inline menu loads ciphers from every unlocked account and labels them; works while any account is unlocked.                                      |
-| `apps/browser/src/autofill/services/autofill.service.ts`                                                               | Fill uses the owning account for premium (TOTP) checks and the last-used date.                                                                   |
-| `apps/browser/src/autofill/background/autofill-orchestrator.ts`                                                        | Keyboard shortcut falls back to other unlocked accounts.                                                                                         |
-| `apps/browser/src/autofill/background/notification.background.ts`                                                      | Save/update prompt across accounts; account picker; honours the "remember save account" setting.                                                 |
-| `apps/browser/src/autofill/background/abstractions/notification.background.ts`                                         | Types for the new bar messages.                                                                                                                  |
-| `apps/browser/src/autofill/notification/bar.ts`, `.../content/components/notification/button-row.ts`                   | Account selector in the save-password bar.                                                                                                       |
-| `libs/common/src/platform/services/fido2/fido2-authenticator.service.ts`, `fido2-client.service.ts`                    | Passkeys across all unlocked accounts.                                                                                                           |
-| `apps/browser/src/autofill/fido2/services/browser-fido2-user-interface.service.ts`                                     | Passkey prompts accept any unlocked account.                                                                                                     |
-| `apps/browser/src/autofill/popup/fido2/fido2.component.{ts,html}`, `fido2-cipher-row.component.{ts,html}`              | Passkey popup: account labels and "Save to account" picker.                                                                                      |
-| `apps/browser/src/vault/popup/services/vault-popup-items.service.ts`                                                   | Vault list ciphers, organizations and collections come from `MultiwardenCombinedService.mergeForUsers` (all unlocked accounts in combined mode). |
-| `apps/browser/src/vault/popup/components/vault/vault-list-items-container/*`, `vault-popup-list-table/*`               | Account badge on each row.                                                                                                                       |
-| `apps/browser/src/vault/popup/components/vault/view/*`, `add-edit/*`                                                   | Vault banner.                                                                                                                                    |
-| `apps/browser/src/auth/popup/account-switching/current-account.component.*`                                            | Header avatar is the Multiwarden account dropdown.                                                                                               |
-| `apps/browser/src/auth/popup/account-switching/account-switcher.component.*`, `account.component.ts`                   | "Combined" entry; choosing a single account leaves combined mode.                                                                                |
-| `apps/browser/src/popup/app-routing.module.ts`                                                                         | `/multiwarden-settings` route; Multiwarden guards on item and add routes.                                                                        |
-| `apps/browser/src/popup/app.component.ts`                                                                              | Calls `applyMultiwardenPopupSettings()` on start-up.                                                                                             |
-| `apps/browser/src/platform/popup/layout/popup-header.component.ts`, `popup/components/extension-anon-layout-wrapper/*` | Multiwarden logo instead of the Bitwarden logo.                                                                                                  |
-| `apps/browser/src/tools/popup/settings/settings-v2.component.html`                                                     | "Multiwarden" entry in Settings; `data-multiwarden-premium` on the Premium callout.                                                              |
-| `apps/browser/src/vault/popup/components/vault/vault.component.html`                                                   | `data-multiwarden-premium` on the Premium spotlight.                                                                                             |
-| `apps/browser/src/_locales/en/messages.json`                                                                           | `multiwarden*` strings (appended at the end). Translations live in `multiwarden/locales/` and are merged in at build time.                       |
+| File                                                                                                                   | Hook                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `apps/browser/src/background/main.background.ts`                                                                       | Creates and registers the `MultiAccountScope` (with avatar colours); passes it to the passkey authenticator.                                                     |
+| `apps/browser/src/popup/services/services.module.ts`                                                                   | Provides `BrowserMultiwardenPlatform`.                                                                                                                           |
+| `apps/browser/src/background/runtime.background.ts`                                                                    | `multiwardenActivateAccount` message: makes an unlocked account active without a full switch.                                                                    |
+| `apps/browser/src/autofill/background/overlay.background.ts`                                                           | Inline menu loads ciphers from every unlocked account and labels them; works while any account is unlocked.                                                      |
+| `apps/browser/src/autofill/services/autofill.service.ts`                                                               | Fill uses the owning account for premium (TOTP) checks and the last-used date.                                                                                   |
+| `apps/browser/src/autofill/background/autofill-orchestrator.ts`                                                        | Keyboard shortcut falls back to other accounts; page-load autofill picks its account with `choosePageLoadAccount` (`autofill/multiwarden/page-load-account.ts`). |
+| `apps/browser/src/autofill/services/autofill-badge-updater.service.ts`                                                 | Badge counts matching logins in every unlocked account.                                                                                                          |
+| `apps/browser/src/autofill/browser/cipher-context-menu-handler.ts`, `context-menu-clicked-handler.ts`                  | Context menu lists every account's items (labelled) and fills from the owning account.                                                                           |
+| `apps/browser/src/vault/popup/services/vault-popup-list-filters.service.ts`                                            | In combined view, folders, organizations and collections of every unlocked account.                                                                              |
+| `libs/tools/send/send-ui/src/services/send-items.service.ts`, `send-list-items-container/*`                            | In combined view, Sends of every unlocked account, with account badges.                                                                                          |
+| `apps/browser/src/tools/popup/generator/*`, `tools/popup/settings/settings-v2.component.*`                             | Account chip (combined view).                                                                                                                                    |
+| `apps/browser/src/autofill/background/notification.background.ts`                                                      | Save/update prompt across accounts; account picker; honours the "remember save account" setting.                                                                 |
+| `apps/browser/src/autofill/background/abstractions/notification.background.ts`                                         | Types for the new bar messages.                                                                                                                                  |
+| `apps/browser/src/autofill/notification/bar.ts`, `.../content/components/notification/button-row.ts`                   | Account selector in the save-password bar.                                                                                                                       |
+| `libs/common/src/platform/services/fido2/fido2-authenticator.service.ts`, `fido2-client.service.ts`                    | Passkeys across all unlocked accounts.                                                                                                                           |
+| `apps/browser/src/autofill/fido2/services/browser-fido2-user-interface.service.ts`                                     | Passkey prompts accept any unlocked account.                                                                                                                     |
+| `apps/browser/src/autofill/popup/fido2/fido2.component.{ts,html}`, `fido2-cipher-row.component.{ts,html}`              | Passkey popup: account labels and "Save to account" picker.                                                                                                      |
+| `apps/browser/src/vault/popup/services/vault-popup-items.service.ts`                                                   | Vault list ciphers, organizations and collections come from `MultiwardenCombinedService.mergeForUsers` (all unlocked accounts in combined mode).                 |
+| `apps/browser/src/vault/popup/components/vault/vault-list-items-container/*`, `vault-popup-list-table/*`               | Account badge on each row.                                                                                                                                       |
+| `apps/browser/src/vault/popup/components/vault/view/*`, `add-edit/*`                                                   | Vault banner.                                                                                                                                                    |
+| `apps/browser/src/auth/popup/account-switching/current-account.component.*`                                            | Header avatar is the Multiwarden account dropdown.                                                                                                               |
+| `apps/browser/src/auth/popup/account-switching/account-switcher.component.*`, `account.component.ts`                   | "Combined" entry; choosing a single account leaves combined mode.                                                                                                |
+| `apps/browser/src/popup/app-routing.module.ts`                                                                         | `/multiwarden-settings` route; Multiwarden guards on item and add routes.                                                                                        |
+| `apps/browser/src/popup/app.component.ts`                                                                              | Calls `applyMultiwardenPopupSettings()` on start-up.                                                                                                             |
+| `apps/browser/src/platform/popup/layout/popup-header.component.ts`, `popup/components/extension-anon-layout-wrapper/*` | Multiwarden logo instead of the Bitwarden logo.                                                                                                                  |
+| `apps/browser/src/tools/popup/settings/settings-v2.component.html`                                                     | "Multiwarden" entry in Settings; `data-multiwarden-premium` on the Premium callout.                                                                              |
+| `apps/browser/src/vault/popup/components/vault/vault.component.html`                                                   | `data-multiwarden-premium` on the Premium spotlight.                                                                                                             |
+| `apps/browser/src/_locales/en/messages.json`                                                                           | `multiwarden*` strings (appended at the end). Translations live in `multiwarden/locales/` and are merged in at build time.                                       |
 
 Branding is **not** done in upstream files: `multiwarden/scripts/brand-build.mjs` rewrites the
 built extension's name, description, manifest fields and icons after the build.
@@ -156,15 +161,24 @@ Every `multiwarden*` string is added to all of the extension's languages at buil
 if it exists. Edit the English text in `apps/browser/src/_locales/en/messages.json` and the
 translations in `multiwarden/locales/`.
 
+## How "the active account" is handled
+
+Bitwarden assumes one active account. Multiwarden keeps that assumption working underneath and
+makes every screen say which account it uses:
+
+| Where                                    | Account used                                                                                                                                                                               |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Vault list, search, filters, Sends       | Every unlocked account (combined view), each item with its account's avatar. Folders are named "account · folder".                                                                         |
+| Item pages, fill, copy, edit, delete     | The item's own account (made active quietly first).                                                                                                                                        |
+| New item / new Send                      | Asks which account (combined view).                                                                                                                                                        |
+| Generator, Settings                      | The account in the account chip at the top of the page (combined view).                                                                                                                    |
+| Inline menu, context menu, toolbar badge | Every unlocked account.                                                                                                                                                                    |
+| Save-password prompt                     | Account picker; updates go to the login's own account.                                                                                                                                     |
+| Autofill on page load                    | Configurable (Settings → Multiwarden): the account last used on the site, else only a login that is unique across all accounts (default); only unique matches; or only the active account. |
+
 ## Known limits
 
-- Autofill on page load stays tied to the active account, so a page never gets filled from an
-  account you didn't pick.
-- "New item" pages, the vault list and settings in the popup still show the active account, as in
-  upstream. When Multiwarden needs one of those pages for another account (for example "Edit"
-  from the save bar), it switches the active account first.
-- The context menu and the toolbar badge count still use the active account only.
-- In combined mode the folder, collection and organization filters show the active account's
-  folders, collections and organizations. Pick a single account in the dropdown to filter by
-  another account's folders.
-- Generator, Send and Settings work on the account that is active underneath combined mode.
+- Settings sub-pages (account security, vault options, ...) apply to the account shown in the
+  account chip on the Settings page; extension-wide settings apply to every account anyway.
+- The toolbar badge refreshes when the tab changes or the active account's vault changes; a
+  change in another account's vault shows on the next tab change.

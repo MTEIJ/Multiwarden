@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "گزارش مشکل"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "تولیدکننده برای"
+  },
+  "multiwardenSettingsFor": {
+    "message": "تنظیمات برای"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "پرکردن خودکار هنگام بارگذاری از این استفاده می‌کند"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "وقتی چند حساب باز است، پرکردن خودکار هنگام بارگذاری صفحه از کدام حساب می‌تواند استفاده کند."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "آخرین حساب استفاده‌شده در سایت، وگرنه یک تطابق یکتا"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "فقط ورودی که در همه حساب‌ها یکتاست"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "فقط حساب فعال"
   }
 }

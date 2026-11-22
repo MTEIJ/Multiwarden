@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Mag-ulat ng problema"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator para sa"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Mga setting para sa"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Ginagamit ng autofill sa page load"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Aling account ang puwedeng gamitin ng autofill sa page load kapag maraming account ang naka-unlock."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Ang account na huling ginamit sa site, kung wala ay ang natatanging tugma"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Login lang na natatangi sa lahat ng account"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Ang aktibong account lang"
   }
 }

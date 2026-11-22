@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Zgłoś problem"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator dla"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Ustawienia dla"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Autouzupełnianie przy wczytaniu używa"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Którego konta może używać autouzupełnianie przy wczytaniu strony, gdy odblokowano kilka kont."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Konta ostatnio użytego na tej witrynie, w przeciwnym razie unikalnego dopasowania"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Tylko loginu unikalnego we wszystkich kontach"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Tylko aktywnego konta"
   }
 }

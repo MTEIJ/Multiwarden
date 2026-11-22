@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Informa d'un problema"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generador per a"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Configuració per a"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "L'emplenament en carregar fa servir"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Quin compte pot fer servir l'emplenament automàtic en carregar la pàgina quan hi ha diversos comptes desbloquejats."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "El darrer compte usat al lloc; si no, una coincidència única"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Només un inici de sessió únic entre tots els comptes"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Només el compte actiu"
   }
 }

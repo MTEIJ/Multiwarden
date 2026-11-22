@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "回報問題"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "產生器帳戶"
+  },
+  "multiwardenSettingsFor": {
+    "message": "設定帳戶"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "頁面載入時自動填入使用"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "當多個帳戶已解鎖時，頁面載入時自動填入可使用哪個帳戶。"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "該網站上次使用的帳戶，否則使用唯一相符項目"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "僅限在所有帳戶中唯一的登入資訊"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "僅限使用中的帳戶"
   }
 }

@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "รายงานปัญหา"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "ตัวสร้างสำหรับ"
+  },
+  "multiwardenSettingsFor": {
+    "message": "การตั้งค่าสำหรับ"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "การป้อนอัตโนมัติเมื่อโหลดหน้าใช้"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "บัญชีที่การป้อนอัตโนมัติเมื่อโหลดหน้าใช้ได้ เมื่อมีหลายบัญชีปลดล็อกอยู่"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "บัญชีที่ใช้ล่าสุดในเว็บไซต์ มิฉะนั้นใช้รายการที่ตรงกันเพียงรายการเดียว"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "เฉพาะข้อมูลเข้าสู่ระบบที่ไม่ซ้ำในทุกบัญชี"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "เฉพาะบัญชีที่ใช้งานอยู่"
   }
 }

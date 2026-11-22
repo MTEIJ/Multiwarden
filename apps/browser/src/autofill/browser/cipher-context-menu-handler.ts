@@ -4,7 +4,9 @@ import { AccountService } from "@bitwarden/common/auth/abstractions/account.serv
 import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { AuthenticationStatus } from "@bitwarden/common/auth/enums/authentication-status";
 import { getOptionalUserId } from "@bitwarden/common/auth/services/account.service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { Utils } from "@bitwarden/common/platform/misc/utils";
+import { UserId } from "@bitwarden/common/types/guid";
 import { CipherService } from "@bitwarden/common/vault/abstractions/cipher.service";
 import { CipherType } from "@bitwarden/common/vault/enums";
 import { CipherView } from "@bitwarden/common/vault/models/view/cipher.view";
@@ -15,6 +17,9 @@ import { AutofillCipherTypeId } from "../types";
 import { MainContextMenuHandler } from "./main-context-menu-handler";
 
 export class CipherContextMenuHandler {
+  /** Multiwarden: cipher id to account email, when several accounts are unlocked. */
+  private accountLabels = new Map<string, string>();
+
   constructor(
     private mainContextMenuHandler: MainContextMenuHandler,
     private authService: AuthService,
@@ -49,15 +54,23 @@ export class CipherContextMenuHandler {
       return;
     }
 
-    const ciphers = await this.fillCipherPolicy.ciphersForUrl(
-      url,
-      activeUserId,
-      CipherUse.UserFill,
-      {
+    // Multiwarden: logins, cards and identities from every unlocked account.
+    const scope = getMultiAccountScope();
+    const load = (userId: UserId) =>
+      this.fillCipherPolicy.ciphersForUrl(url, userId, CipherUse.UserFill, {
         includeOtherTypes: [CipherType.Card, CipherType.Identity],
-      },
-    );
+      });
+    const ciphers = scope ? await scope.collectItems(load) : await load(activeUserId);
     ciphers.sort((a, b) => this.cipherService.sortCiphersByLastUsedThenName(a, b));
+    this.accountLabels = new Map();
+    if (scope && (await scope.hasMultipleUnlocked())) {
+      for (const cipher of ciphers) {
+        const label = await scope.labelFor(scope.ownerOf(cipher.id));
+        if (label) {
+          this.accountLabels.set(cipher.id, label);
+        }
+      }
+    }
 
     const groupedCiphers: Record<AutofillCipherTypeId, CipherView[]> = ciphers.reduce(
       (ciphersByType, cipher) => {
@@ -121,6 +134,12 @@ export class CipherContextMenuHandler {
 
     if (cipher.type === CipherType.Card && cipher.card?.subTitle) {
       title += ` ${cipher.card.subTitle}`;
+    }
+
+    // Multiwarden: say which account the item is in when several are unlocked.
+    const accountLabel = this.accountLabels.get(cipher.id);
+    if (accountLabel) {
+      title += ` · ${accountLabel}`;
     }
 
     await this.mainContextMenuHandler.loadOptions(title, cipher.id, cipher);

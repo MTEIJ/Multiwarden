@@ -9,19 +9,20 @@ import { MultiwardenChooseAccountDialogComponent } from "./multiwarden-choose-ac
 import { MultiwardenCombinedService } from "./multiwarden-combined.service";
 
 /**
- * Multiwarden: before an item page (view, edit, clone, attachments, ...) opens in combined mode,
- * make the item's account active, so the page loads the item and its folders from that account.
+ * Multiwarden: before an item page (view, edit, clone, attachments, edit Send, ...) opens in
+ * combined mode, make the item's account active, so the page loads it from that account.
  */
 export const multiwardenCipherOwnerGuard: CanActivateFn = async (route: ActivatedRouteSnapshot) => {
-  const cipherId = route.queryParamMap.get("cipherId");
-  if (cipherId) {
-    await inject(MultiwardenCombinedService).prepareFor(cipherId);
+  // Sends are owned by an account the same way ciphers are.
+  const itemId = route.queryParamMap.get("cipherId") ?? route.queryParamMap.get("sendId");
+  if (itemId) {
+    await inject(MultiwardenCombinedService).prepareFor(itemId);
   }
   return true;
 };
 
 /**
- * Multiwarden: in combined mode, a new item first asks which account's vault it goes into, then
+ * Multiwarden: in combined mode, a new item or Send first asks which account it goes into, then
  * opens Bitwarden's normal form with that account active.
  */
 export const multiwardenNewItemTargetGuard: CanActivateFn = async (
@@ -31,7 +32,11 @@ export const multiwardenNewItemTargetGuard: CanActivateFn = async (
   const dialogService = inject(DialogService);
 
   // Passkey and clone flows already know their account.
-  if (route.queryParamMap.has("sessionId") || route.queryParamMap.has("cipherId")) {
+  if (
+    route.queryParamMap.has("sessionId") ||
+    route.queryParamMap.has("cipherId") ||
+    route.queryParamMap.has("sendId")
+  ) {
     return true;
   }
   if (!(await firstValueFrom(combined.enabled$))) {

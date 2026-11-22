@@ -9532,5 +9532,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Report an issue"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Generator for"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Settings for"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Autofill on page load uses"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Which account autofill on page load may use when several accounts are unlocked."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "The account last used on the site, otherwise a unique match"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Only a login that is unique across all accounts"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Only the active account"
   }
 }

@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "រាយការណ៍បញ្ហា"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "កម្មវិធីបង្កើតសម្រាប់"
+  },
+  "multiwardenSettingsFor": {
+    "message": "ការកំណត់សម្រាប់"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "ការបំពេញស្វ័យប្រវត្តិពេលផ្ទុកប្រើ"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "គណនីដែលការបំពេញស្វ័យប្រវត្តិពេលផ្ទុកទំព័រអាចប្រើ នៅពេលគណនីច្រើនត្រូវបានដោះសោ។"
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "គណនីដែលបានប្រើចុងក្រោយនៅគេហទំព័រ បើមិនមានទេ ការផ្គូផ្គងតែមួយ"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "តែការចូលដែលមានតែមួយក្នុងគណនីទាំងអស់"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "តែគណនីសកម្ម"
   }
 }

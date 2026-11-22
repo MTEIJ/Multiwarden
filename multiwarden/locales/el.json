@@ -76,5 +76,26 @@
   },
   "multiwardenReportIssue": {
     "message": "Αναφορά προβλήματος"
+  },
+  "multiwardenGeneratorFor": {
+    "message": "Γεννήτρια για"
+  },
+  "multiwardenSettingsFor": {
+    "message": "Ρυθμίσεις για"
+  },
+  "multiwardenPageLoadAccount": {
+    "message": "Η αυτόματη συμπλήρωση κατά τη φόρτωση χρησιμοποιεί"
+  },
+  "multiwardenPageLoadAccountHint": {
+    "message": "Ποιον λογαριασμό μπορεί να χρησιμοποιεί η αυτόματη συμπλήρωση κατά τη φόρτωση σελίδας όταν είναι ξεκλείδωτοι πολλοί λογαριασμοί."
+  },
+  "multiwardenPageLoadRemembered": {
+    "message": "Τον λογαριασμό που χρησιμοποιήθηκε τελευταία στον ιστότοπο, αλλιώς μοναδική αντιστοίχιση"
+  },
+  "multiwardenPageLoadUnique": {
+    "message": "Μόνο σύνδεση μοναδική σε όλους τους λογαριασμούς"
+  },
+  "multiwardenPageLoadActive": {
+    "message": "Μόνο τον ενεργό λογαριασμό"
   }
 }
