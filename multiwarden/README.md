@@ -80,14 +80,26 @@ built extension's name, description, manifest fields and icons after the build.
 
 ## Clients
 
-| Client                                            | Status                                                                                                             |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Chrome, Edge, Opera, Vivaldi, Brave (Manifest V3) | Supported.                                                                                                         |
-| Firefox (Manifest V2)                             | Supported. Own add-on ID `multiwarden@mteij.nl`.                                                                   |
-| Safari                                            | Not built: needs macOS and Xcode. The code is the same as the other browsers.                                      |
-| Desktop app                                       | Next. Reuses `libs/angular/src/multiwarden`; needs a desktop `MultiwardenPlatform` and hooks in its vault screens. |
-| Web vault, CLI                                    | Not started.                                                                                                       |
-| Mobile                                            | Separate repositories (Kotlin/Swift); not part of this fork.                                                       |
+| Client                                            | Status                                                                                                                                                                         |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Chrome, Edge, Opera, Vivaldi, Brave (Manifest V3) | Supported.                                                                                                                                                                     |
+| Firefox (Manifest V2)                             | Supported. Own add-on ID `multiwarden@mteij.nl`.                                                                                                                               |
+| Safari (macOS)                                    | Unsigned build, made by CI on a macOS runner (`multiwarden/scripts/package-safari-unsigned.sh`). For testing on your own Mac; a signed build needs an Apple Developer account. |
+| Desktop app                                       | Next. Reuses `libs/angular/src/multiwarden`; needs a desktop `MultiwardenPlatform` and hooks in its vault screens.                                                             |
+| Web vault, CLI                                    | Not started.                                                                                                                                                                   |
+| Mobile                                            | Separate repositories (Kotlin/Swift); not part of this fork.                                                                                                                   |
+
+### Installing the unsigned Safari build
+
+1. Unzip `multiwarden-safari-unsigned-<version>.zip` and move `Multiwarden.app` to
+   `/Applications`.
+2. Open it once. The first time, right-click it and choose **Open** (it isn't notarized).
+3. In Safari: **Settings → Advanced → Show features for web developers**, then
+   **Develop → Allow Unsigned Extensions**, then turn on Multiwarden under
+   **Settings → Extensions**.
+
+Safari turns "Allow Unsigned Extensions" off whenever it quits, so step 3 repeats after each
+restart. A signed and notarized build (Apple Developer account, $99/year) removes that.
 
 ## Versioning and releases
 
