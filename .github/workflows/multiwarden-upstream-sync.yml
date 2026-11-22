@@ -81,6 +81,17 @@ jobs:
           git diff --cached --name-only --diff-filter=U > /tmp/conflicts.txt || true
           grep -rlI --exclude-dir=node_modules --exclude-dir=.git -e '^<<<<<<< ' . > /tmp/markers.txt || true
 
+          # A new Bitwarden version starts the Multiwarden release number at 1 again
+          # (version = <Bitwarden version>.<release>, see multiwarden/README.md).
+          read_version='JSON.parse(require("fs").readFileSync(0, "utf8")).version'
+          old_version="$(git show HEAD:apps/browser/src/manifest.json | node -p "$read_version")"
+          new_version="$(node -p "$read_version" < apps/browser/src/manifest.json 2> /dev/null || echo "$old_version")"
+          if [ "$old_version" != "$new_version" ]; then
+            echo "Bitwarden $old_version -> $new_version: resetting the Multiwarden release to 1"
+            printf '{\n  "release": 1\n}\n' > multiwarden/version.json
+            git add multiwarden/version.json
+          fi
+
           echo "${{ steps.range.outputs.new }}" > multiwarden/upstream-commit
           git add multiwarden/upstream-commit
           git commit -m "Sync upstream bitwarden/clients to ${{ steps.range.outputs.short }}" \
