@@ -17,27 +17,28 @@ Developer Dashboard:
    **New item** and upload the zip.
 3. Fill in the **Store listing** and **Privacy** tabs from `listing.md` and
    `privacy-policy.md` in this folder, then submit it for review.
-4. Note the item ID (32 letters, shown on the item's page) and your publisher ID (in the
-   dashboard's **Account** section).
+4. Note the item ID and your publisher ID (see the table below).
 
 ## 2. API credentials
 
+Use the Google account that owns the Web Store listing for every step.
+
 1. In the [Google Cloud console](https://console.cloud.google.com/), create a project (or use
    an existing one) and enable the **Chrome Web Store API**.
-2. Under **APIs & Services → OAuth consent screen**, set up an External app and add your own
-   Google account as a test user.
-3. Under **APIs & Services → Credentials**, create an **OAuth client ID** of type
-   **Desktop app**. Note the client ID and client secret.
-4. Get a refresh token, for example in the
-   [OAuth 2.0 Playground](https://developers.google.com/oauthplayground): open the settings
-   cog, tick **Use your own OAuth credentials** and enter the client ID and secret, authorize
-   the scope `https://www.googleapis.com/auth/chromewebstore` with the Google account that
-   owns the listing, then choose **Exchange authorization code for tokens** and copy the
+2. Under **Google Auth Platform** (formerly **APIs & Services → OAuth consent screen**), choose
+   **Get started** and create an **External** app. Leave the homepage, privacy policy and
+   authorized domains empty; they only appear on your own sign-in screen.
+3. Under **Audience**, choose **Publish app**. While an app is in "Testing", only listed test
+   users can sign in, and its refresh tokens expire after 7 days. An unverified app is fine for
+   your own account; you only see a warning when you sign in.
+4. Under **Clients**, create an OAuth client of type **Web application** with the authorized
+   redirect URI `https://developers.google.com/oauthplayground`. Note the client ID and secret.
+5. Open the [OAuth 2.0 Playground](https://developers.google.com/oauthplayground). Under the
+   settings cog, tick **Use your own OAuth credentials**, enter the client ID and secret, and
+   keep **Access type** on **Offline**. Authorize the scope
+   `https://www.googleapis.com/auth/chromewebstore` (on the "unverified app" screen choose
+   **Advanced → Go to …**), then choose **Exchange authorization code for tokens** and copy the
    refresh token.
-
-Refresh tokens of an OAuth app in "Testing" status expire after 7 days. Publish the consent
-screen ("In production") so the token keeps working; Google does not need to verify an app
-that only you use.
 
 ## 3. GitHub secrets
 
