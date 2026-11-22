@@ -1,6 +1,6 @@
 <popup-page>
   @if (!(hasPremium$ | async)) {
-    <bit-callout [icon]="null">
+    <bit-callout [icon]="null" data-multiwarden-premium>
       {{ "unlockFeaturesWithPremium" | i18n }}
       <button
         bitLink
@@ -22,6 +22,20 @@
   </popup-header>
 
   <bit-item-group>
+    <!-- Multiwarden: Multiwarden's own settings -->
+    <bit-item>
+      <a
+        id="settings_link_multiwarden"
+        bit-item-content
+        routerLink="/multiwarden-settings"
+        [truncate]="false"
+      >
+        <!-- Same markup as the neighbouring upstream entries -->
+        <i slot="start" class="bwi bwi-users" aria-hidden="true"></i>
+        Multiwarden
+        <i slot="end" class="bwi bwi-angle-right" aria-hidden="true"></i>
+      </a>
+    </bit-item>
     <bit-item>
       <a bit-item-content routerLink="/account-security" [truncate]="false">
         <i slot="start" class="bwi bwi-lock" aria-hidden="true"></i>

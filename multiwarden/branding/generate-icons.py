@@ -35,37 +35,40 @@ def card(box, radius, top, bottom):
 
 
 def master(locked=False):
+    """Front vault filling most of the square, with a second vault peeking out top-right."""
     img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-    r = int(S * 0.16)
-    # back, middle, front cards, offset up-right to suggest several vaults
-    layers = [
-        ((int(S * 0.30), int(S * 0.04), int(S * 0.96), int(S * 0.70)), (94, 234, 212), TEAL, 150),
-        ((int(S * 0.17), int(S * 0.17), int(S * 0.83), int(S * 0.83)), (129, 140, 248), VIOLET, 200),
-        ((int(S * 0.04), int(S * 0.30), int(S * 0.70), int(S * 0.96)), (99, 102, 241), INDIGO, 255),
-    ]
-    for box, top, bottom, alpha in layers:
-        # soft shadow
-        sh = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-        ImageDraw.Draw(sh).rounded_rectangle(
-            [box[0] + 10, box[1] + 18, box[2] + 10, box[3] + 18], radius=r, fill=(15, 23, 42, 90)
-        )
-        img.alpha_composite(sh.filter(ImageFilter.GaussianBlur(18)))
-        fill, mask = card(box, r, top, bottom)
-        mask = mask.point(lambda v: v * alpha // 255)
-        img.paste(fill, box[:2], mask)
+    r = int(S * 0.20)
+    back = (int(S * 0.20), int(S * 0.0), int(S * 1.0), int(S * 0.80))
+    front = (int(S * 0.0), int(S * 0.16), int(S * 0.84), int(S * 1.0))
 
-    # keyhole on the front card
-    fx0, fy0, fx1, fy1 = layers[-1][0]
+    fill, mask = card(back, r, (94, 234, 212), TEAL)
+    img.paste(fill, back[:2], mask)
+
+    # a thin transparent gap so the two cards read as separate at small sizes
+    gap = Image.new("L", (S, S), 0)
+    g = int(S * 0.045)
+    ImageDraw.Draw(gap).rounded_rectangle(
+        [front[0] - g, front[1] - g, front[2] + g, front[3] + g], radius=r + g, fill=255
+    )
+    alpha = img.getchannel("A")
+    alpha = Image.composite(Image.new("L", (S, S), 0), alpha, gap)
+    img.putalpha(alpha)
+
+    fill, mask = card(front, r, (99, 102, 241), INDIGO)
+    img.paste(fill, front[:2], mask)
+
+    fx0, fy0, fx1, fy1 = front
     cx, cy = (fx0 + fx1) // 2, (fy0 + fy1) // 2
     d = ImageDraw.Draw(img)
-    hr = int(S * 0.085)
-    d.ellipse([cx - hr, cy - hr - int(S * 0.04), cx + hr, cy + hr - int(S * 0.04)], fill="white")
+    hr = int(S * 0.12)
+    oy = int(S * 0.06)
+    d.ellipse([cx - hr, cy - hr - oy, cx + hr, cy + hr - oy], fill="white")
     d.polygon(
         [
-            (cx - int(S * 0.045), cy),
-            (cx + int(S * 0.045), cy),
-            (cx + int(S * 0.075), cy + int(S * 0.17)),
-            (cx - int(S * 0.075), cy + int(S * 0.17)),
+            (cx - int(S * 0.06), cy),
+            (cx + int(S * 0.06), cy),
+            (cx + int(S * 0.10), cy + int(S * 0.24)),
+            (cx - int(S * 0.10), cy + int(S * 0.24)),
         ],
         fill="white",
     )
@@ -74,6 +77,14 @@ def master(locked=False):
         img = ImageEnhance.Color(img).enhance(0.0)
         img = ImageEnhance.Brightness(img).enhance(0.9)
     return img
+
+
+def padded(img, size, padding):
+    """Chrome Web Store icons: artwork centred with transparent padding."""
+    inner = size - 2 * padding
+    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    out.paste(img.resize((inner, inner), Image.LANCZOS), (padding, padding))
+    return out
 
 
 def save_all():
@@ -87,7 +98,7 @@ def save_all():
     for size in (19, 38):
         gray.resize((size, size), Image.LANCZOS).save(OUT / f"icon{size}_locked.png")
     # Chrome Web Store assets
-    normal.resize((128, 128), Image.LANCZOS).save(OUT / "store-icon128.png")
+    padded(normal, 128, 16).save(OUT / "store-icon128.png")
     normal.resize((512, 512), Image.LANCZOS).save(OUT / "logo512.png")
 
 

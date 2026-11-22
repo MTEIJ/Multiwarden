@@ -80,6 +80,7 @@
   <ng-container slot="above-scroll-area">
     @if (showPremiumSpotlight$ | async) {
       <bit-callout
+        data-multiwarden-premium
         [title]="'unlockAdvancedSecurity' | i18n"
         [icon]="null"
         (dismiss)="dismissVaultNudgeSpotlight(NudgeType.PremiumUpgrade)"

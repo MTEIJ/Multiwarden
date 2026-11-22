@@ -19,6 +19,10 @@ passkeys. Multiwarden is one extension that keeps every unlocked account in play
   you pick the account to save it in.
 - **Keyboard shortcut:** falls back to your other accounts when the active one has no login for
   the site.
+- **"All accounts" tab:** one searchable list of every unlocked account's items, each marked with
+  its account's avatar. Fill, copy or open any item without switching accounts.
+- **Settings → Multiwarden:** turn the "All accounts" tab on or off, choose whether the save
+  prompt remembers the account per site, and hide Premium upgrade notices.
 
 Sign in to each account through the normal account switcher (up to five), unlock them, and
 Multiwarden uses all of them.

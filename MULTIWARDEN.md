@@ -77,6 +77,14 @@ Only build the open-source target (`webpack`), never `build:bit:*`: those includ
 
 Pushing a tag like `v2026.11.0-mw1` makes the CI workflow publish a GitHub release with the zip.
 
+## Settings (Settings → Multiwarden)
+
+| Setting                            | Default | Effect                                                                                                                                                       |
+| ---------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Show the "All accounts" tab        | on      | Bottom-navigation tab with every unlocked account's items.                                                                                                   |
+| Remember the save account per site | on      | The save-password prompt pre-selects the account last used on that site.                                                                                     |
+| Hide Premium notices               | off     | Hides `app-premium-badge`, `billing-premium-upgrade-nudge` and anything marked `data-multiwarden-premium`. To hide another upsell, add that attribute to it. |
+
 ## Known limits
 
 - Autofill on page load stays tied to the active account, so a page never gets filled from an
@@ -85,3 +93,5 @@ Pushing a tag like `v2026.11.0-mw1` makes the CI workflow publish a GitHub relea
   upstream. When Multiwarden needs one of those pages for another account (for example "Edit"
   from the save bar), it switches the active account first.
 - The context menu and the toolbar badge count still use the active account only.
+- In the "All accounts" tab, items that need the master password and belong to another account
+  open in that account (the re-prompt checks the active account's master password).

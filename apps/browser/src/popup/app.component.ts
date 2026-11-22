@@ -57,6 +57,7 @@ import {
 } from "@bitwarden/components";
 import { BiometricsService, BiometricStateService, KeyService } from "@bitwarden/key-management";
 
+import { applyMultiwardenPopupSettings } from "../multiwarden/popup/multiwarden-popup-settings";
 import BrowserPopupUtils from "../platform/browser/browser-popup-utils";
 import { PopupCompactModeService } from "../platform/popup/layout/popup-compact-mode.service";
 import { PopupSizeService } from "../platform/popup/layout/popup-size.service";
@@ -134,6 +135,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   async ngOnInit() {
     initPopupClosedListener();
+    // Multiwarden: page-wide effects of Multiwarden settings (e.g. hiding Premium notices).
+    applyMultiwardenPopupSettings(this.destroy$);
 
     this.compactModeService.init();
     await this.popupSizeService.setHeight();

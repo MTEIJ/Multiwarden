@@ -1,0 +1,66 @@
+<popup-page>
+  <popup-header slot="header" pageTitle="Multiwarden" showBackButton>
+    <ng-container slot="end">
+      <app-pop-out></app-pop-out>
+    </ng-container>
+  </popup-header>
+
+  <bit-section>
+    <bit-section-header>
+      <h2 bitTypography="h6">{{ "multiwardenAccountsSection" | i18n }}</h2>
+    </bit-section-header>
+    <bit-card>
+      <bit-form-control>
+        <input
+          bitCheckbox
+          id="mw-all-accounts-tab"
+          type="checkbox"
+          [checked]="settings().showAllAccountsTab"
+          (change)="toggle('showAllAccountsTab', $event)"
+        />
+        <bit-label for="mw-all-accounts-tab">{{
+          "multiwardenShowAllAccountsTab" | i18n
+        }}</bit-label>
+        <bit-hint>{{ "multiwardenShowAllAccountsTabHint" | i18n }}</bit-hint>
+      </bit-form-control>
+      <bit-form-control disableMargin>
+        <input
+          bitCheckbox
+          id="mw-remember-account"
+          type="checkbox"
+          [checked]="settings().rememberSaveAccountPerSite"
+          (change)="toggle('rememberSaveAccountPerSite', $event)"
+        />
+        <bit-label for="mw-remember-account">{{
+          "multiwardenRememberSaveAccount" | i18n
+        }}</bit-label>
+        <bit-hint>{{ "multiwardenRememberSaveAccountHint" | i18n }}</bit-hint>
+      </bit-form-control>
+    </bit-card>
+  </bit-section>
+
+  <bit-section>
+    <bit-section-header>
+      <h2 bitTypography="h6">{{ "multiwardenInterfaceSection" | i18n }}</h2>
+    </bit-section-header>
+    <bit-card>
+      <bit-form-control disableMargin>
+        <input
+          bitCheckbox
+          id="mw-hide-premium"
+          type="checkbox"
+          [checked]="settings().hidePremiumNotices"
+          (change)="toggle('hidePremiumNotices', $event)"
+        />
+        <bit-label for="mw-hide-premium">{{ "multiwardenHidePremiumNotices" | i18n }}</bit-label>
+        <bit-hint>{{ "multiwardenHidePremiumNoticesHint" | i18n }}</bit-hint>
+      </bit-form-control>
+    </bit-card>
+  </bit-section>
+
+  <bit-section>
+    <bit-card>
+      <p class="tw-mb-0 tw-text-sm tw-text-muted">{{ "multiwardenAbout" | i18n }}</p>
+    </bit-card>
+  </bit-section>
+</popup-page>

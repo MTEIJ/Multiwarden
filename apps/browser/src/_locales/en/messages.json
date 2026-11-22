@@ -9469,5 +9469,50 @@
   },
   "multiwardenAccount": {
     "message": "Account"
+  },
+  "multiwardenAllAccounts": {
+    "message": "All accounts"
+  },
+  "multiwardenAllTab": {
+    "message": "All"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden settings"
+  },
+  "multiwardenEverything": {
+    "message": "Everything"
+  },
+  "multiwardenFilterByAccount": {
+    "message": "Filter by account"
+  },
+  "multiwardenSuggestions": {
+    "message": "Suggestions for this site"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Accounts"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Interface"
+  },
+  "multiwardenShowAllAccountsTab": {
+    "message": "Show the \"All accounts\" tab"
+  },
+  "multiwardenShowAllAccountsTabHint": {
+    "message": "One list of the items in every unlocked account. Appears when two or more accounts are signed in."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Remember the save account per site"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "The save-password prompt pre-selects the account you last saved to on that site."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Hide Premium notices"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Hides Premium upgrade banners, spotlights and badges."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden is an unofficial, open-source fork of the Bitwarden browser extension. It is not affiliated with Bitwarden, Inc."
   }
 }

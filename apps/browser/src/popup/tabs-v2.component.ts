@@ -26,6 +26,8 @@ import {
 } from "@bitwarden/vault";
 
 import { HealthAccessService } from "../dirt/health/popup/services/health-access.service";
+import { multiwardenSetting$ } from "../multiwarden/multiwarden-settings";
+import { AllAccountsInactive, AllAccountsActive } from "../multiwarden/popup/multiwarden-icons";
 import { VaultPopupListTableFiltersService } from "../vault/popup/services/vault-popup-list-table-filters.service";
 
 // FIXME(https://bitwarden.atlassian.net/browse/CL-764): Migrate to OnPush
@@ -65,7 +67,13 @@ export class TabsV2Component {
     map((disableSend) => !disableSend),
   );
 
-  protected navButtons$: Observable<BottomNavigationButton[]> = combineLatest([
+  /** Multiwarden: the "All accounts" tab, when two or more accounts are signed in. */
+  private showAllAccountsTab$ = combineLatest([
+    this.accountService.accounts$,
+    multiwardenSetting$("showAllAccountsTab"),
+  ]).pipe(map(([accounts, enabled]) => enabled && Object.keys(accounts ?? {}).length > 1));
+
+  private navButtonsUpstream$: Observable<BottomNavigationButton[]> = combineLatest([
     this.showSettingsBerry$.pipe(startWith(false)),
     this.sendEnabled$.pipe(startWith(true)),
     this.healthNavButton$.pipe(startWith(undefined)),
@@ -109,5 +117,24 @@ export class TabsV2Component {
       ];
       return buttons;
     }),
+  );
+
+  protected navButtons$: Observable<BottomNavigationButton[]> = combineLatest([
+    this.navButtonsUpstream$,
+    this.showAllAccountsTab$.pipe(startWith(false)),
+  ]).pipe(
+    map(([buttons, showAllAccounts]) =>
+      showAllAccounts
+        ? [
+            {
+              label: "multiwardenAllTab",
+              page: "/tabs/all-accounts",
+              icon: AllAccountsInactive,
+              iconActive: AllAccountsActive,
+            },
+            ...buttons,
+          ]
+        : buttons,
+    ),
   );
 }

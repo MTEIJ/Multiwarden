@@ -82,6 +82,8 @@ import {
 } from "../dirt/health/popup/services/health-access.service";
 import { PhishingWarningComponent } from "../dirt/phishing-detection/popup/phishing-warning.component";
 import { ProtectedByComponent } from "../dirt/phishing-detection/popup/protected-by-component";
+import { AllAccountsComponent } from "../multiwarden/popup/all-accounts.component";
+import { MultiwardenSettingsComponent } from "../multiwarden/popup/multiwarden-settings.component";
 import BrowserPopupUtils from "../platform/browser/browser-popup-utils";
 import { popupRouterCacheGuard } from "../platform/popup/view-cache/popup-router-cache.service";
 import { RouteCacheOptions } from "../platform/services/popup-view-cache-background.service";
@@ -390,6 +392,13 @@ const routes: Routes = [
   {
     path: "notifications",
     component: NotificationsSettingsComponent,
+    canActivate: [authGuard],
+    data: { elevation: 1 } satisfies RouteDataProperties,
+  },
+  {
+    // Multiwarden: Multiwarden's own settings page.
+    path: "multiwarden-settings",
+    component: MultiwardenSettingsComponent,
     canActivate: [authGuard],
     data: { elevation: 1 } satisfies RouteDataProperties,
   },
@@ -858,6 +867,13 @@ const routes: Routes = [
         canActivate: [authGuard, vaultScopeGuard],
         canDeactivate: [clearVaultStateGuard],
         data: { ...MY_ITEMS_ROUTE_DATA, elevation: 0 } satisfies RouteDataProperties,
+      },
+      {
+        // Multiwarden: every unlocked account's items in one list.
+        path: "all-accounts",
+        component: AllAccountsComponent,
+        canActivate: [authGuard],
+        data: { elevation: 0 } satisfies RouteDataProperties,
       },
       {
         path: "generator",

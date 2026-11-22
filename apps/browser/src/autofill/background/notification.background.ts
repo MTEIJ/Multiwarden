@@ -51,6 +51,7 @@ import { SecurityTask } from "@bitwarden/common/vault/tasks/models/security-task
 // FIXME (PM-22628): Popup imports are forbidden in background
 // eslint-disable-next-line no-restricted-imports
 import { AuthPopoutType, openUnlockPopout } from "../../auth/popup/utils/auth-popout-window";
+import { getMultiwardenSettings } from "../../multiwarden/multiwarden-settings";
 import { BrowserApi } from "../../platform/browser/browser-api";
 // FIXME (PM-22628): Popup imports are forbidden in background
 // eslint-disable-next-line no-restricted-imports
@@ -572,7 +573,8 @@ export default class NotificationBackground {
       email,
     }));
     const site = sender.tab?.url ? Utils.getDomain(sender.tab.url) : null;
-    const remembered = await getLastAccountForSite(site);
+    const { rememberSaveAccountPerSite } = await getMultiwardenSettings();
+    const remembered = rememberSaveAccountPerSite ? await getLastAccountForSite(site) : undefined;
     const defaultUserId = await this.userIdForRequest(remembered);
     return { accounts, defaultUserId };
   }
