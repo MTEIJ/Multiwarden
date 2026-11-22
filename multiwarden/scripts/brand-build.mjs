@@ -22,15 +22,22 @@ const EXT_NAME = "Multiwarden: multi-account vaults";
 const EXT_DESC =
   "Unofficial fork of the Bitwarden extension: use several Bitwarden accounts at once for autofill, saving and passkeys.";
 const HOMEPAGE = "https://github.com/mteij/multiwarden";
+const GECKO_ID = "multiwarden@mteij.nl";
 
 if (!existsSync(join(buildDir, "manifest.json"))) {
   console.error(`No manifest.json in ${buildDir}. Build the extension first.`);
   process.exit(1);
 }
 
-// 1. Manifest
+// 1. Manifest. Multiwarden's version is Bitwarden's version plus a fourth number for the
+// Multiwarden release (multiwarden/version.json), e.g. 2026.11.0.3.
 const manifestPath = join(buildDir, "manifest.json");
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+const bitwardenVersion = manifest.version.split(".").slice(0, 3).join(".");
+const { release } = JSON.parse(readFileSync(join(root, "multiwarden/version.json"), "utf8"));
+const version = `${bitwardenVersion}.${release}`;
+manifest.version = version;
+delete manifest.version_name;
 manifest.short_name = NAME;
 manifest.author = "Multiwarden contributors";
 manifest.homepage_url = HOMEPAGE;
@@ -39,6 +46,16 @@ if (manifest.action) {
 }
 if (manifest.browser_action) {
   manifest.browser_action.default_title = NAME;
+}
+if (manifest.sidebar_action) {
+  manifest.sidebar_action.default_title = NAME;
+}
+// Firefox: Bitwarden's add-on ID belongs to their listing; Multiwarden needs its own.
+if (manifest.browser_specific_settings?.gecko) {
+  manifest.browser_specific_settings.gecko.id = GECKO_ID;
+}
+if (manifest.applications?.gecko) {
+  manifest.applications.gecko.id = GECKO_ID;
 }
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
@@ -86,4 +103,22 @@ for (const target of readdirSync(imagesDir)) {
   }
 }
 
-console.log(`Branded ${buildDir}: manifest, ${locales} locales, ${icons} icons.`);
+// 4. Version details for Settings → Multiwarden.
+const upstreamCommit = readFileSync(join(root, "multiwarden/upstream-commit"), "utf8").trim();
+writeFileSync(
+  join(buildDir, "multiwarden.json"),
+  JSON.stringify(
+    {
+      version,
+      release,
+      bitwardenVersion,
+      upstreamCommit,
+      repository: HOMEPAGE,
+      builtAt: new Date().toISOString(),
+    },
+    null,
+    2,
+  ),
+);
+
+console.log(`Branded ${buildDir} as Multiwarden ${version}: ${locales} locales, ${icons} icons.`);

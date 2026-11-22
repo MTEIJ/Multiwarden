@@ -1,3 +1,4 @@
+import { DOCUMENT } from "@angular/common";
 import { Injectable, inject } from "@angular/core";
 import {
   ObservedValueOf,
@@ -22,10 +23,9 @@ import {
   MultiAccountScope,
   registerMultiAccountScope,
 } from "@bitwarden/common/multiwarden/multi-account-scope";
-import { MessagingService } from "@bitwarden/common/platform/abstractions/messaging.service";
 import { UserId } from "@bitwarden/common/types/guid";
 
-import { multiwardenSetting$, updateMultiwardenSettings } from "../multiwarden-settings";
+import { MultiwardenPlatform } from "./multiwarden-platform";
 
 type AccountsSnapshot = [
   ObservedValueOf<AccountService["accounts$"]>,
@@ -44,7 +44,8 @@ export type MultiwardenAccount = {
 };
 
 /**
- * Multiwarden: combined mode in the popup.
+ * Multiwarden: combined mode, shared by the clients (see MultiwardenPlatform for what each
+ * client supplies).
  *
  * In combined mode the vault shows every unlocked account's items at once. Bitwarden's own pages
  * and menus still work on "the active account", so before acting on an item Multiwarden quietly
@@ -58,12 +59,12 @@ export class MultiwardenCombinedService {
   private readonly accountService = inject(AccountService, { optional: true });
   private readonly authService = inject(AuthService, { optional: true });
   private readonly avatarService = inject(AvatarService, { optional: true });
-  private readonly messagingService = inject(MessagingService, { optional: true });
+  private readonly platform = inject(MultiwardenPlatform, { optional: true });
   private readonly available =
     this.accountService != null &&
     this.authService != null &&
     this.avatarService != null &&
-    this.messagingService != null;
+    this.platform != null;
 
   readonly scope: MultiAccountScope | undefined;
 
@@ -99,7 +100,7 @@ export class MultiwardenCombinedService {
 
   /** Combined mode is on, and there is more than one signed-in account to combine. */
   readonly enabled$: Observable<boolean> = this.available
-    ? combineLatest([multiwardenSetting$("combinedMode"), this.accountService!.accounts$]).pipe(
+    ? combineLatest([this.platform!.combinedMode$, this.accountService!.accounts$]).pipe(
         map(([combined, accounts]) => combined && Object.keys(accounts ?? {}).length > 1),
         distinctUntilChanged(),
         shareReplay({ bufferSize: 1, refCount: true }),
@@ -132,7 +133,7 @@ export class MultiwardenCombinedService {
     this.scope =
       getMultiAccountScope() ?? new MultiAccountScope(this.accountService!, this.authService!);
     registerMultiAccountScope(this.scope);
-    this.trackRowInteractions(document);
+    this.trackRowInteractions(inject(DOCUMENT));
   }
 
   /**
@@ -209,7 +210,10 @@ export class MultiwardenCombinedService {
 
   /** Turns combined mode on or off. Turning it on makes sure an unlocked account is active. */
   async setCombined(on: boolean): Promise<void> {
-    await updateMultiwardenSettings({ combinedMode: on });
+    if (!this.available) {
+      return;
+    }
+    await this.platform!.setCombinedMode(on);
     if (on) {
       const accounts = await firstValueFrom(this.accounts$);
       const active = accounts.find((a) => a.active);
@@ -237,7 +241,7 @@ export class MultiwardenCombinedService {
         timeout({ first: 3000, with: () => of(null) }),
       ),
     );
-    this.messagingService!.send("multiwardenActivateAccount", { userId });
+    this.platform!.requestActivation(userId);
     await switched;
   }
 

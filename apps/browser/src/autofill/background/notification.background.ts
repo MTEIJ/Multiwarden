@@ -21,6 +21,7 @@ import { DomainSettingsService } from "@bitwarden/common/autofill/services/domai
 import { UserNotificationSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/user-notification-settings.service";
 import { ProductTierType } from "@bitwarden/common/billing/enums/product-tier-type.enum";
 import { NeverDomains } from "@bitwarden/common/models/domain/domain-service";
+import { accountAvatar, AccountAvatar } from "@bitwarden/common/multiwarden/account-avatar";
 import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { ServerConfig } from "@bitwarden/common/platform/abstractions/config/server-config";
@@ -561,17 +562,24 @@ export default class NotificationBackground {
    * the account last used for this site, otherwise the active account.
    */
   private async getMultiwardenAccounts(sender: chrome.runtime.MessageSender): Promise<{
-    accounts: { userId: UserId; email: string }[];
+    accounts: { userId: UserId; email: string; avatar: AccountAvatar }[];
     defaultUserId: UserId | null;
   }> {
     const scope = getMultiAccountScope();
     if (!scope) {
       return { accounts: [], defaultUserId: null };
     }
-    const accounts = (await scope.unlockedAccounts()).map(({ userId, email }) => ({
-      userId,
-      email,
-    }));
+    const accounts = await Promise.all(
+      (await scope.unlockedAccounts()).map(async ({ userId, email, name }) => ({
+        userId,
+        email,
+        avatar: accountAvatar(
+          userId,
+          name || email,
+          await firstValueFrom(scope.avatarColorFor(userId)),
+        ),
+      })),
+    );
     const site = sender.tab?.url ? Utils.getDomain(sender.tab.url) : null;
     const { rememberSaveAccountPerSite } = await getMultiwardenSettings();
     const remembered = rememberSaveAccountPerSite ? await getLastAccountForSite(site) : undefined;

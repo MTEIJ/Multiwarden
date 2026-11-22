@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Сейф:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Аккаунт түстөрү"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Ар бир аккаунт үчүн түс тандаңыз. Ал аккаунтта сакталат, ошондуктан бардык түзмөктөрүңүздө көрүнөт."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden жөнүндө"
+  },
+  "multiwardenVersion": {
+    "message": "Версия"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden негизинде"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub'та көрүү"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Чыгарылыш эскертмелери"
+  },
+  "multiwardenReportIssue": {
+    "message": "Көйгөй тууралуу билдирүү"
   }
 }

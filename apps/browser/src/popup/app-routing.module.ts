@@ -23,6 +23,10 @@ import {
   RegistrationStartSecondaryComponent,
   RegistrationStartSecondaryComponentData,
 } from "@bitwarden/angular/auth/registration";
+import {
+  multiwardenCipherOwnerGuard,
+  multiwardenNewItemTargetGuard,
+} from "@bitwarden/angular/multiwarden";
 import { canAccessFeature } from "@bitwarden/angular/platform/guard/feature-flag.guard";
 import { featureFlaggedRoute } from "@bitwarden/angular/platform/utils/feature-flagged-route";
 import {
@@ -82,10 +86,6 @@ import {
 } from "../dirt/health/popup/services/health-access.service";
 import { PhishingWarningComponent } from "../dirt/phishing-detection/popup/phishing-warning.component";
 import { ProtectedByComponent } from "../dirt/phishing-detection/popup/protected-by-component";
-import {
-  multiwardenCipherOwnerGuard,
-  multiwardenNewItemTargetGuard,
-} from "../multiwarden/popup/multiwarden-guards";
 import { MultiwardenSettingsComponent } from "../multiwarden/popup/multiwarden-settings.component";
 import BrowserPopupUtils from "../platform/browser/browser-popup-utils";
 import { popupRouterCacheGuard } from "../platform/popup/view-cache/popup-router-cache.service";

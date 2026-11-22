@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Trezor:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Farby účtov"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Vyberte farbu pre každý účet. Uloží sa do účtu, takže sa zobrazí na všetkých vašich zariadeniach."
+  },
+  "multiwardenAboutSection": {
+    "message": "O Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Verzia"
+  },
+  "multiwardenBasedOn": {
+    "message": "Založené na Bitwardene"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Zobraziť na GitHube"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Poznámky k vydaniu"
+  },
+  "multiwardenReportIssue": {
+    "message": "Nahlásiť problém"
   }
 }

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "כספת:"
+  },
+  "multiwardenAccountColors": {
+    "message": "צבעי חשבונות"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "בחר צבע לכל חשבון. הוא נשמר בחשבון, ולכן מופיע בכל המכשירים שלך."
+  },
+  "multiwardenAboutSection": {
+    "message": "אודות Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "גרסה"
+  },
+  "multiwardenBasedOn": {
+    "message": "מבוסס על Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "הצגה ב-GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "הערות גרסה"
+  },
+  "multiwardenReportIssue": {
+    "message": "דיווח על בעיה"
   }
 }

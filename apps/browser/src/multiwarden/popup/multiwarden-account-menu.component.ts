@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, input, output } from "@angu
 import { toSignal } from "@angular/core/rxjs-interop";
 import { Router } from "@angular/router";
 
+import { MultiwardenAccount, MultiwardenCombinedService } from "@bitwarden/angular/multiwarden";
 import { AvatarModule, IconModule, MenuModule } from "@bitwarden/components";
 import { I18nPipe } from "@bitwarden/ui-common";
 
 import { AccountSwitcherService } from "../../auth/popup/account-switching/services/account-switcher.service";
-
-import { MultiwardenAccount, MultiwardenCombinedService } from "./multiwarden-combined.service";
 
 /**
  * Multiwarden: the avatar in the top-right corner, as a dropdown. Switch between "Combined"

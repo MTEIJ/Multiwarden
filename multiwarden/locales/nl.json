@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Kluis:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Accountkleuren"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Kies een kleur voor elk account. Die wordt in het account opgeslagen, dus je ziet hem op al je apparaten."
+  },
+  "multiwardenAboutSection": {
+    "message": "Over Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versie"
+  },
+  "multiwardenBasedOn": {
+    "message": "Gebaseerd op Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Bekijken op GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Release-opmerkingen"
+  },
+  "multiwardenReportIssue": {
+    "message": "Probleem melden"
   }
 }

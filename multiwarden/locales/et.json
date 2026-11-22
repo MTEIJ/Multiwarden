@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Hoidla:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontode värvid"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Vali igale kontole värv. See salvestatakse kontole, nii et see on nähtav kõigis su seadmetes."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwardeni teave"
+  },
+  "multiwardenVersion": {
+    "message": "Versioon"
+  },
+  "multiwardenBasedOn": {
+    "message": "Põhineb Bitwardenil"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Vaata GitHubis"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Väljalaskemärkmed"
+  },
+  "multiwardenReportIssue": {
+    "message": "Teata probleemist"
   }
 }

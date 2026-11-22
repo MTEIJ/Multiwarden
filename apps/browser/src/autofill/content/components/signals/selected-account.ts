@@ -5,7 +5,11 @@
  * Plain get/set stores rather than lit signals: nothing re-renders on change by itself, the
  * bar re-renders explicitly through `accountChange`.
  */
-export type MultiwardenAccountOption = { userId: string; email: string };
+export type MultiwardenAccountOption = {
+  userId: string;
+  email: string;
+  avatar?: { background: string; foreground: string; initials: string };
+};
 
 function store<T>(initial: T) {
   let value = initial;

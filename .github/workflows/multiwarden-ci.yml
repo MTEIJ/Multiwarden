@@ -1,5 +1,8 @@
-# Multiwarden: tests the multi-account changes and builds the Chrome/Vivaldi extension.
-# On a tag like v2026.11.0-mw1 it also publishes a GitHub release with the store-ready zip.
+# Multiwarden: tests the Multiwarden changes and builds the extension for every browser.
+# On a tag like v2026.11.0.1 it also publishes a GitHub release with one zip per browser.
+#
+# Release checklist: bump "release" in multiwarden/version.json, commit, then tag
+# v<bitwarden version>.<release> (the version Settings → Multiwarden shows).
 name: Multiwarden CI
 
 on:
@@ -13,9 +16,10 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  test:
+    name: Lint and test
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -28,16 +32,20 @@ jobs:
         # Upstream's lock file is occasionally out of step with package.json.
         run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
 
+      - name: Check translations
+        run: node multiwarden/scripts/check-translations.mjs
+
       - name: Lint Multiwarden code
         run: |
-          npx eslint libs/common/src/multiwarden apps/browser/src/multiwarden \
-            apps/browser/src/autofill/multiwarden
-          npx prettier --check libs/common/src/multiwarden apps/browser/src/multiwarden \
-            apps/browser/src/autofill/multiwarden multiwarden/scripts
+          npx eslint libs/common/src/multiwarden libs/angular/src/multiwarden \
+            apps/browser/src/multiwarden apps/browser/src/autofill/multiwarden
+          npx prettier --check libs/common/src/multiwarden libs/angular/src/multiwarden \
+            apps/browser/src/multiwarden apps/browser/src/autofill/multiwarden multiwarden/scripts
 
       - name: Test Multiwarden changes
         run: |
           (cd libs/common && npx jest src/multiwarden src/platform/services/fido2)
+          (cd libs/angular && npx jest src/multiwarden)
           (cd apps/browser && npx jest --runInBand \
             src/multiwarden \
             src/vault/popup/services/vault-popup-items.service.spec.ts \
@@ -56,12 +64,39 @@ jobs:
             src/autofill/fido2 \
             src/autofill/popup/fido2)
 
-      - name: Build extension (Chrome MV3, open-source build only)
+  build:
+    name: Build ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - browser: chrome
+            manifest: "3"
+          - browser: edge
+            manifest: "3"
+          - browser: opera
+            manifest: "3"
+          - browser: firefox
+            manifest: "2"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+
+      - name: Build (open-source build only)
         working-directory: apps/browser
         env:
           NODE_ENV: production
-          BROWSER: chrome
-          MANIFEST_VERSION: "3"
+          BROWSER: ${{ matrix.browser }}
+          MANIFEST_VERSION: ${{ matrix.manifest }}
           NODE_OPTIONS: --max-old-space-size=8192
         run: npx webpack
 
@@ -70,17 +105,28 @@ jobs:
           node multiwarden/scripts/brand-build.mjs apps/browser/build
           version="$(node -p "require('./apps/browser/build/manifest.json').version")"
           echo "VERSION=$version" >> "$GITHUB_ENV"
-          (cd apps/browser/build && zip -qr "../../../multiwarden-chrome-$version.zip" .)
+          (cd apps/browser/build && zip -qr "../../../multiwarden-${{ matrix.browser }}-$version.zip" .)
 
       - uses: actions/upload-artifact@v4
         with:
-          name: multiwarden-chrome-${{ env.VERSION }}
-          path: multiwarden-chrome-${{ env.VERSION }}.zip
+          name: multiwarden-${{ matrix.browser }}
+          path: multiwarden-${{ matrix.browser }}-${{ env.VERSION }}.zip
 
-      - name: Publish release
-        if: startsWith(github.ref, 'refs/tags/v')
+  release:
+    name: Publish release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [test, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" "multiwarden-chrome-${VERSION}.zip" \
-            --title "Multiwarden ${GITHUB_REF_NAME}" --generate-notes
+          gh release create "${GITHUB_REF_NAME}" dist/*.zip \
+            --repo "${GITHUB_REPOSITORY}" \
+            --title "Multiwarden ${GITHUB_REF_NAME#v}" --generate-notes

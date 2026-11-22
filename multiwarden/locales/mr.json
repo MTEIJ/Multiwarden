@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "व्हॉल्ट:"
+  },
+  "multiwardenAccountColors": {
+    "message": "खात्यांचे रंग"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "प्रत्येक खात्यासाठी रंग निवडा. तो खात्यात जतन होतो, त्यामुळे तुमच्या सर्व डिव्हाइसवर दिसतो."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden बद्दल"
+  },
+  "multiwardenVersion": {
+    "message": "आवृत्ती"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden वर आधारित"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub वर पहा"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "रिलीज नोट्स"
+  },
+  "multiwardenReportIssue": {
+    "message": "समस्या कळवा"
   }
 }

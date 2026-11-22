@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Трезор:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Цветове на акаунтите"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Изберете цвят за всеки акаунт. Той се запазва в акаунта и се показва на всичките ви устройства."
+  },
+  "multiwardenAboutSection": {
+    "message": "За Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Версия"
+  },
+  "multiwardenBasedOn": {
+    "message": "Базирано на Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Преглед в GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Бележки по изданието"
+  },
+  "multiwardenReportIssue": {
+    "message": "Докладване на проблем"
   }
 }

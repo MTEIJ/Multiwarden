@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "ឃ្លាំង:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ពណ៌គណនី"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "ជ្រើសពណ៌សម្រាប់គណនីនីមួយៗ។ វាត្រូវបានរក្សាទុកក្នុងគណនី ដូច្នេះវាបង្ហាញលើឧបករណ៍ទាំងអស់របស់អ្នក។"
+  },
+  "multiwardenAboutSection": {
+    "message": "អំពី Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "កំណែ"
+  },
+  "multiwardenBasedOn": {
+    "message": "ផ្អែកលើ Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "មើលនៅលើ GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "កំណត់ចំណាំការចេញផ្សាយ"
+  },
+  "multiwardenReportIssue": {
+    "message": "រាយការណ៍បញ្ហា"
   }
 }

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Glabātava:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontu krāsas"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Izvēlieties krāsu katram kontam. Tā tiek saglabāta kontā, tāpēc tā ir redzama visās jūsu ierīcēs."
+  },
+  "multiwardenAboutSection": {
+    "message": "Par Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versija"
+  },
+  "multiwardenBasedOn": {
+    "message": "Balstīts uz Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Skatīt GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Laidiena piezīmes"
+  },
+  "multiwardenReportIssue": {
+    "message": "Ziņot par problēmu"
   }
 }

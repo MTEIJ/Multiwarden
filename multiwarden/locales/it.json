@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Cassaforte:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Colori degli account"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Scegli un colore per ogni account. Viene salvato nell'account, quindi appare su tutti i tuoi dispositivi."
+  },
+  "multiwardenAboutSection": {
+    "message": "Informazioni su Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versione"
+  },
+  "multiwardenBasedOn": {
+    "message": "Basato su Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Vedi su GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Note di rilascio"
+  },
+  "multiwardenReportIssue": {
+    "message": "Segnala un problema"
   }
 }

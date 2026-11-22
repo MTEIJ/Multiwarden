@@ -22,18 +22,25 @@ passkeys. Multiwarden is one extension that keeps every unlocked account in play
 - **Combined view:** pick "Combined" in the account dropdown (top right) and the normal vault
   shows every unlocked account's items together, each marked with its account's avatar. Search,
   fill, copy, edit and delete work as usual; new items ask which vault they go into.
-- **Settings → Multiwarden:** combined view, remembering the save account per site, and hiding
-  Premium upgrade notices.
+- **Settings → Multiwarden:** combined view, remembering the save account per site, a colour for
+  each account, hiding Premium upgrade notices, and version details.
 
 Sign in to each account through the normal account switcher (up to five), unlock them, and
 Multiwarden uses all of them.
 
 ## Install
 
-Grab `multiwarden-chrome-*.zip` from [Releases](https://github.com/mteij/multiwarden/releases),
-unzip it, open `vivaldi://extensions` (or `chrome://extensions`), turn on **Developer mode**, and
-choose **Load unpacked**. Remove or disable the official Bitwarden extension first so the two
-don't both try to fill.
+Download the zip for your browser from [Releases](https://github.com/mteij/multiwarden/releases)
+and unzip it. Remove or turn off the official Bitwarden extension first, so the two don't both
+try to fill.
+
+- **Chrome, Vivaldi, Brave, Edge, Opera:** open the extensions page (`chrome://extensions`,
+  `vivaldi://extensions`, `edge://extensions`, `opera://extensions`), turn on **Developer mode**,
+  choose **Load unpacked** and pick the unzipped folder. Use the `edge` zip for Edge and the
+  `opera` zip for Opera; the others use `chrome`.
+- **Firefox:** open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on** and
+  pick `manifest.json` in the unzipped `firefox` folder. Firefox only keeps unsigned add-ons until
+  it restarts; a permanent install needs the add-on signed by Mozilla (addons.mozilla.org).
 
 ## Maintainers
 

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "ವಾಲ್ಟ್:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ಖಾತೆ ಬಣ್ಣಗಳು"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "ಪ್ರತಿ ಖಾತೆಗೆ ಒಂದು ಬಣ್ಣ ಆಯ್ಕೆಮಾಡಿ. ಅದು ಖಾತೆಯಲ್ಲಿ ಉಳಿಯುವುದರಿಂದ ನಿಮ್ಮ ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden ಕುರಿತು"
+  },
+  "multiwardenVersion": {
+    "message": "ಆವೃತ್ತಿ"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden ಆಧಾರಿತ"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub ನಲ್ಲಿ ನೋಡಿ"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "ಬಿಡುಗಡೆ ಟಿಪ್ಪಣಿಗಳು"
+  },
+  "multiwardenReportIssue": {
+    "message": "ಸಮಸ್ಯೆ ವರದಿ ಮಾಡಿ"
   }
 }

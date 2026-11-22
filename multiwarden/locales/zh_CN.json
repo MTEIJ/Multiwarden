@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "密码库："
+  },
+  "multiwardenAccountColors": {
+    "message": "账户颜色"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "为每个账户选择一种颜色。颜色保存在账户中，会在你的所有设备上显示。"
+  },
+  "multiwardenAboutSection": {
+    "message": "关于 Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "版本"
+  },
+  "multiwardenBasedOn": {
+    "message": "基于 Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "在 GitHub 上查看"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "发行说明"
+  },
+  "multiwardenReportIssue": {
+    "message": "报告问题"
   }
 }

@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { firstValueFrom, Observable, switchMap, of } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenVaultBannerComponent } from "@bitwarden/angular/multiwarden";
 import { BrowserPremiumUpgradePromptService } from "@bitwarden/browser/billing/popup/services/browser-premium-upgrade-prompt.service";
 import { CollectionView } from "@bitwarden/common/admin-console/models/collections";
 import { Organization } from "@bitwarden/common/admin-console/models/domain/organization";
@@ -61,7 +62,6 @@ import {
 } from "@bitwarden/vault";
 
 import { sendExtensionMessage } from "../../../../../autofill/utils/index";
-import { MultiwardenVaultBannerComponent } from "../../../../../multiwarden/popup/multiwarden-vault-banner.component";
 import { BrowserApi } from "../../../../../platform/browser/browser-api";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { PopOutComponent } from "../../../../../platform/popup/components/pop-out.component";

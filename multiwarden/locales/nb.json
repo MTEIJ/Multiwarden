@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Hvelv:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontofarger"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Velg en farge for hver konto. Den lagres i kontoen og vises på alle enhetene dine."
+  },
+  "multiwardenAboutSection": {
+    "message": "Om Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versjon"
+  },
+  "multiwardenBasedOn": {
+    "message": "Basert på Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Se på GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Versjonsmerknader"
+  },
+  "multiwardenReportIssue": {
+    "message": "Rapporter et problem"
   }
 }

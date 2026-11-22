@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Tresor:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontefaarwen"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Wiel eng Faarf fir all Kont. Si gëtt am Kont gespäichert a gëtt also op all dengen Apparater ugewisen."
+  },
+  "multiwardenAboutSection": {
+    "message": "Iwwer Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versioun"
+  },
+  "multiwardenBasedOn": {
+    "message": "Baséiert op Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Op GitHub ukucken"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Versiounsnotizen"
+  },
+  "multiwardenReportIssue": {
+    "message": "Problem mellen"
   }
 }

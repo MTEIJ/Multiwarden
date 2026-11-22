@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Coffre :"
+  },
+  "multiwardenAccountColors": {
+    "message": "Couleurs des comptes"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Choisissez une couleur pour chaque compte. Elle est enregistrée dans le compte et s'affiche sur tous vos appareils."
+  },
+  "multiwardenAboutSection": {
+    "message": "À propos de Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Version"
+  },
+  "multiwardenBasedOn": {
+    "message": "Basé sur Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Voir sur GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Notes de version"
+  },
+  "multiwardenReportIssue": {
+    "message": "Signaler un problème"
   }
 }

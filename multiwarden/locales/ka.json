@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "საცავი:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ანგარიშების ფერები"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "აირჩიეთ ფერი თითოეული ანგარიშისთვის. ის ინახება ანგარიშში, ამიტომ ჩანს ყველა თქვენს მოწყობილობაზე."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden-ის შესახებ"
+  },
+  "multiwardenVersion": {
+    "message": "ვერსია"
+  },
+  "multiwardenBasedOn": {
+    "message": "დაფუძნებულია Bitwarden-ზე"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "ნახვა GitHub-ზე"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "გამოშვების შენიშვნები"
+  },
+  "multiwardenReportIssue": {
+    "message": "პრობლემის შეტყობინება"
   }
 }

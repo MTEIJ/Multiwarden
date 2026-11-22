@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Seif:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Culorile conturilor"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Alege o culoare pentru fiecare cont. Este salvată în cont, deci apare pe toate dispozitivele tale."
+  },
+  "multiwardenAboutSection": {
+    "message": "Despre Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versiune"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bazat pe Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Vezi pe GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Note de lansare"
+  },
+  "multiwardenReportIssue": {
+    "message": "Raportează o problemă"
   }
 }

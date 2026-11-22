@@ -29,6 +29,31 @@ function getVaultIconByProductTier(productTierType?: ProductTierType): Option["i
   }
 }
 
+/** Multiwarden: the account's own avatar (colour and initials) as an option icon. */
+function AccountAvatarIcon(avatar: {
+  background: string;
+  foreground: string;
+  initials: string;
+}): Option["icon"] {
+  return () => html`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="8" fill=${avatar.background}></circle>
+      <text
+        x="8"
+        y="8"
+        dy="0.35em"
+        text-anchor="middle"
+        font-size="7"
+        font-weight="600"
+        font-family="Inter, Roboto, sans-serif"
+        fill=${avatar.foreground}
+      >
+        ${avatar.initials}
+      </text>
+    </svg>
+  `;
+}
+
 // Value represents default selector state outside of data-driven state
 const defaultNoneSelectValue = "0";
 
@@ -127,8 +152,8 @@ export function NotificationButtonRow({
 
   // Multiwarden: pick which unlocked account the login is saved to.
   const accounts = availableAccounts.get();
-  const accountOptions: Option[] = accounts.map(({ userId, email }) => ({
-    icon: User,
+  const accountOptions: Option[] = accounts.map(({ userId, email, avatar }) => ({
+    icon: avatar ? AccountAvatarIcon(avatar) : User,
     text: email,
     value: userId,
     default: userId === selectedAccountSignal.get(),

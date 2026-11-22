@@ -20,6 +20,7 @@ import { Router } from "@angular/router";
 import { catchError, distinctUntilChanged, filter, map, of, skip, Subject, switchMap } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountBadgeComponent } from "@bitwarden/angular/multiwarden";
 import { WINDOW } from "@bitwarden/angular/services/injection-tokens";
 import { DeactivatedOrg } from "@bitwarden/assets/svg";
 import { CollectionView } from "@bitwarden/common/admin-console/models/collections";
@@ -82,7 +83,6 @@ import {
   Vfo1I18nPipe,
 } from "@bitwarden/vault";
 
-import { MultiwardenAccountBadgeComponent } from "../../../../../multiwarden/popup/multiwarden-account-badge.component";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { ImportUpgradeNavigationService } from "../../../../../tools/popup/settings/import/import-upgrade-navigation.service";
 import { VaultPopupAutofillService } from "../../../services/vault-popup-autofill.service";

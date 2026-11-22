@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "සුරක්ෂිතාගාරය:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ගිණුම් වර්ණ"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "එක් එක් ගිණුම සඳහා වර්ණයක් තෝරන්න. එය ගිණුමේ සුරැකෙන බැවින් ඔබගේ සියලු උපාංගවල පෙන්වයි."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden ගැන"
+  },
+  "multiwardenVersion": {
+    "message": "අනුවාදය"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden මත පදනම්ව"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub හි බලන්න"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "නිකුතු සටහන්"
+  },
+  "multiwardenReportIssue": {
+    "message": "ගැටලුවක් වාර්තා කරන්න"
   }
 }

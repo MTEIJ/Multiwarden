@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Θησαυροφυλάκιο:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Χρώματα λογαριασμών"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Επιλέξτε χρώμα για κάθε λογαριασμό. Αποθηκεύεται στον λογαριασμό, οπότε εμφανίζεται σε όλες τις συσκευές σας."
+  },
+  "multiwardenAboutSection": {
+    "message": "Σχετικά με το Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Έκδοση"
+  },
+  "multiwardenBasedOn": {
+    "message": "Βασισμένο στο Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Προβολή στο GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Σημειώσεις έκδοσης"
+  },
+  "multiwardenReportIssue": {
+    "message": "Αναφορά προβλήματος"
   }
 }

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "వాల్ట్:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ఖాతా రంగులు"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "ప్రతి ఖాతాకు ఒక రంగును ఎంచుకోండి. ఇది ఖాతాలో సేవ్ అవుతుంది, కాబట్టి మీ అన్ని పరికరాల్లో కనిపిస్తుంది."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden గురించి"
+  },
+  "multiwardenVersion": {
+    "message": "వెర్షన్"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden ఆధారంగా"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub లో చూడండి"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "రిలీజ్ నోట్స్"
+  },
+  "multiwardenReportIssue": {
+    "message": "సమస్యను నివేదించండి"
   }
 }

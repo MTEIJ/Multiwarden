@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "보관함:"
+  },
+  "multiwardenAccountColors": {
+    "message": "계정 색상"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "계정마다 색상을 선택하세요. 색상은 계정에 저장되어 모든 기기에 표시됩니다."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden 정보"
+  },
+  "multiwardenVersion": {
+    "message": "버전"
+  },
+  "multiwardenBasedOn": {
+    "message": "기반 Bitwarden 버전"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub에서 보기"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "릴리스 노트"
+  },
+  "multiwardenReportIssue": {
+    "message": "문제 신고"
   }
 }

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Valv:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontofärger"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Välj en färg för varje konto. Den sparas i kontot och syns på alla dina enheter."
+  },
+  "multiwardenAboutSection": {
+    "message": "Om Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Version"
+  },
+  "multiwardenBasedOn": {
+    "message": "Baserad på Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Visa på GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Versionsinformation"
+  },
+  "multiwardenReportIssue": {
+    "message": "Rapportera ett problem"
   }
 }

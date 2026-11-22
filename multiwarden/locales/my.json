@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
+  },
+  "multiwardenAccountColors": {
+    "message": "အကောင့်အရောင်များ"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "အကောင့်တစ်ခုစီအတွက် အရောင်ရွေးပါ။ အကောင့်တွင် သိမ်းထားသဖြင့် သင့်စက်အားလုံးတွင် ပြသည်။"
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden အကြောင်း"
+  },
+  "multiwardenVersion": {
+    "message": "ဗားရှင်း"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden အပေါ်အခြေခံသည်"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub တွင် ကြည့်ရန်"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "ထုတ်ဝေမှုမှတ်စု"
+  },
+  "multiwardenReportIssue": {
+    "message": "ပြဿနာ တိုင်ကြားရန်"
   }
 }

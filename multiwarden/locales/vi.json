@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Kho:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Màu tài khoản"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Chọn màu cho từng tài khoản. Màu được lưu trong tài khoản nên hiển thị trên mọi thiết bị của bạn."
+  },
+  "multiwardenAboutSection": {
+    "message": "Giới thiệu Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Phiên bản"
+  },
+  "multiwardenBasedOn": {
+    "message": "Dựa trên Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Xem trên GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Ghi chú phát hành"
+  },
+  "multiwardenReportIssue": {
+    "message": "Báo cáo sự cố"
   }
 }

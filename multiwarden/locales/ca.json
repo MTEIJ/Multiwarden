@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Caixa forta:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Colors dels comptes"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Trieu un color per a cada compte. Es desa al compte, així que es mostra a tots els vostres dispositius."
+  },
+  "multiwardenAboutSection": {
+    "message": "Quant a Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versió"
+  },
+  "multiwardenBasedOn": {
+    "message": "Basat en Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Mostra a GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Notes de la versió"
+  },
+  "multiwardenReportIssue": {
+    "message": "Informa d'un problema"
   }
 }

@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Brankas:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Warna akun"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Pilih warna untuk setiap akun. Warna disimpan di akun, jadi tampil di semua perangkat Anda."
+  },
+  "multiwardenAboutSection": {
+    "message": "Tentang Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Versi"
+  },
+  "multiwardenBasedOn": {
+    "message": "Berbasis Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Lihat di GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Catatan rilis"
+  },
+  "multiwardenReportIssue": {
+    "message": "Laporkan masalah"
   }
 }

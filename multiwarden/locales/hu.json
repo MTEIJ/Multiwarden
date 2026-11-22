@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Széf:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Fiókszínek"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Válassz színt minden fiókhoz. A fiókban tárolódik, így minden eszközödön megjelenik."
+  },
+  "multiwardenAboutSection": {
+    "message": "A Multiwardenről"
+  },
+  "multiwardenVersion": {
+    "message": "Verzió"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden alapú"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Megtekintés a GitHubon"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Kiadási megjegyzések"
+  },
+  "multiwardenReportIssue": {
+    "message": "Hiba bejelentése"
   }
 }

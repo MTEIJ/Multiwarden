@@ -19,6 +19,7 @@ import { Router } from "@angular/router";
 import { firstValueFrom, map } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
+import { MultiwardenAccountBadgeComponent } from "@bitwarden/angular/multiwarden";
 import { AccountService } from "@bitwarden/common/auth/abstractions/account.service";
 import { getUserId } from "@bitwarden/common/auth/services/account.service";
 import { I18nService } from "@bitwarden/common/platform/abstractions/i18n.service";
@@ -50,7 +51,6 @@ import {
   PasswordRepromptService,
 } from "@bitwarden/vault";
 
-import { MultiwardenAccountBadgeComponent } from "../../../../../multiwarden/popup/multiwarden-account-badge.component";
 import { BrowserApi } from "../../../../../platform/browser/browser-api";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { VaultPopupAutofillService } from "../../../services/vault-popup-autofill.service";

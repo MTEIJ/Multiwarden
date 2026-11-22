@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Cell:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Lliwiau cyfrifon"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Dewiswch liw ar gyfer pob cyfrif. Caiff ei gadw yn y cyfrif, felly mae'n ymddangos ar eich holl ddyfeisiau."
+  },
+  "multiwardenAboutSection": {
+    "message": "Ynghylch Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Fersiwn"
+  },
+  "multiwardenBasedOn": {
+    "message": "Yn seiliedig ar Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Gweld ar GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Nodiadau rhyddhau"
+  },
+  "multiwardenReportIssue": {
+    "message": "Adrodd problem"
   }
 }

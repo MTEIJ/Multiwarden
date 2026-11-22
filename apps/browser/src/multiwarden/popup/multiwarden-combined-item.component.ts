@@ -2,10 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject } from "@angular/c
 import { toSignal } from "@angular/core/rxjs-interop";
 import { Router } from "@angular/router";
 
+import { MultiwardenCombinedService } from "@bitwarden/angular/multiwarden";
 import { AvatarModule, IconModule, ItemModule } from "@bitwarden/components";
 import { I18nPipe } from "@bitwarden/ui-common";
-
-import { MultiwardenCombinedService } from "./multiwarden-combined.service";
 
 /** Multiwarden: the "Combined" choice at the top of the account switcher page. */
 @Component({
@@ -25,8 +24,7 @@ import { MultiwardenCombinedService } from "./multiwarden-combined.service";
           <span slot="start" class="tw-flex tw-items-center" aria-hidden="true">
             @for (account of avatars(); track account.userId; let first = $first) {
               <bit-avatar
-                [class.-tw-ms-4]="!first"
-                class="tw-rounded-full tw-ring-2 tw-ring-background"
+                [class.-tw-ms-3]="!first"
                 [id]="account.userId"
                 [text]="account.name"
                 [color]="account.avatarColor ?? undefined"

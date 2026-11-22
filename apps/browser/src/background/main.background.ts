@@ -1315,6 +1315,9 @@ export default class MainBackground {
     );
 
     this.avatarService = new AvatarService(this.apiService, this.stateProvider);
+    // Multiwarden: lets the save prompt show each account's avatar colour.
+    this.multiAccountScope.avatarColorFor = (userId) =>
+      this.avatarService.getUserAvatarColor$(userId);
 
     this.providerService = new ProviderService(this.stateProvider);
 

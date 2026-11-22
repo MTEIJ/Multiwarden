@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "ตู้นิรภัย:"
+  },
+  "multiwardenAccountColors": {
+    "message": "สีของบัญชี"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "เลือกสีสำหรับแต่ละบัญชี สีจะถูกบันทึกไว้ในบัญชี จึงแสดงบนอุปกรณ์ทั้งหมดของคุณ"
+  },
+  "multiwardenAboutSection": {
+    "message": "เกี่ยวกับ Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "เวอร์ชัน"
+  },
+  "multiwardenBasedOn": {
+    "message": "อิงจาก Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "ดูบน GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "บันทึกประจำรุ่น"
+  },
+  "multiwardenReportIssue": {
+    "message": "รายงานปัญหา"
   }
 }

@@ -196,7 +196,11 @@ export type NotificationBackgroundExtensionMessageHandlers = {
   bgGetOrgData: ({ message }: BackgroundMessageParam) => Promise<unknown[]>;
   /** Multiwarden: unlocked accounts for the save prompt's account selector. */
   bgGetMultiwardenAccounts: ({ sender }: BackgroundSenderParam) => Promise<{
-    accounts: { userId: string; email: string }[];
+    accounts: {
+      userId: string;
+      email: string;
+      avatar: { background: string; foreground: string; initials: string };
+    }[];
     defaultUserId: string | null;
   }>;
 };

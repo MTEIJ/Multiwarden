@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "الخزنة:"
+  },
+  "multiwardenAccountColors": {
+    "message": "ألوان الحسابات"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "اختر لونًا لكل حساب. يُحفظ في الحساب، لذا يظهر على جميع أجهزتك."
+  },
+  "multiwardenAboutSection": {
+    "message": "حول Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "الإصدار"
+  },
+  "multiwardenBasedOn": {
+    "message": "مبني على Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "عرض على GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "ملاحظات الإصدار"
+  },
+  "multiwardenReportIssue": {
+    "message": "الإبلاغ عن مشكلة"
   }
 }

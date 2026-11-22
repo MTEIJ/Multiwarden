@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "保管庫:"
+  },
+  "multiwardenAccountColors": {
+    "message": "アカウントの色"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "アカウントごとに色を選びます。色はアカウントに保存されるため、すべてのデバイスに表示されます。"
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden について"
+  },
+  "multiwardenVersion": {
+    "message": "バージョン"
+  },
+  "multiwardenBasedOn": {
+    "message": "ベースの Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub で見る"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "リリースノート"
+  },
+  "multiwardenReportIssue": {
+    "message": "問題を報告"
   }
 }

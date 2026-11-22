@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Kutxa gotorra:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Kontuen koloreak"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Aukeratu kolore bat kontu bakoitzerako. Kontuan gordetzen da, beraz zure gailu guztietan agertzen da."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden-i buruz"
+  },
+  "multiwardenVersion": {
+    "message": "Bertsioa"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwardenen oinarritua"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Ikusi GitHub-en"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Bertsio-oharrak"
+  },
+  "multiwardenReportIssue": {
+    "message": "Jakinarazi arazo bat"
   }
 }

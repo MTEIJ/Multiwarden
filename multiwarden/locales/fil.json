@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Mga kulay ng account"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Pumili ng kulay para sa bawat account. Naka-save ito sa account kaya lumalabas ito sa lahat ng device mo."
+  },
+  "multiwardenAboutSection": {
+    "message": "Tungkol sa Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Bersyon"
+  },
+  "multiwardenBasedOn": {
+    "message": "Batay sa Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Tingnan sa GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Mga tala sa release"
+  },
+  "multiwardenReportIssue": {
+    "message": "Mag-ulat ng problema"
   }
 }

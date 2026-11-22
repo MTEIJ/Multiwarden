@@ -1,4 +1,4 @@
-import { combineLatest, firstValueFrom, map, Observable } from "rxjs";
+import { combineLatest, firstValueFrom, map, Observable, of } from "rxjs";
 
 import { AccountService } from "../auth/abstractions/account.service";
 import { AuthService } from "../auth/abstractions/auth.service";
@@ -29,6 +29,9 @@ export interface UnlockedAccount {
  */
 export class MultiAccountScope {
   private readonly owners = new Map<string, UserId>();
+
+  /** Optional source of each account's chosen avatar colour (set by the client). */
+  avatarColorFor: (userId: UserId) => Observable<string | null> = () => of(null);
 
   constructor(
     private readonly accountService: AccountService,

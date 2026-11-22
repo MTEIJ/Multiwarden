@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "ভল্ট:"
+  },
+  "multiwardenAccountColors": {
+    "message": "অ্যাকাউন্টের রং"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "প্রতিটি অ্যাকাউন্টের জন্য একটি রং বেছে নিন। এটি অ্যাকাউন্টে সংরক্ষিত হয়, তাই আপনার সব ডিভাইসে দেখা যায়।"
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden সম্পর্কে"
+  },
+  "multiwardenVersion": {
+    "message": "সংস্করণ"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden ভিত্তিক"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub-এ দেখুন"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "রিলিজ নোট"
+  },
+  "multiwardenReportIssue": {
+    "message": "সমস্যা জানান"
   }
 }

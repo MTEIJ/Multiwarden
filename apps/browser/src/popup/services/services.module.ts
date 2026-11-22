@@ -7,6 +7,7 @@ import { CollectionService } from "@bitwarden/admin-console/common";
 import { DeviceManagementComponentServiceAbstraction } from "@bitwarden/angular/auth/device-management/device-management-component.service.abstraction";
 import { LoginViaWebAuthnComponentService } from "@bitwarden/angular/auth/login-via-webauthn/login-via-webauthn-component.service";
 import { ChangePasswordService } from "@bitwarden/angular/auth/password-management/change-password";
+import { MultiwardenPlatform } from "@bitwarden/angular/multiwarden";
 import { AngularThemingService } from "@bitwarden/angular/platform/services/theming/angular-theming.service";
 import { SafeProvider, safeProvider } from "@bitwarden/angular/platform/utils/safe-provider";
 import { ViewCacheService } from "@bitwarden/angular/platform/view-cache";
@@ -229,6 +230,7 @@ import { BrowserSessionTimeoutSettingsComponentService } from "../../key-managem
 import { BrowserSessionTimeoutTypeService } from "../../key-management/session-timeout/services/browser-session-timeout-type.service";
 import { ForegroundUnlockService } from "../../key-management/unlock/foreground-unlock.service";
 import { ForegroundVaultTimeoutService } from "../../key-management/vault-timeout/foreground-vault-timeout.service";
+import { BrowserMultiwardenPlatform } from "../../multiwarden/popup/browser-multiwarden-platform";
 import { BrowserActionsService } from "../../platform/actions/browser-actions.service";
 import { BrowserApi } from "../../platform/browser/browser-api";
 import { runInsideAngular } from "../../platform/browser/run-inside-angular.operator";
@@ -285,6 +287,8 @@ const DISK_BACKUP_LOCAL_STORAGE = new SafeInjectionToken<
  */
 const safeProviders: SafeProvider[] = [
   safeProvider(InitService),
+  // Multiwarden: the extension's side of combined mode.
+  safeProvider({ provide: MultiwardenPlatform, useClass: BrowserMultiwardenPlatform, deps: [] }),
   safeProvider({
     provide: CipherService,
     useClass: ForegroundCipherService,

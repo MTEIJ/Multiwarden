@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Kasa:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Hesap renkleri"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Her hesap için bir renk seçin. Hesapta saklanır, bu yüzden tüm cihazlarınızda görünür."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden hakkında"
+  },
+  "multiwardenVersion": {
+    "message": "Sürüm"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden tabanlı"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub'da görüntüle"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Sürüm notları"
+  },
+  "multiwardenReportIssue": {
+    "message": "Sorun bildir"
   }
 }

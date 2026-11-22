@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Holvi:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Tilien värit"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Valitse jokaiselle tilille väri. Se tallennetaan tiliin, joten se näkyy kaikilla laitteillasi."
+  },
+  "multiwardenAboutSection": {
+    "message": "Tietoja Multiwardenista"
+  },
+  "multiwardenVersion": {
+    "message": "Versio"
+  },
+  "multiwardenBasedOn": {
+    "message": "Perustuu Bitwardeniin"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Näytä GitHubissa"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Julkaisutiedot"
+  },
+  "multiwardenReportIssue": {
+    "message": "Ilmoita ongelmasta"
   }
 }

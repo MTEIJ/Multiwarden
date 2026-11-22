@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "பெட்டகம்:"
+  },
+  "multiwardenAccountColors": {
+    "message": "கணக்கு நிறங்கள்"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "ஒவ்வொரு கணக்குக்கும் ஒரு நிறத்தைத் தேர்வு செய்யவும். இது கணக்கில் சேமிக்கப்படுவதால் உங்கள் எல்லா சாதனங்களிலும் தெரியும்."
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden பற்றி"
+  },
+  "multiwardenVersion": {
+    "message": "பதிப்பு"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden அடிப்படையிலானது"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub இல் பார்"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "வெளியீட்டுக் குறிப்புகள்"
+  },
+  "multiwardenReportIssue": {
+    "message": "சிக்கலைப் புகாரளி"
   }
 }

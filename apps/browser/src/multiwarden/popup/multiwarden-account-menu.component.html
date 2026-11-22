@@ -10,8 +10,7 @@
     <span class="tw-flex tw-items-center" aria-hidden="true">
       @for (account of combinedAvatars(); track account.userId; let first = $first) {
         <bit-avatar
-          [class.-tw-ms-3]="!first"
-          class="tw-rounded-full tw-ring-2 tw-ring-background"
+          [class.-tw-ms-2]="!first"
           [id]="account.userId"
           [text]="account.name"
           [color]="account.avatarColor ?? undefined"

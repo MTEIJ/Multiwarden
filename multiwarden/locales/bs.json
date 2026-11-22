@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "Trezor:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Boje računa"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Izaberite boju za svaki račun. Čuva se u računu pa se prikazuje na svim vašim uređajima."
+  },
+  "multiwardenAboutSection": {
+    "message": "O Multiwardenu"
+  },
+  "multiwardenVersion": {
+    "message": "Verzija"
+  },
+  "multiwardenBasedOn": {
+    "message": "Zasnovano na Bitwardenu"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "Pogledaj na GitHubu"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Bilješke o izdanju"
+  },
+  "multiwardenReportIssue": {
+    "message": "Prijavi problem"
   }
 }

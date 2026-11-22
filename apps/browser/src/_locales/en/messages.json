@@ -9520,5 +9520,29 @@
   },
   "multiwardenVault": {
     "message": "Vault:"
+  },
+  "multiwardenAccountColors": {
+    "message": "Account colours"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "Pick a colour for each account. It is saved to the account, so it shows on all your devices."
+  },
+  "multiwardenAboutSection": {
+    "message": "About Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "Version"
+  },
+  "multiwardenBasedOn": {
+    "message": "Based on Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "View on GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "Release notes"
+  },
+  "multiwardenReportIssue": {
+    "message": "Report an issue"
   }
 }

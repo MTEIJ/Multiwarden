@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "密碼庫："
+  },
+  "multiwardenAccountColors": {
+    "message": "帳戶顏色"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "為每個帳戶選擇一種顏色。顏色會儲存在帳戶中，並顯示在你的所有裝置上。"
+  },
+  "multiwardenAboutSection": {
+    "message": "關於 Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "版本"
+  },
+  "multiwardenBasedOn": {
+    "message": "基於 Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "在 GitHub 上查看"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "版本資訊"
+  },
+  "multiwardenReportIssue": {
+    "message": "回報問題"
   }
 }

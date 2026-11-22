@@ -7,20 +7,12 @@ import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { AvatarService } from "@bitwarden/common/auth/abstractions/avatar.service";
 import { AuthenticationStatus } from "@bitwarden/common/auth/enums/authentication-status";
 import { registerMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
-import { MessagingService } from "@bitwarden/common/platform/abstractions/messaging.service";
 import { UserId } from "@bitwarden/common/types/guid";
 
 import { MultiwardenCombinedService } from "./multiwarden-combined.service";
+import { MultiwardenPlatform } from "./multiwarden-platform";
 
 const combinedMode$ = new BehaviorSubject(true);
-jest.mock("../multiwarden-settings", () => ({
-  multiwardenSetting$: () => combinedMode$,
-  updateMultiwardenSettings: jest.fn(async (changes: { combinedMode?: boolean }) => {
-    if (changes.combinedMode != null) {
-      combinedMode$.next(changes.combinedMode);
-    }
-  }),
-}));
 
 const userA = "user-a" as UserId;
 const userB = "user-b" as UserId;
@@ -28,7 +20,7 @@ const userB = "user-b" as UserId;
 describe("MultiwardenCombinedService", () => {
   let service: MultiwardenCombinedService;
   let activeAccount$: BehaviorSubject<{ id: UserId; email: string } | null>;
-  let messagingService: ReturnType<typeof mock<MessagingService>>;
+  let requestActivation: jest.Mock;
 
   beforeEach(() => {
     registerMultiAccountScope(undefined);
@@ -51,20 +43,21 @@ describe("MultiwardenCombinedService", () => {
     }) as unknown as AuthService["authStatuses$"];
     const avatarService = mock<AvatarService>();
     avatarService.getUserAvatarColor$.mockReturnValue(of(null));
-    messagingService = mock<MessagingService>();
-    messagingService.send.mockImplementation((command, data) => {
-      if (command === "multiwardenActivateAccount") {
-        const userId = (data as { userId: UserId }).userId;
-        activeAccount$.next({ id: userId, email: `${userId}@example.com` });
-      }
-    });
+    requestActivation = jest.fn((userId: UserId) =>
+      activeAccount$.next({ id: userId, email: `${userId}@example.com` }),
+    );
+    const platform: MultiwardenPlatform = {
+      combinedMode$,
+      setCombinedMode: async (on: boolean) => combinedMode$.next(on),
+      requestActivation,
+    };
 
     TestBed.configureTestingModule({
       providers: [
         { provide: AccountService, useValue: accountService },
         { provide: AuthService, useValue: authService },
         { provide: AvatarService, useValue: avatarService },
-        { provide: MessagingService, useValue: messagingService },
+        { provide: MultiwardenPlatform, useValue: platform },
       ],
     });
     service = TestBed.inject(MultiwardenCombinedService);
@@ -97,9 +90,7 @@ describe("MultiwardenCombinedService", () => {
 
     await service.prepareFor("user-b-item");
 
-    expect(messagingService.send).toHaveBeenCalledWith("multiwardenActivateAccount", {
-      userId: userB,
-    });
+    expect(requestActivation).toHaveBeenCalledWith(userB);
     expect(activeAccount$.value?.id).toBe(userB);
   });
 
@@ -108,6 +99,6 @@ describe("MultiwardenCombinedService", () => {
 
     await service.prepareFor("user-a-item");
 
-    expect(messagingService.send).not.toHaveBeenCalled();
+    expect(requestActivation).not.toHaveBeenCalled();
   });
 });

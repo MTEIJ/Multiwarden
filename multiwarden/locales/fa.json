@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "گاوصندوق:"
+  },
+  "multiwardenAccountColors": {
+    "message": "رنگ حساب‌ها"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "برای هر حساب یک رنگ انتخاب کنید. در حساب ذخیره می‌شود و در همه دستگاه‌هایتان نمایش داده می‌شود."
+  },
+  "multiwardenAboutSection": {
+    "message": "درباره Multiwarden"
+  },
+  "multiwardenVersion": {
+    "message": "نسخه"
+  },
+  "multiwardenBasedOn": {
+    "message": "بر پایه Bitwarden"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "مشاهده در GitHub"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "یادداشت‌های انتشار"
+  },
+  "multiwardenReportIssue": {
+    "message": "گزارش مشکل"
   }
 }

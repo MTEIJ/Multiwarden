@@ -64,5 +64,29 @@
   },
   "multiwardenVault": {
     "message": "वॉल्ट:"
+  },
+  "multiwardenAccountColors": {
+    "message": "खाते के रंग"
+  },
+  "multiwardenAccountColorsHint": {
+    "message": "हर खाते के लिए एक रंग चुनें। यह खाते में सहेजा जाता है, इसलिए आपके सभी डिवाइस पर दिखता है।"
+  },
+  "multiwardenAboutSection": {
+    "message": "Multiwarden के बारे में"
+  },
+  "multiwardenVersion": {
+    "message": "संस्करण"
+  },
+  "multiwardenBasedOn": {
+    "message": "Bitwarden पर आधारित"
+  },
+  "multiwardenViewOnGithub": {
+    "message": "GitHub पर देखें"
+  },
+  "multiwardenReleaseNotes": {
+    "message": "रिलीज़ नोट्स"
+  },
+  "multiwardenReportIssue": {
+    "message": "समस्या की रिपोर्ट करें"
   }
 }
