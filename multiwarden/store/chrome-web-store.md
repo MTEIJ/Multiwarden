@@ -52,6 +52,9 @@ In the repository, open **Settings → Secrets and variables → Actions** and a
 | `CWS_PUBLISHER_ID`  | Publisher ID from the dashboard |
 | `CWS_EXTENSION_ID`  | The store item's 32-letter ID   |
 
+To test them, run **Actions → Multiwarden store check → Run workflow**. It signs in and
+reads the item's status without uploading anything.
+
 From then on, each release is uploaded and submitted for review automatically. The run's
 summary says when a submission went in; Google's review usually takes a few days.
 
