@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Зберегти в обліковий запис"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Зберегти як новий запис входу в $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Обліковий запис"
+  },
+  "multiwardenSettings": {
+    "message": "Налаштування Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Облікові записи"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Вигляд"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Спільний перегляд"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Показує записи всіх розблокованих облікових записів разом. Також можна вибрати «Спільний» у меню облікового запису."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Запам'ятовувати обліковий запис для збереження на кожному сайті"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Запит на збереження попередньо вибирає обліковий запис, у який ви востаннє зберігали дані на цьому сайті."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Приховувати сповіщення про Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Приховує банери, підказки та значки про перехід на Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden — неофіційний форк розширення браузера Bitwarden з відкритим кодом. Він не пов'язаний з Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Спільний"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Усі розблоковані облікові записи разом"
+  },
+  "multiwardenCurrentView": {
+    "message": "Поточний перегляд"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Керувати обліковими записами"
+  },
+  "multiwardenChooseVault": {
+    "message": "У яке сховище зберегти?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Виберіть обліковий запис, у якому буде збережено цей запис."
+  },
+  "multiwardenVault": {
+    "message": "Сховище:"
+  }
+}

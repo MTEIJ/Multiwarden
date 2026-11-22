@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Hesaba kaydet"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ hesabına yeni hesap bilgisi olarak kaydet",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Hesap"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ayarları"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Hesaplar"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Görünüm"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Birleşik görünüm"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Kilidi açık tüm hesapların kayıtlarını birlikte gösterir. Hesap menüsünden \"Birleşik\" seçeneğini de seçebilirsiniz."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Site başına kaydetme hesabını hatırla"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Kaydetme bildirimi, o sitede en son kaydettiğiniz hesabı önceden seçer."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium bildirimlerini gizle"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium yükseltme afişlerini, ipuçlarını ve rozetlerini gizler."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden, Bitwarden tarayıcı uzantısının resmi olmayan, açık kaynaklı bir çatalıdır. Bitwarden, Inc. ile bağlantılı değildir."
+  },
+  "multiwardenCombined": {
+    "message": "Birleşik"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Kilidi açık tüm hesaplar birlikte"
+  },
+  "multiwardenCurrentView": {
+    "message": "Geçerli görünüm"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Hesapları yönet"
+  },
+  "multiwardenChooseVault": {
+    "message": "Hangi kasaya kaydedilsin?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Bu kaydın saklanacağı hesabı seçin."
+  },
+  "multiwardenVault": {
+    "message": "Kasa:"
+  }
+}

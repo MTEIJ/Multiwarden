@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Opslaan in account"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Opslaan als nieuwe login in $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Account"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden-instellingen"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Accounts"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Weergave"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Gecombineerde weergave"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Toon de items van alle ontgrendelde accounts samen. Je kunt ook \"Gecombineerd\" kiezen in het accountmenu."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Onthoud het opslag-account per website"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "De opslagmelding kiest vooraf het account waarin je op die website het laatst iets hebt opgeslagen."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium-meldingen verbergen"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Verbergt Premium-upgradebanners, -tips en -labels."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden is een onofficiële, open-source fork van de Bitwarden-browserextensie. Het is niet verbonden aan Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Gecombineerd"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Alle ontgrendelde accounts samen"
+  },
+  "multiwardenCurrentView": {
+    "message": "Huidige weergave"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Accounts beheren"
+  },
+  "multiwardenChooseVault": {
+    "message": "In welke kluis opslaan?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Kies het account waarin dit item wordt opgeslagen."
+  },
+  "multiwardenVault": {
+    "message": "Kluis:"
+  }
+}

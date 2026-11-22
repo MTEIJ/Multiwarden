@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Guardar en la cuenta"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Guardar como nuevo inicio de sesión en $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Cuenta"
+  },
+  "multiwardenSettings": {
+    "message": "Ajustes de Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Cuentas"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Apariencia"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Vista combinada"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Muestra juntos los elementos de todas las cuentas desbloqueadas. También puedes elegir «Combinada» en el menú de la cuenta."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Recordar la cuenta de guardado por sitio"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "El aviso de guardado preselecciona la cuenta en la que guardaste por última vez en ese sitio."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Ocultar avisos de Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Oculta los banners, sugerencias e insignias de mejora a Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden es un fork no oficial y de código abierto de la extensión de navegador de Bitwarden. No está afiliado a Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Combinada"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Todas las cuentas desbloqueadas juntas"
+  },
+  "multiwardenCurrentView": {
+    "message": "Vista actual"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Gestionar cuentas"
+  },
+  "multiwardenChooseVault": {
+    "message": "¿En qué caja fuerte guardar?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Elige la cuenta en la que se guarda este elemento."
+  },
+  "multiwardenVault": {
+    "message": "Caja fuerte:"
+  }
+}

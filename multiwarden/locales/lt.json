@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Išsaugoti paskyroje"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Išsaugoti kaip naują prisijungimą paskyroje $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Paskyra"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden nustatymai"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Paskyros"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Išvaizda"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Bendras rodinys"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Rodo visų atrakintų paskyrų elementus kartu. Paskyros meniu taip pat galite pasirinkti „Bendras“."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Įsiminti išsaugojimo paskyrą kiekvienai svetainei"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Išsaugojimo užklausa iš anksto parenka paskyrą, kurioje šioje svetainėje išsaugojote paskutinį kartą."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Slėpti Premium pranešimus"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Slepia Premium naujinimo reklamjuostes, patarimus ir ženklelius."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden – neoficiali atvirojo kodo Bitwarden naršyklės plėtinio atšaka. Ji nesusijusi su Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Bendras"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Visos atrakintos paskyros kartu"
+  },
+  "multiwardenCurrentView": {
+    "message": "Dabartinis rodinys"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Tvarkyti paskyras"
+  },
+  "multiwardenChooseVault": {
+    "message": "Kurioje saugykloje išsaugoti?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Pasirinkite paskyrą, kurioje bus išsaugotas šis elementas."
+  },
+  "multiwardenVault": {
+    "message": "Saugykla:"
+  }
+}

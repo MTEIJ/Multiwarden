@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "खाते में सहेजें"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ में नए लॉगिन के रूप में सहेजें",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "खाता"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden सेटिंग्स"
+  },
+  "multiwardenAccountsSection": {
+    "message": "खाते"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "दिखावट"
+  },
+  "multiwardenCombinedMode": {
+    "message": "संयुक्त दृश्य"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "सभी अनलॉक खातों के आइटम एक साथ दिखाता है। आप खाता मेनू में \"संयुक्त\" भी चुन सकते हैं।"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "हर साइट के लिए सहेजने वाला खाता याद रखें"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "सहेजने का संकेत उस खाते को पहले से चुनता है जिसमें आपने उस साइट पर पिछली बार सहेजा था।"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium सूचनाएँ छिपाएँ"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium में अपग्रेड करने वाले बैनर, सुझाव और बैज छिपाता है।"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden, Bitwarden ब्राउज़र एक्सटेंशन का एक अनौपचारिक, ओपन-सोर्स फ़ोर्क है। यह Bitwarden, Inc. से संबद्ध नहीं है।"
+  },
+  "multiwardenCombined": {
+    "message": "संयुक्त"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "सभी अनलॉक खाते एक साथ"
+  },
+  "multiwardenCurrentView": {
+    "message": "वर्तमान दृश्य"
+  },
+  "multiwardenManageAccounts": {
+    "message": "खाते प्रबंधित करें"
+  },
+  "multiwardenChooseVault": {
+    "message": "किस वॉल्ट में सहेजें?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "वह खाता चुनें जिसमें यह आइटम सहेजा जाएगा।"
+  },
+  "multiwardenVault": {
+    "message": "वॉल्ट:"
+  }
+}

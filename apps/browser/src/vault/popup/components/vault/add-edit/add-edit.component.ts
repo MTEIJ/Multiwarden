@@ -49,6 +49,7 @@ import {
 } from "@bitwarden/vault";
 
 import { BrowserFido2UserInterfaceSession } from "../../../../../autofill/fido2/services/browser-fido2-user-interface.service";
+import { MultiwardenVaultBannerComponent } from "../../../../../multiwarden/popup/multiwarden-vault-banner.component";
 import { BrowserApi } from "../../../../../platform/browser/browser-api";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { PopOutComponent } from "../../../../../platform/popup/components/pop-out.component";
@@ -178,6 +179,7 @@ export type AddEditQueryParams = Partial<Record<keyof QueryParams, string>>;
     { provide: PremiumUpgradePromptService, useClass: BrowserPremiumUpgradePromptService },
   ],
   imports: [
+    MultiwardenVaultBannerComponent,
     CommonModule,
     SearchModule,
     JslibModule,

@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Enregistrer dans le compte"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Enregistrer comme nouvel identifiant dans $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Compte"
+  },
+  "multiwardenSettings": {
+    "message": "Paramètres de Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Comptes"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Affichage"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Vue combinée"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Affiche ensemble les éléments de tous les comptes déverrouillés. Vous pouvez aussi choisir « Combiné » dans le menu du compte."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Mémoriser le compte d'enregistrement par site"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "L'invite d'enregistrement présélectionne le dernier compte utilisé pour enregistrer sur ce site."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Masquer les annonces Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Masque les bannières, suggestions et badges de mise à niveau Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden est un fork non officiel et open source de l'extension de navigateur Bitwarden. Il n'est pas affilié à Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Combiné"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Tous les comptes déverrouillés ensemble"
+  },
+  "multiwardenCurrentView": {
+    "message": "Vue actuelle"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Gérer les comptes"
+  },
+  "multiwardenChooseVault": {
+    "message": "Enregistrer dans quel coffre ?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Choisissez le compte dans lequel cet élément est enregistré."
+  },
+  "multiwardenVault": {
+    "message": "Coffre :"
+  }
+}

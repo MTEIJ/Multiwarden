@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Sačuvaj u račun"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Sačuvaj kao novu prijavu u $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Račun"
+  },
+  "multiwardenSettings": {
+    "message": "Postavke Multiwardena"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Računi"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Izgled"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Kombinovani prikaz"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Prikazuje stavke svih otključanih računa zajedno. Možete izabrati i „Kombinovano” u meniju računa."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Zapamti račun za čuvanje po web stranici"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Upit za čuvanje unaprijed bira račun u koji ste posljednji put sačuvali na toj stranici."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Sakrij obavještenja o Premiumu"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Skriva banere, savjete i oznake za nadogradnju na Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden je nezvanični fork proširenja preglednika Bitwarden otvorenog koda. Nije povezan s Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Kombinovano"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Svi otključani računi zajedno"
+  },
+  "multiwardenCurrentView": {
+    "message": "Trenutni prikaz"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Upravljaj računima"
+  },
+  "multiwardenChooseVault": {
+    "message": "U koji trezor sačuvati?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Izaberite račun u koji se čuva ova stavka."
+  },
+  "multiwardenVault": {
+    "message": "Trezor:"
+  }
+}

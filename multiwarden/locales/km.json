@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "រក្សាទុកក្នុងគណនី"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "រក្សាទុកជាការចូលថ្មីក្នុង $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "គណនី"
+  },
+  "multiwardenSettings": {
+    "message": "ការកំណត់ Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "គណនី"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "រូបរាង"
+  },
+  "multiwardenCombinedMode": {
+    "message": "ទិដ្ឋភាពរួម"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "បង្ហាញធាតុនៃគណនីដែលបានដោះសោទាំងអស់ជាមួយគ្នា។ អ្នកក៏អាចជ្រើស \"រួម\" ក្នុងម៉ឺនុយគណនីបានដែរ។"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "ចងចាំគណនីរក្សាទុកសម្រាប់គេហទំព័រនីមួយៗ"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "ការសួររក្សាទុកនឹងជ្រើសគណនីដែលអ្នកបានរក្សាទុកចុងក្រោយនៅគេហទំព័រនោះជាមុន។"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "លាក់ការជូនដំណឹង Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "លាក់បដា គន្លឹះ និងស្លាកសម្រាប់ដំឡើងទៅ Premium។"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden គឺជា fork កូដចំហមិនផ្លូវការនៃកម្មវិធីបន្ថែមកម្មវិធីរុករក Bitwarden ហើយមិនពាក់ព័ន្ធនឹង Bitwarden, Inc. ទេ។"
+  },
+  "multiwardenCombined": {
+    "message": "រួម"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "គណនីដែលបានដោះសោទាំងអស់"
+  },
+  "multiwardenCurrentView": {
+    "message": "ទិដ្ឋភាពបច្ចុប្បន្ន"
+  },
+  "multiwardenManageAccounts": {
+    "message": "គ្រប់គ្រងគណនី"
+  },
+  "multiwardenChooseVault": {
+    "message": "រក្សាទុកក្នុងឃ្លាំងណា?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "ជ្រើសគណនីដែលធាតុនេះនឹងត្រូវរក្សាទុក។"
+  },
+  "multiwardenVault": {
+    "message": "ឃ្លាំង:"
+  }
+}

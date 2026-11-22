@@ -111,6 +111,8 @@
             </div>
             <span data-testid="item-name">{{ cipher.name }}</span>
             <div slot="default-trailing" class="tw-flex tw-gap-1.5">
+              <!-- Multiwarden: which account the item belongs to (combined mode) -->
+              <app-multiwarden-account-badge [cipherId]="cipher.id"></app-multiwarden-account-badge>
               @if (cipher.organization; as organization) {
                 <i
                   slot="default-trailing"

@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "الحفظ في الحساب"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "الحفظ كتسجيل دخول جديد في $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "الحساب"
+  },
+  "multiwardenSettings": {
+    "message": "إعدادات Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "الحسابات"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "المظهر"
+  },
+  "multiwardenCombinedMode": {
+    "message": "العرض المدمج"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "يعرض عناصر جميع الحسابات غير المقفلة معًا. يمكنك أيضًا اختيار \"مدمج\" من قائمة الحساب."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "تذكّر حساب الحفظ لكل موقع"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "تحدد مطالبة الحفظ مسبقًا الحساب الذي حفظت فيه آخر مرة على هذا الموقع."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "إخفاء إشعارات Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "يخفي لافتات وتلميحات وشارات الترقية إلى Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden هو تفرع غير رسمي ومفتوح المصدر من إضافة متصفح Bitwarden. وهو غير تابع لشركة Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "مدمج"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "جميع الحسابات غير المقفلة معًا"
+  },
+  "multiwardenCurrentView": {
+    "message": "العرض الحالي"
+  },
+  "multiwardenManageAccounts": {
+    "message": "إدارة الحسابات"
+  },
+  "multiwardenChooseVault": {
+    "message": "في أي خزنة يتم الحفظ؟"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "اختر الحساب الذي يُحفظ فيه هذا العنصر."
+  },
+  "multiwardenVault": {
+    "message": "الخزنة:"
+  }
+}

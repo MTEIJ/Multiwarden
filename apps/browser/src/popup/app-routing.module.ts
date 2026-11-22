@@ -82,7 +82,10 @@ import {
 } from "../dirt/health/popup/services/health-access.service";
 import { PhishingWarningComponent } from "../dirt/phishing-detection/popup/phishing-warning.component";
 import { ProtectedByComponent } from "../dirt/phishing-detection/popup/protected-by-component";
-import { AllAccountsComponent } from "../multiwarden/popup/all-accounts.component";
+import {
+  multiwardenCipherOwnerGuard,
+  multiwardenNewItemTargetGuard,
+} from "../multiwarden/popup/multiwarden-guards";
 import { MultiwardenSettingsComponent } from "../multiwarden/popup/multiwarden-settings.component";
 import BrowserPopupUtils from "../platform/browser/browser-popup-utils";
 import { popupRouterCacheGuard } from "../platform/popup/view-cache/popup-router-cache.service";
@@ -247,7 +250,7 @@ const routes: Routes = [
   {
     path: "view-cipher",
     component: ViewComponent,
-    canActivate: [authGuard],
+    canActivate: [multiwardenCipherOwnerGuard, authGuard],
     data: {
       // Above "trash"
       elevation: 3,
@@ -256,7 +259,7 @@ const routes: Routes = [
   {
     path: "cipher-password-history",
     component: PasswordHistoryComponent,
-    canActivate: [authGuard],
+    canActivate: [multiwardenCipherOwnerGuard, authGuard],
     data: { elevation: 4 } satisfies RouteDataProperties,
   },
   {
@@ -271,7 +274,7 @@ const routes: Routes = [
   {
     path: "add-cipher",
     component: AddEditComponent,
-    canActivate: [authGuard, debounceNavigationGuard()],
+    canActivate: [multiwardenNewItemTargetGuard, authGuard, debounceNavigationGuard()],
     data: { elevation: 1, resetRouterCacheOnTabChange: true } satisfies RouteDataProperties,
     runGuardsAndResolvers: "always",
   },
@@ -279,6 +282,7 @@ const routes: Routes = [
     path: "edit-cipher",
     component: AddEditComponent,
     canActivate: [
+      multiwardenCipherOwnerGuard,
       authGuard,
       debounceNavigationGuard(),
       restrictedCipherGuard(RestrictedCipherAction.Edit),
@@ -293,7 +297,7 @@ const routes: Routes = [
   {
     path: "attachments",
     component: AttachmentsComponent,
-    canActivate: [authGuard, filePickerPopoutGuard()],
+    canActivate: [multiwardenCipherOwnerGuard, authGuard, filePickerPopoutGuard()],
     data: { elevation: 4 } satisfies RouteDataProperties,
   },
   {
@@ -447,7 +451,11 @@ const routes: Routes = [
   {
     path: "clone-cipher",
     component: AddEditComponent,
-    canActivate: [authGuard, restrictedCipherGuard(RestrictedCipherAction.Clone)],
+    canActivate: [
+      multiwardenCipherOwnerGuard,
+      authGuard,
+      restrictedCipherGuard(RestrictedCipherAction.Clone),
+    ],
     data: { elevation: 1 } satisfies RouteDataProperties,
   },
   {
@@ -757,7 +765,11 @@ const routes: Routes = [
   {
     path: "assign-collections",
     component: AssignCollections,
-    canActivate: [authGuard, restrictedCipherGuard(RestrictedCipherAction.AssignCollections)],
+    canActivate: [
+      multiwardenCipherOwnerGuard,
+      authGuard,
+      restrictedCipherGuard(RestrictedCipherAction.AssignCollections),
+    ],
     data: { elevation: 1 } satisfies RouteDataProperties,
   },
   {
@@ -867,13 +879,6 @@ const routes: Routes = [
         canActivate: [authGuard, vaultScopeGuard],
         canDeactivate: [clearVaultStateGuard],
         data: { ...MY_ITEMS_ROUTE_DATA, elevation: 0 } satisfies RouteDataProperties,
-      },
-      {
-        // Multiwarden: every unlocked account's items in one list.
-        path: "all-accounts",
-        component: AllAccountsComponent,
-        canActivate: [authGuard],
-        data: { elevation: 0 } satisfies RouteDataProperties,
       },
       {
         path: "generator",

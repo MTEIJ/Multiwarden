@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "ಖಾತೆಗೆ ಉಳಿಸಿ"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ ನಲ್ಲಿ ಹೊಸ ಲಾಗಿನ್ ಆಗಿ ಉಳಿಸಿ",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "ಖಾತೆ"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+  },
+  "multiwardenAccountsSection": {
+    "message": "ಖಾತೆಗಳು"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "ಗೋಚರತೆ"
+  },
+  "multiwardenCombinedMode": {
+    "message": "ಸಂಯೋಜಿತ ನೋಟ"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "ಅನ್‌ಲಾಕ್ ಆದ ಎಲ್ಲಾ ಖಾತೆಗಳ ಐಟಂಗಳನ್ನು ಒಟ್ಟಿಗೆ ತೋರಿಸುತ್ತದೆ. ಖಾತೆ ಮೆನುವಿನಲ್ಲಿ \"ಸಂಯೋಜಿತ\" ಅನ್ನು ಸಹ ಆಯ್ಕೆ ಮಾಡಬಹುದು."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "ಪ್ರತಿ ಸೈಟ್‌ಗೆ ಉಳಿಸುವ ಖಾತೆಯನ್ನು ನೆನಪಿಡಿ"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "ಉಳಿಸುವ ಸೂಚನೆಯು ಆ ಸೈಟ್‌ನಲ್ಲಿ ನೀವು ಕೊನೆಯದಾಗಿ ಉಳಿಸಿದ ಖಾತೆಯನ್ನು ಮೊದಲೇ ಆಯ್ಕೆ ಮಾಡುತ್ತದೆ."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium ಸೂಚನೆಗಳನ್ನು ಮರೆಮಾಡಿ"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium ಅಪ್‌ಗ್ರೇಡ್ ಬ್ಯಾನರ್‌ಗಳು, ಸಲಹೆಗಳು ಮತ್ತು ಬ್ಯಾಡ್ಜ್‌ಗಳನ್ನು ಮರೆಮಾಡುತ್ತದೆ."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden ಎಂಬುದು Bitwarden ಬ್ರೌಸರ್ ವಿಸ್ತರಣೆಯ ಅನಧಿಕೃತ, ಓಪನ್ ಸೋರ್ಸ್ fork. ಇದು Bitwarden, Inc. ಜೊತೆ ಸಂಬಂಧ ಹೊಂದಿಲ್ಲ."
+  },
+  "multiwardenCombined": {
+    "message": "ಸಂಯೋಜಿತ"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "ಅನ್‌ಲಾಕ್ ಆದ ಎಲ್ಲಾ ಖಾತೆಗಳು ಒಟ್ಟಿಗೆ"
+  },
+  "multiwardenCurrentView": {
+    "message": "ಪ್ರಸ್ತುತ ನೋಟ"
+  },
+  "multiwardenManageAccounts": {
+    "message": "ಖಾತೆಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
+  },
+  "multiwardenChooseVault": {
+    "message": "ಯಾವ ವಾಲ್ಟ್‌ಗೆ ಉಳಿಸಬೇಕು?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "ಈ ಐಟಂ ಉಳಿಸಲಾಗುವ ಖಾತೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ."
+  },
+  "multiwardenVault": {
+    "message": "ವಾಲ್ಟ್:"
+  }
+}

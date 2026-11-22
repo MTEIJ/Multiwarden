@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "アカウントに保存"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ に新しいログインとして保存",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "アカウント"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden の設定"
+  },
+  "multiwardenAccountsSection": {
+    "message": "アカウント"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "表示"
+  },
+  "multiwardenCombinedMode": {
+    "message": "統合ビュー"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "ロック解除済みのすべてのアカウントのアイテムをまとめて表示します。アカウントメニューで「統合」を選ぶこともできます。"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "サイトごとに保存先アカウントを記憶"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "保存の確認で、そのサイトで最後に保存したアカウントがあらかじめ選択されます。"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium の案内を非表示"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium へのアップグレードを促すバナー、ヒント、バッジを非表示にします。"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden は Bitwarden ブラウザ拡張機能の非公式なオープンソースのフォークです。Bitwarden, Inc. とは関係ありません。"
+  },
+  "multiwardenCombined": {
+    "message": "統合"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "ロック解除済みのすべてのアカウント"
+  },
+  "multiwardenCurrentView": {
+    "message": "現在のビュー"
+  },
+  "multiwardenManageAccounts": {
+    "message": "アカウントを管理"
+  },
+  "multiwardenChooseVault": {
+    "message": "どの保管庫に保存しますか？"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "このアイテムを保存するアカウントを選択してください。"
+  },
+  "multiwardenVault": {
+    "message": "保管庫:"
+  }
+}

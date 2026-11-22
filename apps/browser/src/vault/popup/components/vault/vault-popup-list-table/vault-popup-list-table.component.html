@@ -169,6 +169,10 @@
               row.cipher.name
             }}</span>
             <div class="tw-flex tw-items-center tw-gap-1.5 tw-shrink-0">
+              <!-- Multiwarden: which account the item belongs to (combined mode) -->
+              <app-multiwarden-account-badge
+                [cipherId]="row.cipher.id"
+              ></app-multiwarden-account-badge>
               @if (row.cipher.organization; as organization) {
                 <i
                   appOrgIcon

@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Uložit do účtu"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Uložit jako nové přihlášení do $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Účet"
+  },
+  "multiwardenSettings": {
+    "message": "Nastavení Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Účty"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Vzhled"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Kombinované zobrazení"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Zobrazí položky všech odemčených účtů dohromady. V nabídce účtu můžete také zvolit „Kombinované“."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Pamatovat účet pro ukládání pro každý web"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Výzva k uložení předvybere účet, do kterého jste na tomto webu ukládali naposledy."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Skrýt upozornění na Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Skryje bannery, tipy a odznaky pro upgrade na Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden je neoficiální fork rozšíření prohlížeče Bitwarden s otevřeným zdrojovým kódem. Není spojen s Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Kombinované"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Všechny odemčené účty dohromady"
+  },
+  "multiwardenCurrentView": {
+    "message": "Aktuální zobrazení"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Spravovat účty"
+  },
+  "multiwardenChooseVault": {
+    "message": "Do kterého trezoru uložit?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Vyberte účet, do kterého se tato položka uloží."
+  },
+  "multiwardenVault": {
+    "message": "Trezor:"
+  }
+}

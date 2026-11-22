@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Lưu vào tài khoản"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Lưu thành đăng nhập mới trong $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Tài khoản"
+  },
+  "multiwardenSettings": {
+    "message": "Cài đặt Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Tài khoản"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Giao diện"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Chế độ xem kết hợp"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Hiển thị cùng lúc các mục của mọi tài khoản đã mở khóa. Bạn cũng có thể chọn \"Kết hợp\" trong menu tài khoản."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Ghi nhớ tài khoản lưu theo từng trang web"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Lời nhắc lưu sẽ chọn sẵn tài khoản bạn đã lưu gần nhất trên trang web đó."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Ẩn thông báo Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Ẩn các biểu ngữ, gợi ý và huy hiệu nâng cấp Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden là một bản fork mã nguồn mở không chính thức của tiện ích trình duyệt Bitwarden. Nó không liên kết với Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Kết hợp"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Tất cả tài khoản đã mở khóa"
+  },
+  "multiwardenCurrentView": {
+    "message": "Chế độ xem hiện tại"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Quản lý tài khoản"
+  },
+  "multiwardenChooseVault": {
+    "message": "Lưu vào kho nào?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Chọn tài khoản để lưu mục này."
+  },
+  "multiwardenVault": {
+    "message": "Kho:"
+  }
+}

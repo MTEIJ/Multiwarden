@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "অ্যাকাউন্টে সংরক্ষণ করুন"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$-এ নতুন লগইন হিসেবে সংরক্ষণ করুন",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "অ্যাকাউন্ট"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden সেটিংস"
+  },
+  "multiwardenAccountsSection": {
+    "message": "অ্যাকাউন্টসমূহ"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "চেহারা"
+  },
+  "multiwardenCombinedMode": {
+    "message": "সম্মিলিত দৃশ্য"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "সব আনলক করা অ্যাকাউন্টের আইটেম একসাথে দেখায়। অ্যাকাউন্ট মেনুতে \"সম্মিলিত\"ও বেছে নিতে পারেন।"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "প্রতিটি সাইটের জন্য সংরক্ষণের অ্যাকাউন্ট মনে রাখুন"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "সংরক্ষণের প্রম্পট সেই অ্যাকাউন্টটি আগে থেকে বেছে নেয় যেখানে আপনি ওই সাইটে শেষবার সংরক্ষণ করেছিলেন।"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium বিজ্ঞপ্তি লুকান"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium-এ আপগ্রেডের ব্যানার, পরামর্শ ও ব্যাজ লুকায়।"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden হলো Bitwarden ব্রাউজার এক্সটেনশনের একটি অনানুষ্ঠানিক, ওপেন-সোর্স ফর্ক। এটি Bitwarden, Inc.-এর সাথে যুক্ত নয়।"
+  },
+  "multiwardenCombined": {
+    "message": "সম্মিলিত"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "সব আনলক করা অ্যাকাউন্ট একসাথে"
+  },
+  "multiwardenCurrentView": {
+    "message": "বর্তমান দৃশ্য"
+  },
+  "multiwardenManageAccounts": {
+    "message": "অ্যাকাউন্ট পরিচালনা করুন"
+  },
+  "multiwardenChooseVault": {
+    "message": "কোন ভল্টে সংরক্ষণ করবেন?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "যে অ্যাকাউন্টে এই আইটেম সংরক্ষিত হবে তা বেছে নিন।"
+  },
+  "multiwardenVault": {
+    "message": "ভল্ট:"
+  }
+}

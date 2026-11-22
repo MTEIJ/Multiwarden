@@ -61,6 +61,7 @@ import {
 } from "@bitwarden/vault";
 
 import { sendExtensionMessage } from "../../../../../autofill/utils/index";
+import { MultiwardenVaultBannerComponent } from "../../../../../multiwarden/popup/multiwarden-vault-banner.component";
 import { BrowserApi } from "../../../../../platform/browser/browser-api";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { PopOutComponent } from "../../../../../platform/popup/components/pop-out.component";
@@ -98,6 +99,7 @@ type LoadAction =
   selector: "app-view",
   templateUrl: "view.component.html",
   imports: [
+    MultiwardenVaultBannerComponent,
     CommonModule,
     SearchModule,
     JslibModule,

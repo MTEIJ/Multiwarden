@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Lagre i konto"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Lagre som ny pålogging i $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Konto"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden-innstillingar"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Kontoar"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Utsjånad"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Kombinert vising"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Viser elementa frå alle opplåste kontoar saman. Du kan òg velje «Kombinert» i kontomenyen."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Hugs lagringskonto per nettstad"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Lagringsspørsmålet førehandsvel kontoen du sist lagra i på den nettstaden."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Gøym Premium-meldingar"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Gøymer bannerar, tips og merke om oppgradering til Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden er ein uoffisiell fork med open kjeldekode av nettlesartillegget til Bitwarden. Han er ikkje tilknytt Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Kombinert"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Alle opplåste kontoar saman"
+  },
+  "multiwardenCurrentView": {
+    "message": "Gjeldande vising"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Administrer kontoar"
+  },
+  "multiwardenChooseVault": {
+    "message": "Lagre i kva kvelv?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Vel kontoen elementet blir lagra i."
+  },
+  "multiwardenVault": {
+    "message": "Kvelv:"
+  }
+}

@@ -9470,23 +9470,8 @@
   "multiwardenAccount": {
     "message": "Account"
   },
-  "multiwardenAllAccounts": {
-    "message": "All accounts"
-  },
-  "multiwardenAllTab": {
-    "message": "All"
-  },
   "multiwardenSettings": {
     "message": "Multiwarden settings"
-  },
-  "multiwardenEverything": {
-    "message": "Everything"
-  },
-  "multiwardenFilterByAccount": {
-    "message": "Filter by account"
-  },
-  "multiwardenSuggestions": {
-    "message": "Suggestions for this site"
   },
   "multiwardenAccountsSection": {
     "message": "Accounts"
@@ -9494,11 +9479,11 @@
   "multiwardenInterfaceSection": {
     "message": "Interface"
   },
-  "multiwardenShowAllAccountsTab": {
-    "message": "Show the \"All accounts\" tab"
+  "multiwardenCombinedMode": {
+    "message": "Combined view"
   },
-  "multiwardenShowAllAccountsTabHint": {
-    "message": "One list of the items in every unlocked account. Appears when two or more accounts are signed in."
+  "multiwardenCombinedModeHint": {
+    "message": "Show the items of all unlocked accounts together. You can also choose \"Combined\" in the account menu."
   },
   "multiwardenRememberSaveAccount": {
     "message": "Remember the save account per site"
@@ -9514,5 +9499,26 @@
   },
   "multiwardenAbout": {
     "message": "Multiwarden is an unofficial, open-source fork of the Bitwarden browser extension. It is not affiliated with Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Combined"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "All unlocked accounts together"
+  },
+  "multiwardenCurrentView": {
+    "message": "Current view"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Manage accounts"
+  },
+  "multiwardenChooseVault": {
+    "message": "Save to which vault?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Choose the account this item is saved in."
+  },
+  "multiwardenVault": {
+    "message": "Vault:"
   }
 }

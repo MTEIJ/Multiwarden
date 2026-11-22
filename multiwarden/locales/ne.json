@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "खातामा सुरक्षित गर्नुहोस्"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ मा नयाँ लगइनको रूपमा सुरक्षित गर्नुहोस्",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "खाता"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden सेटिङहरू"
+  },
+  "multiwardenAccountsSection": {
+    "message": "खाताहरू"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "रूप"
+  },
+  "multiwardenCombinedMode": {
+    "message": "संयुक्त दृश्य"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "अनलक गरिएका सबै खाताका वस्तुहरू सँगै देखाउँछ। खाता मेनुमा \"संयुक्त\" पनि छान्न सक्नुहुन्छ।"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "प्रत्येक साइटका लागि सुरक्षित गर्ने खाता सम्झनुहोस्"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "सुरक्षित गर्ने सोधाइले त्यो साइटमा तपाईंले अन्तिमपटक सुरक्षित गरेको खाता पहिले नै छान्छ।"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium सूचनाहरू लुकाउनुहोस्"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium मा अपग्रेड गर्ने ब्यानर, सुझाव र ब्याजहरू लुकाउँछ।"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden, Bitwarden ब्राउजर एक्सटेन्सनको अनौपचारिक, खुला स्रोत fork हो। यो Bitwarden, Inc. सँग सम्बद्ध छैन।"
+  },
+  "multiwardenCombined": {
+    "message": "संयुक्त"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "अनलक गरिएका सबै खाता सँगै"
+  },
+  "multiwardenCurrentView": {
+    "message": "हालको दृश्य"
+  },
+  "multiwardenManageAccounts": {
+    "message": "खाताहरू व्यवस्थापन गर्नुहोस्"
+  },
+  "multiwardenChooseVault": {
+    "message": "कुन भल्टमा सुरक्षित गर्ने?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "यो वस्तु सुरक्षित हुने खाता छान्नुहोस्।"
+  },
+  "multiwardenVault": {
+    "message": "भल्ट:"
+  }
+}

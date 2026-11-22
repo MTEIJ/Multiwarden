@@ -8,6 +8,8 @@
 
   <ng-container *ngIf="availableAccounts$ | async as availableAccounts">
     <bit-section [disableMargin]="!(enableAccountSwitching$ | async)">
+      <!-- Multiwarden: "Combined" shows every unlocked account's vault at once -->
+      <app-multiwarden-combined-item></app-multiwarden-combined-item>
       <ng-container *ngFor="let availableAccount of availableAccounts; first as isFirst">
         <div
           *ngIf="availableAccount.isActive"

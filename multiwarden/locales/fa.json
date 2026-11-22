@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "ذخیره در حساب"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "ذخیره به‌عنوان ورود جدید در $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "حساب"
+  },
+  "multiwardenSettings": {
+    "message": "تنظیمات Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "حساب‌ها"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "نمایش"
+  },
+  "multiwardenCombinedMode": {
+    "message": "نمای ترکیبی"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "موارد همه حساب‌های قفل‌نشده را با هم نشان می‌دهد. همچنین می‌توانید «ترکیبی» را از منوی حساب انتخاب کنید."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "به خاطر سپردن حساب ذخیره برای هر سایت"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "درخواست ذخیره، حسابی را که آخرین بار در این سایت در آن ذخیره کرده‌اید از پیش انتخاب می‌کند."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "پنهان کردن اعلان‌های Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "بنرها، نکته‌ها و نشان‌های ارتقا به Premium را پنهان می‌کند."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden یک انشعاب غیررسمی و متن‌باز از افزونه مرورگر Bitwarden است و وابسته به Bitwarden, Inc. نیست."
+  },
+  "multiwardenCombined": {
+    "message": "ترکیبی"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "همه حساب‌های قفل‌نشده با هم"
+  },
+  "multiwardenCurrentView": {
+    "message": "نمای فعلی"
+  },
+  "multiwardenManageAccounts": {
+    "message": "مدیریت حساب‌ها"
+  },
+  "multiwardenChooseVault": {
+    "message": "در کدام گاوصندوق ذخیره شود؟"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "حسابی را که این مورد در آن ذخیره می‌شود انتخاب کنید."
+  },
+  "multiwardenVault": {
+    "message": "گاوصندوق:"
+  }
+}

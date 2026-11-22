@@ -26,6 +26,7 @@ import {
 } from "@bitwarden/components";
 import { LockService, LockSource } from "@bitwarden/unlock";
 
+import { MultiwardenCombinedItemComponent } from "../../../multiwarden/popup/multiwarden-combined-item.component";
 import { PopOutComponent } from "../../../platform/popup/components/pop-out.component";
 import { PopupHeaderComponent } from "../../../platform/popup/layout/popup-header.component";
 import { PopupPageComponent } from "../../../platform/popup/layout/popup-page.component";
@@ -39,6 +40,7 @@ import { AccountSwitcherService } from "./services/account-switcher.service";
 @Component({
   templateUrl: "account-switcher.component.html",
   imports: [
+    MultiwardenCombinedItemComponent,
     CommonModule,
     JslibModule,
     ButtonModule,

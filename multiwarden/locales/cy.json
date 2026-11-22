@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Cadw i gyfrif"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Cadw fel mewngofnod newydd yn $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Cyfrif"
+  },
+  "multiwardenSettings": {
+    "message": "Gosodiadau Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Cyfrifon"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Golwg"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Golwg gyfunol"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Yn dangos eitemau pob cyfrif sydd wedi'i ddatgloi gyda'i gilydd. Gallwch hefyd ddewis \"Cyfunol\" yn newislen y cyfrif."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Cofio'r cyfrif cadw ar gyfer pob gwefan"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Mae'r neges cadw yn rhag-ddewis y cyfrif y gwnaethoch gadw iddo ddiwethaf ar y wefan honno."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Cuddio hysbysiadau Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Yn cuddio baneri, awgrymiadau a bathodynnau uwchraddio i Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Mae Multiwarden yn fforc answyddogol, cod agored o estyniad porwr Bitwarden. Nid yw'n gysylltiedig â Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Cyfunol"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Pob cyfrif wedi'i ddatgloi gyda'i gilydd"
+  },
+  "multiwardenCurrentView": {
+    "message": "Golwg gyfredol"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Rheoli cyfrifon"
+  },
+  "multiwardenChooseVault": {
+    "message": "Cadw ym mha gell?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Dewiswch y cyfrif y caiff yr eitem hon ei chadw ynddo."
+  },
+  "multiwardenVault": {
+    "message": "Cell:"
+  }
+}

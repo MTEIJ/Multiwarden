@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "ගිණුමට සුරකින්න"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ හි නව පිවිසුමක් ලෙස සුරකින්න",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "ගිණුම"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden සැකසුම්"
+  },
+  "multiwardenAccountsSection": {
+    "message": "ගිණුම්"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "පෙනුම"
+  },
+  "multiwardenCombinedMode": {
+    "message": "ඒකාබද්ධ දසුන"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "අගුළු හැරි සියලු ගිණුම්වල අයිතම එකට පෙන්වයි. ගිණුම් මෙනුවෙන් \"ඒකාබද්ධ\" ද තෝරාගත හැක."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "එක් එක් අඩවිය සඳහා සුරැකීමේ ගිණුම මතක තබාගන්න"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "සුරැකීමේ විමසුම, එම අඩවියේ ඔබ අවසන් වරට සුරැකූ ගිණුම කලින්ම තෝරයි."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium දැනුම්දීම් සඟවන්න"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium උත්ශ්‍රේණි බැනර, ඉඟි සහ ලාංඡන සඟවයි."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden යනු Bitwarden බ්‍රව්සර් දිගුවේ නිල නොවන, විවෘත මූලාශ්‍ර fork එකකි. එය Bitwarden, Inc. සමඟ සම්බන්ධ නැත."
+  },
+  "multiwardenCombined": {
+    "message": "ඒකාබද්ධ"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "අගුළු හැරි සියලු ගිණුම් එකට"
+  },
+  "multiwardenCurrentView": {
+    "message": "වත්මන් දසුන"
+  },
+  "multiwardenManageAccounts": {
+    "message": "ගිණුම් කළමනාකරණය"
+  },
+  "multiwardenChooseVault": {
+    "message": "කුමන සුරක්ෂිතාගාරයට සුරකින්නද?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "මෙම අයිතමය සුරැකෙන ගිණුම තෝරන්න."
+  },
+  "multiwardenVault": {
+    "message": "සුරක්ෂිතාගාරය:"
+  }
+}

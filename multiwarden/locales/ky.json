@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Аккаунтка сактоо"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ ичинде жаңы кирүү катары сактоо",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Аккаунт"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden жөндөөлөрү"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Аккаунттар"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Көрүнүш"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Бириккен көрүнүш"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Кулпусу ачылган бардык аккаунттардын элементтерин чогуу көрсөтөт. Аккаунт менюсунан «Бириккен» дегенди да тандай аласыз."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Ар бир сайт үчүн сактоо аккаунтун эстеп калуу"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Сактоо суроосу ошол сайтта акыркы жолу сактаган аккаунтту алдын ала тандайт."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium эскертүүлөрүн жашыруу"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium'га өтүү баннерлерин, кеңештерин жана белгилерин жашырат."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden — Bitwarden браузер кеңейтүүсүнүн расмий эмес, ачык булактуу форку. Ал Bitwarden, Inc. менен байланышпайт."
+  },
+  "multiwardenCombined": {
+    "message": "Бириккен"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Кулпусу ачылган бардык аккаунттар чогуу"
+  },
+  "multiwardenCurrentView": {
+    "message": "Учурдагы көрүнүш"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Аккаунттарды башкаруу"
+  },
+  "multiwardenChooseVault": {
+    "message": "Кайсы сейфке сактоо керек?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Бул элемент сактала турган аккаунтту тандаңыз."
+  },
+  "multiwardenVault": {
+    "message": "Сейф:"
+  }
+}

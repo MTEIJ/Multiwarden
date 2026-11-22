@@ -28,10 +28,25 @@ jobs:
         # Upstream's lock file is occasionally out of step with package.json.
         run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
 
+      - name: Lint Multiwarden code
+        run: |
+          npx eslint libs/common/src/multiwarden apps/browser/src/multiwarden \
+            apps/browser/src/autofill/multiwarden
+          npx prettier --check libs/common/src/multiwarden apps/browser/src/multiwarden \
+            apps/browser/src/autofill/multiwarden multiwarden/scripts
+
       - name: Test Multiwarden changes
         run: |
           (cd libs/common && npx jest src/multiwarden src/platform/services/fido2)
           (cd apps/browser && npx jest --runInBand \
+            src/multiwarden \
+            src/vault/popup/services/vault-popup-items.service.spec.ts \
+            src/vault/popup/components/vault/vault-list-items-container \
+            src/vault/popup/components/vault/vault-popup-list-table \
+            src/vault/popup/components/vault/view \
+            src/vault/popup/components/vault/add-edit \
+            src/auth/popup/account-switching \
+            src/popup \
             src/autofill/background/notification.background.spec.ts \
             src/autofill/background/overlay.background.spec.ts \
             src/autofill/background/autofill-orchestrator.spec.ts \

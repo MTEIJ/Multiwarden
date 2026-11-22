@@ -578,6 +578,14 @@ export default class RuntimeBackground {
         await this.main.switchAccount(msg.userId);
         break;
       }
+      case "multiwardenActivateAccount": {
+        // Multiwarden: make an unlocked account active without the full switch (no sync, no
+        // navigation), so combined mode can act on an item in its own account.
+        if (await this.main.multiAccountScope.isUnlocked(msg.userId)) {
+          await this.main.accountService.switchAccount(msg.userId);
+        }
+        break;
+      }
       case "clearClipboard": {
         await this.main.clearClipboard(msg.clipboardValue, msg.timeoutMs);
         break;

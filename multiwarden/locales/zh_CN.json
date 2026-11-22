@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "保存到账户"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "作为新登录保存到 $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "账户"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden 设置"
+  },
+  "multiwardenAccountsSection": {
+    "message": "账户"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "外观"
+  },
+  "multiwardenCombinedMode": {
+    "message": "合并视图"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "同时显示所有已解锁账户的项目。也可以在账户菜单中选择“合并”。"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "按网站记住保存账户"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "保存提示会预先选择你上次在该网站保存时使用的账户。"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "隐藏 Premium 提示"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "隐藏 Premium 升级横幅、提示和徽章。"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden 是 Bitwarden 浏览器扩展的非官方开源分支，与 Bitwarden, Inc. 无关。"
+  },
+  "multiwardenCombined": {
+    "message": "合并"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "所有已解锁账户"
+  },
+  "multiwardenCurrentView": {
+    "message": "当前视图"
+  },
+  "multiwardenManageAccounts": {
+    "message": "管理账户"
+  },
+  "multiwardenChooseVault": {
+    "message": "保存到哪个密码库？"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "选择保存此项目的账户。"
+  },
+  "multiwardenVault": {
+    "message": "密码库："
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Gorde kontuan"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Gorde saio-hasiera berri gisa $EMAIL$ kontuan",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Kontua"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ezarpenak"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Kontuak"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Itxura"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Ikuspegi konbinatua"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Desblokeatutako kontu guztien elementuak batera erakusten ditu. Kontuaren menuan \"Konbinatua\" ere hauta dezakezu."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Gogoratu gordetzeko kontua gune bakoitzerako"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Gordetzeko galderak gune horretan azkenekoz erabilitako kontua aurrez hautatzen du."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Ezkutatu Premium jakinarazpenak"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premiumera eguneratzeko bannerrak, aholkuak eta txapak ezkutatzen ditu."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden Bitwardenen nabigatzaile-gehigarriaren fork ez-ofizial eta kode irekikoa da. Ez dago Bitwarden, Inc.-ekin lotuta."
+  },
+  "multiwardenCombined": {
+    "message": "Konbinatua"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Desblokeatutako kontu guztiak batera"
+  },
+  "multiwardenCurrentView": {
+    "message": "Uneko ikuspegia"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Kudeatu kontuak"
+  },
+  "multiwardenChooseVault": {
+    "message": "Zein kutxa gotorretan gorde?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Aukeratu elementu hau gordeko den kontua."
+  },
+  "multiwardenVault": {
+    "message": "Kutxa gotorra:"
+  }
+}

@@ -13,15 +13,13 @@
       <bit-form-control>
         <input
           bitCheckbox
-          id="mw-all-accounts-tab"
+          id="mw-combined-mode"
           type="checkbox"
-          [checked]="settings().showAllAccountsTab"
-          (change)="toggle('showAllAccountsTab', $event)"
+          [checked]="settings().combinedMode"
+          (change)="toggle('combinedMode', $event)"
         />
-        <bit-label for="mw-all-accounts-tab">{{
-          "multiwardenShowAllAccountsTab" | i18n
-        }}</bit-label>
-        <bit-hint>{{ "multiwardenShowAllAccountsTabHint" | i18n }}</bit-hint>
+        <bit-label for="mw-combined-mode">{{ "multiwardenCombinedMode" | i18n }}</bit-label>
+        <bit-hint>{{ "multiwardenCombinedModeHint" | i18n }}</bit-hint>
       </bit-form-control>
       <bit-form-control disableMargin>
         <input

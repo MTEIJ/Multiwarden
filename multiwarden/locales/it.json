@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Salva nell'account"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Salva come nuovo login in $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Account"
+  },
+  "multiwardenSettings": {
+    "message": "Impostazioni di Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Account"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Aspetto"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Vista combinata"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Mostra insieme gli elementi di tutti gli account sbloccati. Puoi anche scegliere \"Combinata\" nel menu dell'account."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Ricorda l'account di salvataggio per sito"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "La richiesta di salvataggio preseleziona l'account usato l'ultima volta su quel sito."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Nascondi gli avvisi Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Nasconde banner, suggerimenti e badge di upgrade a Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden è un fork non ufficiale e open source dell'estensione del browser di Bitwarden. Non è affiliato a Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Combinata"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Tutti gli account sbloccati insieme"
+  },
+  "multiwardenCurrentView": {
+    "message": "Vista attuale"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Gestisci account"
+  },
+  "multiwardenChooseVault": {
+    "message": "In quale cassaforte salvare?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Scegli l'account in cui salvare questo elemento."
+  },
+  "multiwardenVault": {
+    "message": "Cassaforte:"
+  }
+}

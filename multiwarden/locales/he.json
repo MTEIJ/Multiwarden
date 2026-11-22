@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "שמירה בחשבון"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "שמירה ככניסה חדשה ב-$EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "חשבון"
+  },
+  "multiwardenSettings": {
+    "message": "הגדרות Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "חשבונות"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "תצוגה"
+  },
+  "multiwardenCombinedMode": {
+    "message": "תצוגה משולבת"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "מציגה יחד את הפריטים של כל החשבונות שאינם נעולים. אפשר גם לבחור \"משולב\" בתפריט החשבון."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "לזכור את חשבון השמירה לכל אתר"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "בקשת השמירה בוחרת מראש את החשבון שבו שמרת לאחרונה באתר זה."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "הסתרת הודעות Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "מסתיר באנרים, טיפים ותגים של שדרוג ל-Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden הוא פיצול לא רשמי בקוד פתוח של תוסף הדפדפן של Bitwarden. אין לו קשר ל-Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "משולב"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "כל החשבונות שאינם נעולים יחד"
+  },
+  "multiwardenCurrentView": {
+    "message": "התצוגה הנוכחית"
+  },
+  "multiwardenManageAccounts": {
+    "message": "ניהול חשבונות"
+  },
+  "multiwardenChooseVault": {
+    "message": "באיזו כספת לשמור?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "בחר את החשבון שבו יישמר פריט זה."
+  },
+  "multiwardenVault": {
+    "message": "כספת:"
+  }
+}

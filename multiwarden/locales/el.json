@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Αποθήκευση σε λογαριασμό"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Αποθήκευση ως νέα σύνδεση στο $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Λογαριασμός"
+  },
+  "multiwardenSettings": {
+    "message": "Ρυθμίσεις Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Λογαριασμοί"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Εμφάνιση"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Συνδυαστική προβολή"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Εμφανίζει μαζί τα στοιχεία όλων των ξεκλείδωτων λογαριασμών. Μπορείτε επίσης να επιλέξετε «Συνδυαστικά» στο μενού λογαριασμού."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Απομνημόνευση λογαριασμού αποθήκευσης ανά ιστότοπο"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Η ερώτηση αποθήκευσης προεπιλέγει τον λογαριασμό στον οποίο αποθηκεύσατε τελευταία σε αυτόν τον ιστότοπο."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Απόκρυψη ειδοποιήσεων Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Αποκρύπτει πανό, συμβουλές και σήματα αναβάθμισης σε Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Το Multiwarden είναι ένα ανεπίσημο fork ανοιχτού κώδικα της επέκτασης περιηγητή του Bitwarden. Δεν συνδέεται με την Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Συνδυαστικά"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Όλοι οι ξεκλείδωτοι λογαριασμοί μαζί"
+  },
+  "multiwardenCurrentView": {
+    "message": "Τρέχουσα προβολή"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Διαχείριση λογαριασμών"
+  },
+  "multiwardenChooseVault": {
+    "message": "Σε ποιο θησαυροφυλάκιο να αποθηκευτεί;"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Επιλέξτε τον λογαριασμό στον οποίο αποθηκεύεται αυτό το στοιχείο."
+  },
+  "multiwardenVault": {
+    "message": "Θησαυροφυλάκιο:"
+  }
+}

@@ -82,6 +82,7 @@ import {
   Vfo1I18nPipe,
 } from "@bitwarden/vault";
 
+import { MultiwardenAccountBadgeComponent } from "../../../../../multiwarden/popup/multiwarden-account-badge.component";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { ImportUpgradeNavigationService } from "../../../../../tools/popup/settings/import/import-upgrade-navigation.service";
 import { VaultPopupAutofillService } from "../../../services/vault-popup-autofill.service";
@@ -144,6 +145,7 @@ function contributedFilter(filter: VaultItemFilter | null): VaultItemFilter | nu
       "tw-flex tw-flex-col tw-flex-1 tw-min-h-0 -tw-mx-3 -tw-mt-3 -tw-mb-2.5 bit-compact:-tw-mx-2 bit-compact:-tw-mt-2 bit-compact:-tw-mb-1.5",
   },
   imports: [
+    MultiwardenAccountBadgeComponent,
     CommonModule,
     FormsModule,
     JslibModule,

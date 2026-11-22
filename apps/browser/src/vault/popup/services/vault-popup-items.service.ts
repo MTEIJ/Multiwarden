@@ -41,6 +41,7 @@ import {
 } from "@bitwarden/common/vault/utils/cipher-view-like-utils";
 import { RestrictedCipherPolicy } from "@bitwarden/common/vault/utils/restricted-cipher-policy";
 
+import { MultiwardenCombinedService } from "../../../multiwarden/popup/multiwarden-combined.service";
 import { runInsideAngular } from "../../../platform/browser/run-inside-angular.operator";
 import { PopupViewCacheService } from "../../../platform/popup/view-cache/popup-view-cache.service";
 import { waitUntil } from "../../util";
@@ -58,6 +59,7 @@ import { VaultPopupListTableFiltersService } from "./vault-popup-list-table-filt
 })
 export class VaultPopupItemsService {
   private readonly revealedCipherService = inject(RevealedCipherService);
+  private readonly multiwardenCombined = inject(MultiwardenCombinedService);
 
   /** The legacy (VFO1 off) search text. It lives in the popup view cache, never on disk. */
   private cachedSearchText = inject(PopupViewCacheService).signal<string>({
@@ -96,12 +98,13 @@ export class VaultPopupItemsService {
     filter((userId): userId is UserId => userId !== null),
   );
 
-  private organizations$ = this.activeUserId$.pipe(
-    switchMap((userId) => this.organizationService.organizations$(userId)),
+  // Multiwarden: in combined mode these span every unlocked account.
+  private organizations$ = this.multiwardenCombined.mergeForUsers((userId) =>
+    this.organizationService.organizations$(userId),
   );
 
-  private decryptedCollections$ = this.activeUserId$.pipe(
-    switchMap((userId) => this.collectionService.decryptedCollections$(userId)),
+  private decryptedCollections$ = this.multiwardenCombined.mergeForUsers((userId) =>
+    this.collectionService.decryptedCollections$(userId),
   );
 
   /**
@@ -131,35 +134,32 @@ export class VaultPopupItemsService {
    * Observable that contains the list of all decrypted ciphers.
    * @private
    */
-  private _allDecryptedCiphers$: Observable<CipherViewLike[]> =
-    this.accountService.activeAccount$.pipe(
-      map((a) => a?.id),
-      filter((userId): userId is UserId => userId != null),
-      switchMap((userId) =>
-        this.cipherService.cipherListViewsIncludingRestricted$(userId).pipe(
-          filter((ciphers) => ciphers != null),
-          debounceTime(0),
-          runInsideAngular(this.ngZone),
-          tap(() => this._ciphersLoading$.next()),
-          waitUntilSync(this.syncService),
-          switchMap((ciphers) =>
-            combineLatest([
-              of(ciphers),
-              this.cipherService.failedToDecryptCiphers$(userId).pipe(startWith([])),
-              this.restrictedItemTypesService.restricted$,
-            ]),
-          ),
-          map(([ciphers, failedToDecryptCiphers, restrictions]) => {
-            const allCiphers = [...(failedToDecryptCiphers || []), ...ciphers];
-
-            return allCiphers.filter(
-              (cipher) => !this.restrictedItemTypesService.isCipherRestricted(cipher, restrictions),
-            );
-          }),
+  // Multiwarden: in combined mode, the ciphers of every unlocked account (see multiwarden/README.md).
+  private _allDecryptedCiphers$: Observable<CipherViewLike[]> = this.multiwardenCombined
+    .mergeForUsers<CipherViewLike>((userId): Observable<CipherViewLike[]> =>
+      this.cipherService.cipherListViewsIncludingRestricted$(userId).pipe(
+        filter((ciphers) => ciphers != null),
+        debounceTime(0),
+        runInsideAngular(this.ngZone),
+        tap(() => this._ciphersLoading$.next()),
+        waitUntilSync(this.syncService),
+        switchMap((ciphers) =>
+          combineLatest([
+            of(ciphers),
+            this.cipherService.failedToDecryptCiphers$(userId).pipe(startWith([])),
+            this.restrictedItemTypesService.restricted$,
+          ]),
         ),
+        map(([ciphers, failedToDecryptCiphers, restrictions]) => {
+          const allCiphers = [...(failedToDecryptCiphers || []), ...ciphers];
+
+          return allCiphers.filter(
+            (cipher) => !this.restrictedItemTypesService.isCipherRestricted(cipher, restrictions),
+          );
+        }),
       ),
-      shareReplay({ refCount: true, bufferSize: 1 }),
-    );
+    )
+    .pipe(shareReplay({ refCount: true, bufferSize: 1 }));
 
   private _activeCipherList$: Observable<PopupCipherViewLike[]> = this._allDecryptedCiphers$.pipe(
     switchMap((ciphers) =>

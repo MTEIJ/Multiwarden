@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Tallenna tiliin"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Tallenna uutena kirjautumistietona tiliin $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Tili"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwardenin asetukset"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Tilit"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Ulkoasu"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Yhdistetty näkymä"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Näyttää kaikkien avattujen tilien kohteet yhdessä. Voit myös valita tilivalikosta \"Yhdistetty\"."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Muista tallennustili sivustokohtaisesti"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Tallennuskehote esivalitsee tilin, johon tallensit viimeksi tällä sivustolla."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Piilota Premium-ilmoitukset"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Piilottaa Premium-päivityksen bannerit, vinkit ja merkit."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden on epävirallinen avoimen lähdekoodin haara Bitwardenin selainlaajennuksesta. Se ei liity Bitwarden, Inc.:iin."
+  },
+  "multiwardenCombined": {
+    "message": "Yhdistetty"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Kaikki avatut tilit yhdessä"
+  },
+  "multiwardenCurrentView": {
+    "message": "Nykyinen näkymä"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Hallitse tilejä"
+  },
+  "multiwardenChooseVault": {
+    "message": "Mihin holviin tallennetaan?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Valitse tili, johon tämä kohde tallennetaan."
+  },
+  "multiwardenVault": {
+    "message": "Holvi:"
+  }
+}

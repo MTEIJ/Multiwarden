@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "儲存至帳戶"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "以新登入資訊儲存至 $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "帳戶"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden 設定"
+  },
+  "multiwardenAccountsSection": {
+    "message": "帳戶"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "外觀"
+  },
+  "multiwardenCombinedMode": {
+    "message": "合併檢視"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "同時顯示所有已解鎖帳戶的項目。也可以在帳戶選單中選擇「合併」。"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "依網站記住儲存帳戶"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "儲存提示會預先選擇你上次在該網站儲存時使用的帳戶。"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "隱藏 Premium 提示"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "隱藏 Premium 升級橫幅、提示和徽章。"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden 是 Bitwarden 瀏覽器擴充功能的非官方開源分支，與 Bitwarden, Inc. 無關。"
+  },
+  "multiwardenCombined": {
+    "message": "合併"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "所有已解鎖帳戶"
+  },
+  "multiwardenCurrentView": {
+    "message": "目前檢視"
+  },
+  "multiwardenManageAccounts": {
+    "message": "管理帳戶"
+  },
+  "multiwardenChooseVault": {
+    "message": "要儲存至哪個密碼庫？"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "選擇要儲存此項目的帳戶。"
+  },
+  "multiwardenVault": {
+    "message": "密碼庫："
+  }
+}

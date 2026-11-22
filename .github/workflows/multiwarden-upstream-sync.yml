@@ -1,6 +1,6 @@
 # Multiwarden: brings in new commits from bitwarden/clients every night.
 #
-# Multiwarden's history starts from a snapshot of upstream (see multiwarden/UPSTREAM_COMMIT),
+# Multiwarden's history starts from a snapshot of upstream (see multiwarden/upstream-commit),
 # so upstream changes are applied as a patch from the last synced commit to upstream `main`,
 # with a 3-way merge. The result is opened as a pull request:
 #   - clean apply   -> a normal PR; the Multiwarden CI workflow builds and tests it.
@@ -41,7 +41,7 @@ jobs:
       - name: Work out what is new
         id: range
         run: |
-          last="$(tr -d '[:space:]' < multiwarden/UPSTREAM_COMMIT)"
+          last="$(tr -d '[:space:]' < multiwarden/upstream-commit)"
           new="$(git rev-parse upstream/main)"
           echo "last=$last" >> "$GITHUB_OUTPUT"
           echo "new=$new" >> "$GITHUB_OUTPUT"
@@ -81,8 +81,8 @@ jobs:
           git diff --cached --name-only --diff-filter=U > /tmp/conflicts.txt || true
           grep -rlI --exclude-dir=node_modules --exclude-dir=.git -e '^<<<<<<< ' . > /tmp/markers.txt || true
 
-          echo "${{ steps.range.outputs.new }}" > multiwarden/UPSTREAM_COMMIT
-          git add multiwarden/UPSTREAM_COMMIT
+          echo "${{ steps.range.outputs.new }}" > multiwarden/upstream-commit
+          git add multiwarden/upstream-commit
           git commit -m "Sync upstream bitwarden/clients to ${{ steps.range.outputs.short }}" \
             -m "Applies ${{ steps.range.outputs.commits }} upstream commits: ${{ steps.range.outputs.last }}..${{ steps.range.outputs.new }}"
           git push origin "${{ steps.range.outputs.branch }}"
@@ -104,7 +104,7 @@ jobs:
               echo
               sed 's/^/- `/; s/$/`/' /tmp/markers.txt
               echo
-              echo "Resolve them on this branch (see MULTIWARDEN.md for what each Multiwarden hook does), then merge."
+              echo "Resolve them on this branch (see multiwarden/README.md for what each Multiwarden hook does), then merge."
             else
               echo "Applied cleanly. Merge once the Multiwarden CI checks pass."
             fi

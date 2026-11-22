@@ -16,6 +16,8 @@ import { ConfigService } from "@bitwarden/common/platform/abstractions/config/co
 import { UserId } from "@bitwarden/common/types/guid";
 import { AvatarModule } from "@bitwarden/components";
 
+import { MultiwardenAccountMenuComponent } from "../../../multiwarden/popup/multiwarden-account-menu.component";
+
 export type CurrentAccount = {
   id: UserId;
   name: string | undefined;
@@ -29,7 +31,7 @@ export type CurrentAccount = {
 @Component({
   selector: "app-current-account",
   templateUrl: "current-account.component.html",
-  imports: [CommonModule, JslibModule, AvatarModule, RouterModule],
+  imports: [CommonModule, JslibModule, AvatarModule, RouterModule, MultiwardenAccountMenuComponent],
 })
 export class CurrentAccountComponent {
   currentAccount$: Observable<CurrentAccount>;

@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "In Konto speichern"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Als neue Zugangsdaten in $EMAIL$ speichern",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Konto"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden-Einstellungen"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Konten"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Darstellung"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Kombinierte Ansicht"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Zeigt die Einträge aller entsperrten Konten zusammen an. Du kannst auch „Kombiniert“ im Kontomenü wählen."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Speicherkonto pro Website merken"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Die Speichern-Abfrage wählt das Konto vor, in dem du auf dieser Website zuletzt gespeichert hast."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium-Hinweise ausblenden"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Blendet Premium-Upgrade-Banner, -Hinweise und -Abzeichen aus."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden ist ein inoffizieller Open-Source-Fork der Bitwarden-Browsererweiterung und nicht mit Bitwarden, Inc. verbunden."
+  },
+  "multiwardenCombined": {
+    "message": "Kombiniert"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Alle entsperrten Konten zusammen"
+  },
+  "multiwardenCurrentView": {
+    "message": "Aktuelle Ansicht"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Konten verwalten"
+  },
+  "multiwardenChooseVault": {
+    "message": "In welchem Tresor speichern?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Wähle das Konto, in dem dieser Eintrag gespeichert wird."
+  },
+  "multiwardenVault": {
+    "message": "Tresor:"
+  }
+}

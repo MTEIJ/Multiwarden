@@ -10,8 +10,8 @@ import BrowserLocalStorageService from "../platform/services/browser-local-stora
  * shared by the background and the popup, and the same for every account.
  */
 export type MultiwardenSettings = {
-  /** Show the "All accounts" tab in the popup's bottom navigation. */
-  showAllAccountsTab: boolean;
+  /** The popup shows every unlocked account's items together (chosen in the account menu). */
+  combinedMode: boolean;
   /** Hide Premium upgrade callouts, spotlights and badges. */
   hidePremiumNotices: boolean;
   /** Pre-select the account last used on a site in the save-password prompt. */
@@ -19,7 +19,7 @@ export type MultiwardenSettings = {
 };
 
 export const DEFAULT_MULTIWARDEN_SETTINGS: MultiwardenSettings = Object.freeze({
-  showAllAccountsTab: true,
+  combinedMode: false,
   hidePremiumNotices: false,
   rememberSaveAccountPerSite: true,
 });

@@ -11,6 +11,8 @@ import { LogService } from "@bitwarden/common/platform/abstractions/log.service"
 import { AvatarModule, IconModule, ItemModule, type BitwardenIcon } from "@bitwarden/components";
 import { BiometricsService } from "@bitwarden/key-management";
 
+import { updateMultiwardenSettings } from "../../../multiwarden/multiwarden-settings";
+
 import { AccountSwitcherService, AvailableAccount } from "./services/account-switcher.service";
 
 // FIXME(https://bitwarden.atlassian.net/browse/CL-764): Migrate to OnPush
@@ -42,6 +44,10 @@ export class AccountComponent {
 
   async selectAccount(id: string) {
     this.loading.emit(true);
+    // Multiwarden: choosing a single account leaves combined mode.
+    if (id !== this.accountSwitcherService.specialAccountAddId) {
+      await updateMultiwardenSettings({ combinedMode: false });
+    }
     let result;
     try {
       result = await this.accountSwitcherService.selectAccount(id);

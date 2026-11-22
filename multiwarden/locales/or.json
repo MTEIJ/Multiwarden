@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "ଖାତାରେ ସେଭ୍ କରନ୍ତୁ"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ ରେ ନୂଆ ଲଗଇନ୍ ଭାବେ ସେଭ୍ କରନ୍ତୁ",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "ଖାତା"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ସେଟିଂସ୍"
+  },
+  "multiwardenAccountsSection": {
+    "message": "ଖାତାଗୁଡ଼ିକ"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "ରୂପ"
+  },
+  "multiwardenCombinedMode": {
+    "message": "ମିଳିତ ଦୃଶ୍ୟ"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "ଅନଲକ୍ ହୋଇଥିବା ସମସ୍ତ ଖାତାର ଆଇଟମ୍ ଏକାଠି ଦେଖାଏ। ଖାତା ମେନୁରେ \"ମିଳିତ\" ମଧ୍ୟ ବାଛିପାରିବେ।"
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "ପ୍ରତି ସାଇଟ୍ ପାଇଁ ସେଭ୍ ଖାତା ମନେରଖନ୍ତୁ"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "ସେଭ୍ ପ୍ରମ୍ପଟ୍ ସେହି ସାଇଟରେ ଆପଣ ଶେଷଥର ସେଭ୍ କରିଥିବା ଖାତାକୁ ପୂର୍ବରୁ ବାଛେ।"
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium ସୂଚନା ଲୁଚାନ୍ତୁ"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium ଅପଗ୍ରେଡ୍ ବ୍ୟାନର୍, ପରାମର୍ଶ ଓ ବ୍ୟାଜ୍ ଲୁଚାଏ।"
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden ହେଉଛି Bitwarden ବ୍ରାଉଜର୍ ଏକ୍ସଟେନସନ୍‌ର ଏକ ଅନଧିକାରିକ, ଓପନ୍ ସୋର୍ସ fork। ଏହା Bitwarden, Inc. ସହ ସମ୍ପର୍କିତ ନୁହେଁ।"
+  },
+  "multiwardenCombined": {
+    "message": "ମିଳିତ"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "ଅନଲକ୍ ହୋଇଥିବା ସମସ୍ତ ଖାତା ଏକାଠି"
+  },
+  "multiwardenCurrentView": {
+    "message": "ବର୍ତ୍ତମାନର ଦୃଶ୍ୟ"
+  },
+  "multiwardenManageAccounts": {
+    "message": "ଖାତା ପରିଚାଳନା କରନ୍ତୁ"
+  },
+  "multiwardenChooseVault": {
+    "message": "କେଉଁ ଭଲ୍ଟରେ ସେଭ୍ କରିବେ?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "ଏହି ଆଇଟମ୍ ସେଭ୍ ହେବାକୁ ଥିବା ଖାତା ବାଛନ୍ତୁ।"
+  },
+  "multiwardenVault": {
+    "message": "ଭଲ୍ଟ:"
+  }
+}

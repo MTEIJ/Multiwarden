@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "ఖాతాలో సేవ్ చేయండి"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ లో కొత్త లాగిన్‌గా సేవ్ చేయండి",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "ఖాతా"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden సెట్టింగ్‌లు"
+  },
+  "multiwardenAccountsSection": {
+    "message": "ఖాతాలు"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "రూపం"
+  },
+  "multiwardenCombinedMode": {
+    "message": "కలిపిన వీక్షణ"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "అన్‌లాక్ చేసిన అన్ని ఖాతాల అంశాలను కలిపి చూపిస్తుంది. ఖాతా మెనూలో \"కలిపి\" కూడా ఎంచుకోవచ్చు."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "ప్రతి సైట్‌కు సేవ్ ఖాతాను గుర్తుంచుకోండి"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "సేవ్ ప్రాంప్ట్ ఆ సైట్‌లో మీరు చివరిగా సేవ్ చేసిన ఖాతాను ముందే ఎంచుకుంటుంది."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium నోటీసులను దాచండి"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium అప్‌గ్రేడ్ బ్యానర్‌లు, సూచనలు మరియు బ్యాడ్జ్‌లను దాచుతుంది."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden అనేది Bitwarden బ్రౌజర్ ఎక్స్‌టెన్షన్ యొక్క అనధికారిక, ఓపెన్ సోర్స్ fork. దీనికి Bitwarden, Inc. తో సంబంధం లేదు."
+  },
+  "multiwardenCombined": {
+    "message": "కలిపి"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "అన్‌లాక్ చేసిన అన్ని ఖాతాలు కలిపి"
+  },
+  "multiwardenCurrentView": {
+    "message": "ప్రస్తుత వీక్షణ"
+  },
+  "multiwardenManageAccounts": {
+    "message": "ఖాతాలను నిర్వహించండి"
+  },
+  "multiwardenChooseVault": {
+    "message": "ఏ వాల్ట్‌లో సేవ్ చేయాలి?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "ఈ అంశాన్ని సేవ్ చేసే ఖాతాను ఎంచుకోండి."
+  },
+  "multiwardenVault": {
+    "message": "వాల్ట్:"
+  }
+}

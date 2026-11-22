@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Сохранить в аккаунт"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Сохранить как новый логин в $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Аккаунт"
+  },
+  "multiwardenSettings": {
+    "message": "Настройки Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Аккаунты"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Внешний вид"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Общий вид"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Показывает элементы всех разблокированных аккаунтов вместе. Также можно выбрать «Общий» в меню аккаунта."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Запоминать аккаунт для сохранения на каждом сайте"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Запрос на сохранение заранее выбирает аккаунт, в который вы в последний раз сохраняли данные на этом сайте."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Скрывать уведомления о Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Скрывает баннеры, подсказки и значки о переходе на Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden — неофициальный форк расширения браузера Bitwarden с открытым исходным кодом. Он не связан с Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Общий"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Все разблокированные аккаунты вместе"
+  },
+  "multiwardenCurrentView": {
+    "message": "Текущий вид"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Управление аккаунтами"
+  },
+  "multiwardenChooseVault": {
+    "message": "В какое хранилище сохранить?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Выберите аккаунт, в котором будет сохранён этот элемент."
+  },
+  "multiwardenVault": {
+    "message": "Хранилище:"
+  }
+}

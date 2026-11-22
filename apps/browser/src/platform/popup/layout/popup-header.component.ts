@@ -15,10 +15,8 @@ import { toSignal } from "@angular/core/rxjs-interop";
 import { of } from "rxjs";
 
 import { JslibModule } from "@bitwarden/angular/jslib.module";
-import { BitwardenLogo, BitwardenLogoBeta } from "@bitwarden/assets/svg";
 import { FeatureFlag } from "@bitwarden/common/enums/feature-flag.enum";
 import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
-import { flagEnabled } from "@bitwarden/common/platform/misc/flags";
 import {
   AsyncActionsModule,
   ButtonType,
@@ -32,6 +30,7 @@ import {
   TypographyModule,
 } from "@bitwarden/components";
 
+import { MultiwardenLogo } from "../../../multiwarden/popup/multiwarden-logo";
 import { PopupRouterCacheService } from "../view-cache/popup-router-cache.service";
 
 import { PopupPageComponent } from "./popup-page.component";
@@ -76,7 +75,8 @@ export class PopupHeaderComponent {
     { initialValue: false },
   );
 
-  protected readonly logo = flagEnabled("prereleaseBuild") ? BitwardenLogoBeta : BitwardenLogo;
+  // Multiwarden: own logo (upstream: BitwardenLogo / BitwardenLogoBeta).
+  protected readonly logo = MultiwardenLogo;
 
   /**
    * Background treatment of the page title bar.

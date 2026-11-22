@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Salvează în cont"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Salvează ca autentificare nouă în $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Cont"
+  },
+  "multiwardenSettings": {
+    "message": "Setări Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Conturi"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Aspect"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Vizualizare combinată"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Afișează împreună elementele tuturor conturilor deblocate. Poți alege și „Combinat” din meniul contului."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Reține contul de salvare pentru fiecare site"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Solicitarea de salvare preselectează contul în care ai salvat ultima dată pe acel site."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Ascunde notificările Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Ascunde bannerele, sfaturile și insignele de upgrade la Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden este un fork neoficial, open source, al extensiei de browser Bitwarden. Nu este afiliat cu Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Combinat"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Toate conturile deblocate împreună"
+  },
+  "multiwardenCurrentView": {
+    "message": "Vizualizarea curentă"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Gestionează conturile"
+  },
+  "multiwardenChooseVault": {
+    "message": "În ce seif salvezi?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Alege contul în care se salvează acest element."
+  },
+  "multiwardenVault": {
+    "message": "Seif:"
+  }
+}

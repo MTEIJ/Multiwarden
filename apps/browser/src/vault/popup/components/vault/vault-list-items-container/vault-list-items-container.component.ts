@@ -50,6 +50,7 @@ import {
   PasswordRepromptService,
 } from "@bitwarden/vault";
 
+import { MultiwardenAccountBadgeComponent } from "../../../../../multiwarden/popup/multiwarden-account-badge.component";
 import { BrowserApi } from "../../../../../platform/browser/browser-api";
 import BrowserPopupUtils from "../../../../../platform/browser/browser-popup-utils";
 import { VaultPopupAutofillService } from "../../../services/vault-popup-autofill.service";
@@ -63,6 +64,7 @@ import { ItemMoreOptionsComponent } from "../item-more-options/item-more-options
 
 @Component({
   imports: [
+    MultiwardenAccountBadgeComponent,
     CommonModule,
     ItemModule,
     ButtonModule,

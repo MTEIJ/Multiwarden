@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Gem på konto"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Gem som nyt login i $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Konto"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden-indstillinger"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Konti"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Udseende"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Samlet visning"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Viser elementerne fra alle oplåste konti samlet. Du kan også vælge \"Samlet\" i kontomenuen."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Husk gemmekonto pr. websted"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Gem-prompten forudvælger den konto, du sidst gemte i på det websted."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Skjul Premium-meddelelser"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Skjuler bannere, tips og mærker om opgradering til Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden er en uofficiel open source-fork af Bitwardens browserudvidelse. Den er ikke tilknyttet Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Samlet"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Alle oplåste konti samlet"
+  },
+  "multiwardenCurrentView": {
+    "message": "Aktuel visning"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Administrer konti"
+  },
+  "multiwardenChooseVault": {
+    "message": "Gem i hvilken boks?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Vælg den konto, elementet gemmes i."
+  },
+  "multiwardenVault": {
+    "message": "Boks:"
+  }
+}

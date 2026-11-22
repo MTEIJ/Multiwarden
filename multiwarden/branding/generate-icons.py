@@ -1,4 +1,4 @@
-"""Generates Multiwarden's original extension icons: three stacked vault cards with a keyhole.
+"""Generates Multiwarden's original extension icons: a rounded vault with a keyhole.
 
 Run: python3 multiwarden/branding/generate-icons.py
 Writes PNGs to multiwarden/branding/icons/ using the file names the extension expects.
@@ -35,40 +35,24 @@ def card(box, radius, top, bottom):
 
 
 def master(locked=False):
-    """Front vault filling most of the square, with a second vault peeking out top-right."""
+    """One vault: a rounded square filling the canvas, with a white keyhole."""
     img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
-    r = int(S * 0.20)
-    back = (int(S * 0.20), int(S * 0.0), int(S * 1.0), int(S * 0.80))
-    front = (int(S * 0.0), int(S * 0.16), int(S * 0.84), int(S * 1.0))
-
-    fill, mask = card(back, r, (94, 234, 212), TEAL)
-    img.paste(fill, back[:2], mask)
-
-    # a thin transparent gap so the two cards read as separate at small sizes
-    gap = Image.new("L", (S, S), 0)
-    g = int(S * 0.045)
-    ImageDraw.Draw(gap).rounded_rectangle(
-        [front[0] - g, front[1] - g, front[2] + g, front[3] + g], radius=r + g, fill=255
-    )
-    alpha = img.getchannel("A")
-    alpha = Image.composite(Image.new("L", (S, S), 0), alpha, gap)
-    img.putalpha(alpha)
-
-    fill, mask = card(front, r, (99, 102, 241), INDIGO)
+    m = int(S * 0.02)
+    front = (m, m, S - m, S - m)
+    fill, mask = card(front, int(S * 0.22), (99, 102, 241), INDIGO)
     img.paste(fill, front[:2], mask)
 
-    fx0, fy0, fx1, fy1 = front
-    cx, cy = (fx0 + fx1) // 2, (fy0 + fy1) // 2
+    cx, cy = S // 2, S // 2
     d = ImageDraw.Draw(img)
-    hr = int(S * 0.12)
-    oy = int(S * 0.06)
+    hr = int(S * 0.15)
+    oy = int(S * 0.08)
     d.ellipse([cx - hr, cy - hr - oy, cx + hr, cy + hr - oy], fill="white")
     d.polygon(
         [
-            (cx - int(S * 0.06), cy),
-            (cx + int(S * 0.06), cy),
-            (cx + int(S * 0.10), cy + int(S * 0.24)),
-            (cx - int(S * 0.10), cy + int(S * 0.24)),
+            (cx - int(S * 0.075), cy),
+            (cx + int(S * 0.075), cy),
+            (cx + int(S * 0.125), cy + int(S * 0.30)),
+            (cx - int(S * 0.125), cy + int(S * 0.30)),
         ],
         fill="white",
     )

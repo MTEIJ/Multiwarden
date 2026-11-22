@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Simpan ke akun"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Simpan sebagai login baru di $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Akun"
+  },
+  "multiwardenSettings": {
+    "message": "Pengaturan Multiwarden"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Akun"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Tampilan"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Tampilan gabungan"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Menampilkan item dari semua akun yang tidak terkunci secara bersamaan. Anda juga dapat memilih \"Gabungan\" di menu akun."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Ingat akun penyimpanan per situs"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Permintaan simpan akan memilih akun yang terakhir Anda gunakan untuk menyimpan di situs tersebut."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Sembunyikan pemberitahuan Premium"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Menyembunyikan banner, tips, dan lencana peningkatan ke Premium."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden adalah fork tidak resmi dan sumber terbuka dari ekstensi browser Bitwarden. Tidak berafiliasi dengan Bitwarden, Inc."
+  },
+  "multiwardenCombined": {
+    "message": "Gabungan"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Semua akun yang tidak terkunci"
+  },
+  "multiwardenCurrentView": {
+    "message": "Tampilan saat ini"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Kelola akun"
+  },
+  "multiwardenChooseVault": {
+    "message": "Simpan ke brankas mana?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Pilih akun tempat item ini disimpan."
+  },
+  "multiwardenVault": {
+    "message": "Brankas:"
+  }
+}

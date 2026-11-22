@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "അക്കൗണ്ടിൽ സംരക്ഷിക്കുക"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ ൽ പുതിയ ലോഗിൻ ആയി സംരക്ഷിക്കുക",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "അക്കൗണ്ട്"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ക്രമീകരണങ്ങൾ"
+  },
+  "multiwardenAccountsSection": {
+    "message": "അക്കൗണ്ടുകൾ"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "രൂപം"
+  },
+  "multiwardenCombinedMode": {
+    "message": "സംയോജിത കാഴ്ച"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "അൺലോക്ക് ചെയ്ത എല്ലാ അക്കൗണ്ടുകളിലെയും ഇനങ്ങൾ ഒരുമിച്ച് കാണിക്കുന്നു. അക്കൗണ്ട് മെനുവിൽ \"സംയോജിതം\" തിരഞ്ഞെടുക്കാനും കഴിയും."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "ഓരോ സൈറ്റിനും സംരക്ഷിക്കുന്ന അക്കൗണ്ട് ഓർമ്മിക്കുക"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "ആ സൈറ്റിൽ നിങ്ങൾ അവസാനം സംരക്ഷിച്ച അക്കൗണ്ട് സംരക്ഷണ അറിയിപ്പ് മുൻകൂട്ടി തിരഞ്ഞെടുക്കുന്നു."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium അറിയിപ്പുകൾ മറയ്ക്കുക"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium അപ്‌ഗ്രേഡ് ബാനറുകൾ, നുറുങ്ങുകൾ, ബാഡ്‌ജുകൾ എന്നിവ മറയ്ക്കുന്നു."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden, Bitwarden ബ്രൗസർ എക്സ്റ്റൻഷന്റെ അനൗദ്യോഗിക, ഓപ്പൺ സോഴ്സ് fork ആണ്. ഇതിന് Bitwarden, Inc. മായി ബന്ധമില്ല."
+  },
+  "multiwardenCombined": {
+    "message": "സംയോജിതം"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "അൺലോക്ക് ചെയ്ത എല്ലാ അക്കൗണ്ടുകളും ഒരുമിച്ച്"
+  },
+  "multiwardenCurrentView": {
+    "message": "നിലവിലെ കാഴ്ച"
+  },
+  "multiwardenManageAccounts": {
+    "message": "അക്കൗണ്ടുകൾ നിയന്ത്രിക്കുക"
+  },
+  "multiwardenChooseVault": {
+    "message": "ഏത് വോൾട്ടിൽ സംരക്ഷിക്കണം?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "ഈ ഇനം സംരക്ഷിക്കുന്ന അക്കൗണ്ട് തിരഞ്ഞെടുക്കുക."
+  },
+  "multiwardenVault": {
+    "message": "വോൾട്ട്:"
+  }
+}

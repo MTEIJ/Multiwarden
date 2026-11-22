@@ -1,0 +1,68 @@
+{
+  "multiwardenSaveToAccount": {
+    "message": "Hesaba saxla"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "$EMAIL$ hesabında yeni giriş kimi saxla",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Hesab"
+  },
+  "multiwardenSettings": {
+    "message": "Multiwarden ayarları"
+  },
+  "multiwardenAccountsSection": {
+    "message": "Hesablar"
+  },
+  "multiwardenInterfaceSection": {
+    "message": "Görünüş"
+  },
+  "multiwardenCombinedMode": {
+    "message": "Birləşdirilmiş görünüş"
+  },
+  "multiwardenCombinedModeHint": {
+    "message": "Kilidi açıq bütün hesabların elementlərini birlikdə göstərir. Hesab menyusunda \"Birləşdirilmiş\" seçimini də edə bilərsiniz."
+  },
+  "multiwardenRememberSaveAccount": {
+    "message": "Hər sayt üçün saxlama hesabını yadda saxla"
+  },
+  "multiwardenRememberSaveAccountHint": {
+    "message": "Saxlama sorğusu həmin saytda sonuncu dəfə saxladığınız hesabı əvvəlcədən seçir."
+  },
+  "multiwardenHidePremiumNotices": {
+    "message": "Premium bildirişlərini gizlət"
+  },
+  "multiwardenHidePremiumNoticesHint": {
+    "message": "Premium-a yüksəltmə bannerlərini, ipuclarını və nişanlarını gizlədir."
+  },
+  "multiwardenAbout": {
+    "message": "Multiwarden, Bitwarden brauzer genişləndirməsinin qeyri-rəsmi, açıq mənbəli fork-udur. Bitwarden, Inc. ilə əlaqəsi yoxdur."
+  },
+  "multiwardenCombined": {
+    "message": "Birləşdirilmiş"
+  },
+  "multiwardenCombinedDesc": {
+    "message": "Kilidi açıq bütün hesablar birlikdə"
+  },
+  "multiwardenCurrentView": {
+    "message": "Cari görünüş"
+  },
+  "multiwardenManageAccounts": {
+    "message": "Hesabları idarə et"
+  },
+  "multiwardenChooseVault": {
+    "message": "Hansı anbara saxlanılsın?"
+  },
+  "multiwardenChooseVaultDesc": {
+    "message": "Bu elementin saxlanılacağı hesabı seçin."
+  },
+  "multiwardenVault": {
+    "message": "Anbar:"
+  }
+}

@@ -42,8 +42,14 @@ if (manifest.browser_action) {
 }
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-// 2. Extension name and description, in every locale
+// 2. Extension name and description, and Multiwarden's own strings, in every locale.
+// The popup does not fall back to English for missing strings, so every locale gets the
+// English `multiwarden*` strings, overridden by multiwarden/locales/<locale>.json if present.
 const localesDir = join(buildDir, "_locales");
+const english = JSON.parse(readFileSync(join(localesDir, "en", "messages.json"), "utf8"));
+const multiwardenStrings = Object.fromEntries(
+  Object.entries(english).filter(([key]) => key.startsWith("multiwarden")),
+);
 let locales = 0;
 for (const locale of readdirSync(localesDir)) {
   const file = join(localesDir, locale, "messages.json");
@@ -51,6 +57,11 @@ for (const locale of readdirSync(localesDir)) {
     continue;
   }
   const messages = JSON.parse(readFileSync(file, "utf8"));
+  const translationsFile = join(root, "multiwarden/locales", `${locale}.json`);
+  const translations = existsSync(translationsFile)
+    ? JSON.parse(readFileSync(translationsFile, "utf8"))
+    : {};
+  Object.assign(messages, multiwardenStrings, translations);
   messages.extName = { message: EXT_NAME };
   messages.extDesc = { message: EXT_DESC };
   writeFileSync(file, JSON.stringify(messages));
