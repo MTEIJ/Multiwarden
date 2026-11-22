@@ -63,7 +63,7 @@
           <a id="download" href="https://github.com/mteij/multiwarden/releases/latest" class="btn btn-primary">Download</a>
           <a href="https://github.com/mteij/multiwarden" class="btn btn-outline btn-secondary">View source</a>
         </div>
-        <small id="latest">Experimental · Chrome, Edge, Opera and Firefox</small>
+        <small id="latest">Experimental · Chrome, Edge, Opera, Firefox and Safari</small>
       </div>
 
       <section>
@@ -84,7 +84,7 @@
             Firefox: open <code>about:debugging</code> and choose <em>Load Temporary Add-on</em>.</li>
           <li>Disable the official Bitwarden extension, then sign in to and unlock your accounts.</li>
         </ol>
-        <p><small>Available for Chrome, Vivaldi, Brave, Edge, Opera and Firefox.</small></p>
+        <p><small>Available for Chrome, Vivaldi, Brave, Edge, Opera and Firefox. Safari has an unsigned test build for macOS.</small></p>
       </section>
 
       <section id="releases">
@@ -109,9 +109,18 @@
         ["edge", "Edge"],
         ["opera", "Opera"],
         ["firefox", "Firefox"],
+        ["safari", "Safari"],
       ];
       const ua = navigator.userAgent;
-      const mine = /Firefox\//.test(ua) ? "firefox" : /Edg\//.test(ua) ? "edge" : /OPR\//.test(ua) ? "opera" : "chrome";
+      const mine = /Firefox\//.test(ua)
+        ? "firefox"
+        : /Edg\//.test(ua)
+          ? "edge"
+          : /OPR\//.test(ua)
+            ? "opera"
+            : /Safari\//.test(ua) && !/Chrome|Chromium/.test(ua)
+              ? "safari"
+              : "chrome";
       const zipFor = (r, key) => (r.assets || []).find((a) => a.name.startsWith(`multiwarden-${key}-`) && a.name.endsWith(".zip"));
 
       fetch(`https://api.github.com/repos/${REPO}/releases?per_page=10`)

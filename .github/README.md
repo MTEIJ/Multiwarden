@@ -47,20 +47,20 @@ hooks.
 | **Keyboard shortcut** | Active account                        | Falls back to other unlocked accounts                                                                           |
 | **Vault view**        | One account at a time                 | Optional **Combined** view: all vaults in one list, each item marked with its account                           |
 | **New items**         | Active account                        | In combined view, asks which vault to save to                                                                   |
-| **Settings**          | —                                     | **Settings → Multiwarden**: combined view, per-site save account, account colours, hide Premium notices         |
+| **Settings**          | —                                     | **Settings → Multiwarden**: per-site save account, hide Premium notices, version details                        |
 
 Also included: Multiwarden branding and icons, translations for every extension language,
-builds for Chromium browsers and Firefox, and an automated nightly sync with upstream.
+builds for Chromium browsers, Firefox and Safari, and an automated nightly sync with upstream.
 
 ## Browser support
 
-| Browser                | Package                        | Notes                                                    |
-| ---------------------- | ------------------------------ | -------------------------------------------------------- |
-| Chrome, Vivaldi, Brave | `multiwarden-chrome-*.zip`     | Manifest V3                                              |
-| Edge                   | `multiwarden-edge-*.zip`       | Manifest V3                                              |
-| Opera                  | `multiwarden-opera-*.zip`      | Manifest V3                                              |
-| Firefox                | `multiwarden-firefox-*.zip`    | Manifest V2; temporary add-on until signed by Mozilla    |
-| Safari                 | —                              | Not built yet (requires macOS and Xcode)                 |
+| Browser                | Package                             | Notes                                                                     |
+| ---------------------- | ----------------------------------- | ------------------------------------------------------------------------- |
+| Chrome, Vivaldi, Brave | `multiwarden-chrome-*.zip`          | Manifest V3                                                               |
+| Edge                   | `multiwarden-edge-*.zip`            | Manifest V3                                                               |
+| Opera                  | `multiwarden-opera-*.zip`           | Manifest V3                                                               |
+| Firefox                | `multiwarden-firefox-*.zip`         | Manifest V2; temporary add-on until signed by Mozilla                     |
+| Safari (macOS)         | `multiwarden-safari-unsigned-*.zip` | Unsigned test build; see the [maintainer notes](../multiwarden/README.md) |
 
 ## Install
 
