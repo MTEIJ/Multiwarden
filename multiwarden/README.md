@@ -98,9 +98,10 @@ the previous release.
 To release:
 
 1. Bump `release` in `multiwarden/version.json` and commit.
-2. Tag the commit `v<version>`, e.g. `git tag v2026.11.0.2 && git push --tags`.
-3. The Multiwarden CI workflow builds every browser and publishes a GitHub release with one zip
-   per browser.
+2. On GitHub, open **Actions → Multiwarden CI → Run workflow**, keep the branch on `main`, tick
+   **release** and run it. (Pushing a tag like `v2026.11.0.2` does the same.)
+3. The workflow tests, builds every browser, creates the tag `v<version>` and publishes a GitHub
+   release with one zip per browser. It refuses to publish a version that already exists.
 
 The build also writes `multiwarden.json` (version, Bitwarden version, upstream commit) into the
 extension; Settings → Multiwarden shows it.

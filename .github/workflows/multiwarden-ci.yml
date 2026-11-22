@@ -1,8 +1,9 @@
 # Multiwarden: tests the Multiwarden changes and builds the extension for every browser.
-# On a tag like v2026.11.0.1 it also publishes a GitHub release with one zip per browser.
+# It publishes a GitHub release with one zip per browser when started from the Actions tab with
+# "release" ticked (it then creates the tag itself), or when a tag like v2026.11.0.1 is pushed.
 #
-# Release checklist: bump "release" in multiwarden/version.json, commit, then tag
-# v<bitwarden version>.<release> (the version Settings → Multiwarden shows).
+# Release checklist: bump "release" in multiwarden/version.json and commit, then run this
+# workflow on main with "release" ticked. The tag is v<bitwarden version>.<release>.
 name: Multiwarden CI
 
 on:
@@ -11,6 +12,11 @@ on:
     tags: ["v*"]
   pull_request:
   workflow_dispatch:
+    inputs:
+      release:
+        description: "Publish a release (creates the version tag)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -114,7 +120,7 @@ jobs:
 
   release:
     name: Publish release
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.release)
     needs: [test, build]
     runs-on: ubuntu-latest
     steps:
@@ -127,6 +133,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" dist/*.zip \
+          # The version is in the zip names: multiwarden-<browser>-<version>.zip
+          version="$(ls dist/multiwarden-chrome-*.zip | sed -E 's/.*multiwarden-chrome-(.*)\.zip/\1/')"
+          tag="v${version}"
+          if gh release view "$tag" --repo "${GITHUB_REPOSITORY}" > /dev/null 2>&1; then
+            echo "::error::Release $tag already exists. Bump \"release\" in multiwarden/version.json first."
+            exit 1
+          fi
+          gh release create "$tag" dist/*.zip \
             --repo "${GITHUB_REPOSITORY}" \
-            --title "Multiwarden ${GITHUB_REF_NAME#v}" --generate-notes
+            --target "${GITHUB_SHA}" \
+            --title "Multiwarden ${version}" --generate-notes
