@@ -1,0 +1,71 @@
+# Multiwarden: tests the multi-account changes and builds the Chrome/Vivaldi extension.
+# On a tag like v2026.11.0-mw1 it also publishes a GitHub release with the store-ready zip.
+name: Multiwarden CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        # Upstream's lock file is occasionally out of step with package.json.
+        run: npm ci --no-audit --no-fund || npm install --no-audit --no-fund
+
+      - name: Test Multiwarden changes
+        run: |
+          (cd libs/common && npx jest src/multiwarden src/platform/services/fido2)
+          (cd apps/browser && npx jest --runInBand \
+            src/autofill/background/notification.background.spec.ts \
+            src/autofill/background/overlay.background.spec.ts \
+            src/autofill/background/autofill-orchestrator.spec.ts \
+            src/autofill/services/autofill.service.spec.ts \
+            src/autofill/notification \
+            src/autofill/content/components/notification \
+            src/autofill/fido2 \
+            src/autofill/popup/fido2)
+
+      - name: Build extension (Chrome MV3, open-source build only)
+        working-directory: apps/browser
+        env:
+          NODE_ENV: production
+          BROWSER: chrome
+          MANIFEST_VERSION: "3"
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: npx webpack
+
+      - name: Apply Multiwarden branding and package
+        run: |
+          node multiwarden/scripts/brand-build.mjs apps/browser/build
+          version="$(node -p "require('./apps/browser/build/manifest.json').version")"
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          (cd apps/browser/build && zip -qr "../../../multiwarden-chrome-$version.zip" .)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: multiwarden-chrome-${{ env.VERSION }}
+          path: multiwarden-chrome-${{ env.VERSION }}.zip
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" "multiwarden-chrome-${VERSION}.zip" \
+            --title "Multiwarden ${GITHUB_REF_NAME}" --generate-notes

@@ -33,6 +33,7 @@ import { InlineMenuVisibilitySetting } from "@bitwarden/common/autofill/types";
 import { parseYearMonthExpiry } from "@bitwarden/common/autofill/utils";
 import { FeatureFlag } from "@bitwarden/common/enums/feature-flag.enum";
 import { NeverDomains } from "@bitwarden/common/models/domain/domain-service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
 import {
@@ -171,6 +172,8 @@ export class OverlayBackground implements OverlayBackgroundInterface {
   private inlineMenuListPort: chrome.runtime.Port | null = null;
   private inlineMenuListMessageConnectorPort: chrome.runtime.Port | null = null;
   private inlineMenuCiphers: Map<string, CipherView> = new Map();
+  /** Multiwarden: cipher id to account email, filled when several accounts are unlocked. */
+  private cipherAccountLabels: Map<string, string> = new Map();
   private inlineMenuFido2Credentials: Set<string> = new Set();
   private inlineMenuPageTranslations: Record<string, string> | null = null;
   private inlineMenuPosition: InlineMenuPosition = {};
@@ -476,7 +479,7 @@ export class OverlayBackground implements OverlayBackgroundInterface {
    * @param refocusField - Identifies whether the most recently focused field should be refocused
    */
   async updateOverlayCiphers(updateAllCipherTypes = true, refocusField = false) {
-    const authStatus = await firstValueFrom(this.authService.activeAccountStatus$);
+    const authStatus = await this.getAuthStatus();
     if (authStatus === AuthenticationStatus.Unlocked) {
       this.inlineMenuCiphers = new Map();
       this.updateOverlayCiphers$.next({ updateAllCipherTypes, refocusField });
@@ -567,9 +570,9 @@ export class OverlayBackground implements OverlayBackgroundInterface {
     currentTab: chrome.tabs.Tab,
     updateAllCipherTypes: boolean,
   ): Promise<CipherView[]> {
-    const activeUserId = await firstValueFrom(
-      this.accountService.activeAccount$.pipe(getOptionalUserId),
-    );
+    const activeUserId =
+      (await firstValueFrom(this.accountService.activeAccount$.pipe(getOptionalUserId))) ??
+      (await getMultiAccountScope()?.unlockedUserIds())?.[0];
     if (!activeUserId) {
       return [];
     }
@@ -579,11 +582,7 @@ export class OverlayBackground implements OverlayBackgroundInterface {
     }
 
     const cipherViews = (
-      await this.fillCipherPolicy.ciphersForUrl(
-        currentTab.url || "",
-        activeUserId,
-        CipherUse.UserFill,
-      )
+      await this.ciphersForUrlInScope(currentTab.url || "", activeUserId, CipherUse.UserFill)
     ).sort((a, b) => this.cipherService.sortCiphersByLastUsedThenName(a, b));
 
     return this.cardAndIdentityCiphers
@@ -607,7 +606,7 @@ export class OverlayBackground implements OverlayBackgroundInterface {
 
     this.cardAndIdentityCiphers.clear();
     const cipherViews = (
-      await this.fillCipherPolicy.ciphersForUrl(currentTab.url || "", userId, CipherUse.UserFill, {
+      await this.ciphersForUrlInScope(currentTab.url || "", userId, CipherUse.UserFill, {
         includeOtherTypes: [CipherType.Card, CipherType.Identity, CipherType.SshKey],
       })
     ).sort((a, b) => this.cipherService.sortCiphersByLastUsedThenName(a, b));
@@ -887,9 +886,11 @@ export class OverlayBackground implements OverlayBackgroundInterface {
     hasPasskey,
     identityData,
   }: BuildCipherDataParams): Promise<InlineMenuCipherData> {
+    // Multiwarden: show which account an item comes from when several are unlocked.
+    const accountLabel = cipher.id ? this.cipherAccountLabels.get(cipher.id) : undefined;
     const inlineMenuData: InlineMenuCipherData = {
       id: inlineMenuCipherId,
-      name: cipher.name,
+      name: accountLabel ? `${cipher.name} · ${accountLabel}` : cipher.name,
       type: cipher.type,
       reprompt: cipher.reprompt,
       favorite: cipher.favorite,
@@ -2560,7 +2561,47 @@ export class OverlayBackground implements OverlayBackgroundInterface {
    * Gets the user's authentication status from the auth service.
    */
   private async getAuthStatus() {
-    return await firstValueFrom(this.authService.activeAccountStatus$);
+    const activeStatus = await firstValueFrom(this.authService.activeAccountStatus$);
+    // Multiwarden: the inline menu is usable while any account is unlocked.
+    if (activeStatus !== AuthenticationStatus.Unlocked) {
+      const scope = getMultiAccountScope();
+      if (scope && (await scope.unlockedUserIds()).length > 0) {
+        return AuthenticationStatus.Unlocked;
+      }
+    }
+    return activeStatus;
+  }
+
+  /**
+   * Multiwarden: ciphers for a URL from every unlocked account. When more than one account is
+   * unlocked, each cipher's account email is kept so the inline menu can show it.
+   */
+  private async ciphersForUrlInScope(
+    url: string,
+    activeUserId: UserId,
+    use: CipherUse,
+    options?: Parameters<FillCipherPolicy["ciphersForUrl"]>[3],
+  ): Promise<CipherView[]> {
+    const scope = getMultiAccountScope();
+    // Only pass options when given, so calls match upstream's signature exactly.
+    const load = (userId: UserId) =>
+      options
+        ? this.fillCipherPolicy.ciphersForUrl(url, userId, use, options)
+        : this.fillCipherPolicy.ciphersForUrl(url, userId, use);
+    if (!scope) {
+      return load(activeUserId);
+    }
+    const accounts = await scope.unlockedAccounts();
+    const results = await scope.collect(load);
+    if (accounts.length > 1) {
+      for (const { item, userId } of results) {
+        const email = accounts.find((a) => a.userId === userId)?.email;
+        if (email && item.id) {
+          this.cipherAccountLabels.set(item.id, email);
+        }
+      }
+    }
+    return results.map((r) => r.item);
   }
 
   /**

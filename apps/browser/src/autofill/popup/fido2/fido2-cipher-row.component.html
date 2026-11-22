@@ -24,6 +24,11 @@
       @if (cipher.subTitle) {
         <div>{{ cipher.subTitle }}</div>
       }
+      @if (accountLabel) {
+        <div class="tw-text-xs tw-text-muted" data-testid="multiwarden-account-label">
+          <i class="bwi bwi-user" aria-hidden="true"></i> {{ accountLabel }}
+        </div>
+      }
     </ng-container>
   </button>
 </bit-item>

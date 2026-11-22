@@ -1,0 +1,119 @@
+# Multiwarden: brings in new commits from bitwarden/clients every night.
+#
+# Multiwarden's history starts from a snapshot of upstream (see multiwarden/UPSTREAM_COMMIT),
+# so upstream changes are applied as a patch from the last synced commit to upstream `main`,
+# with a 3-way merge. The result is opened as a pull request:
+#   - clean apply   -> a normal PR; the Multiwarden CI workflow builds and tests it.
+#   - conflicts     -> a PR titled "[conflicts]" containing conflict markers to resolve.
+#
+# Requires: Settings -> Actions -> General -> "Allow GitHub Actions to create and approve
+# pull requests".
+name: Multiwarden upstream sync
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: multiwarden-upstream-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Multiwarden
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch upstream
+        run: |
+          git remote add upstream https://github.com/bitwarden/clients.git
+          git fetch --no-tags upstream main
+
+      - name: Work out what is new
+        id: range
+        run: |
+          last="$(tr -d '[:space:]' < multiwarden/UPSTREAM_COMMIT)"
+          new="$(git rev-parse upstream/main)"
+          echo "last=$last" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "short=${new:0:9}" >> "$GITHUB_OUTPUT"
+          if [ "$last" = "$new" ]; then
+            echo "Already up to date with upstream $new"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          branch="sync/upstream-${new:0:9}"
+          if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+            echo "A sync PR for $new already exists"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "commits=$(git rev-list --count "$last..$new")" >> "$GITHUB_OUTPUT"
+
+      - name: Apply upstream changes
+        if: steps.range.outputs.changed == 'true'
+        id: apply
+        run: |
+          git config user.name "multiwarden-sync[bot]"
+          git config user.email "multiwarden-sync@users.noreply.github.com"
+          git switch -c "${{ steps.range.outputs.branch }}"
+
+          git diff --binary "${{ steps.range.outputs.last }}" "${{ steps.range.outputs.new }}" > /tmp/upstream.patch
+          if git apply --3way --index /tmp/upstream.patch 2> /tmp/apply.log; then
+            echo "conflicts=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "conflicts=true" >> "$GITHUB_OUTPUT"
+            cat /tmp/apply.log
+            # Keep conflict markers so they can be resolved on the PR branch.
+            git add -A
+          fi
+          git diff --cached --name-only --diff-filter=U > /tmp/conflicts.txt || true
+          grep -rlI --exclude-dir=node_modules --exclude-dir=.git -e '^<<<<<<< ' . > /tmp/markers.txt || true
+
+          echo "${{ steps.range.outputs.new }}" > multiwarden/UPSTREAM_COMMIT
+          git add multiwarden/UPSTREAM_COMMIT
+          git commit -m "Sync upstream bitwarden/clients to ${{ steps.range.outputs.short }}" \
+            -m "Applies ${{ steps.range.outputs.commits }} upstream commits: ${{ steps.range.outputs.last }}..${{ steps.range.outputs.new }}"
+          git push origin "${{ steps.range.outputs.branch }}"
+
+      - name: Open pull request
+        if: steps.range.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          last="${{ steps.range.outputs.last }}"
+          new="${{ steps.range.outputs.new }}"
+          {
+            echo "Brings in ${{ steps.range.outputs.commits }} commits from [bitwarden/clients](https://github.com/bitwarden/clients/compare/${last}...${new})."
+            echo
+            if [ "${{ steps.apply.outputs.conflicts }}" = "true" ]; then
+              echo "## Conflicts"
+              echo
+              echo "Some upstream changes touch code Multiwarden also changed. Files with conflict markers:"
+              echo
+              sed 's/^/- `/; s/$/`/' /tmp/markers.txt
+              echo
+              echo "Resolve them on this branch (see MULTIWARDEN.md for what each Multiwarden hook does), then merge."
+            else
+              echo "Applied cleanly. Merge once the Multiwarden CI checks pass."
+            fi
+          } > /tmp/body.md
+          title="Sync upstream to ${{ steps.range.outputs.short }}"
+          if [ "${{ steps.apply.outputs.conflicts }}" = "true" ]; then
+            title="[conflicts] $title"
+          fi
+          gh pr create --base main --head "${{ steps.range.outputs.branch }}" --title "$title" --body-file /tmp/body.md
+          # PRs opened with the workflow token do not trigger pull_request workflows, so start
+          # the Multiwarden CI build on the sync branch explicitly.
+          gh workflow run multiwarden-ci.yml --ref "${{ steps.range.outputs.branch }}"

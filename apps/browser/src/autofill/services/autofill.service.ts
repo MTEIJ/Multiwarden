@@ -31,6 +31,7 @@ import {
   UriMatchStrategySetting,
   UriMatchStrategy,
 } from "@bitwarden/common/models/domain/domain-service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { AnimationControlService } from "@bitwarden/common/platform/abstractions/animation-control.service";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import { MessageListener } from "@bitwarden/common/platform/messaging";
@@ -486,10 +487,14 @@ export default class AutofillService implements AutofillServiceInterface {
     }
 
     const activeAccount = await firstValueFrom(this.accountService.activeAccount$);
+    // Multiwarden: the cipher may belong to another unlocked account; premium checks and the
+    // last-used date belong to that account.
+    const fillUserId =
+      getMultiAccountScope()?.ownerOf(options.cipher.id) ?? activeAccount?.id ?? undefined;
     let canAccessPremium = false;
-    if (activeAccount?.id) {
+    if (fillUserId) {
       canAccessPremium = await firstValueFrom(
-        this.billingAccountProfileStateService.hasPremiumFromAnySource$(activeAccount.id),
+        this.billingAccountProfileStateService.hasPremiumFromAnySource$(fillUserId),
       );
     }
     const defaultUriMatch = await this.getDefaultUriMatchStrategy();
@@ -546,8 +551,8 @@ export default class AutofillService implements AutofillServiceInterface {
         // Add a small delay between operations
         fillScript.properties.delay_between_operations = 20;
 
-        if (!options.skipLastUsed && activeAccount?.id) {
-          await this.cipherService.updateLastUsedDate(options.cipher.id, activeAccount.id);
+        if (!options.skipLastUsed && fillUserId) {
+          await this.cipherService.updateLastUsedDate(options.cipher.id, fillUserId);
         }
 
         const showAnimations =

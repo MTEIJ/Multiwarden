@@ -1,11 +1,12 @@
 // FIXME: Update this file to be type safe and remove this and next line
 // @ts-strict-ignore
-import { filter, firstValueFrom, map, timeout } from "rxjs";
+import { filter, firstValueFrom, map, merge, timeout } from "rxjs";
 
 import { SdkRandomNumberClient } from "@bitwarden/sdk-internal";
 
 import { AccountService } from "../../../auth/abstractions/account.service";
 import { getUserId } from "../../../auth/services/account.service";
+import { MultiAccountScope } from "../../../multiwarden/multi-account-scope";
 import { CipherId, UserId } from "../../../types/guid";
 import { CipherService } from "../../../vault/abstractions/cipher.service";
 import { SyncService } from "../../../vault/abstractions/sync/sync.service.abstraction";
@@ -60,6 +61,8 @@ export class Fido2AuthenticatorService<
     private syncService: SyncService,
     private accountService: AccountService,
     private logService?: LogService,
+    /** Multiwarden: when set, passkeys from every unlocked account are in scope. */
+    private multiAccountScope?: MultiAccountScope,
   ) {}
 
   async makeCredential(
@@ -153,14 +156,18 @@ export class Fido2AuthenticatorService<
       try {
         keyPair = await createKeyPair();
         pubKeyDer = new Uint8Array(await crypto.subtle.exportKey("spki", keyPair.publicKey));
-        const activeUserId = await firstValueFrom(
-          this.accountService.activeAccount$.pipe(getUserId),
-        );
-
-        const encrypted = await firstValueFrom(
-          this.cipherService.ciphers$(activeUserId).pipe(
-            map((ciphers) => ciphers[cipherId as CipherId]),
-            filter((c) => c !== undefined),
+        // Multiwarden: the chosen item may live in any unlocked account, so watch them all.
+        const scopeUserIds = await this.userIdsInScope();
+        const { encrypted, ownerUserId } = await firstValueFrom(
+          merge(
+            ...scopeUserIds.map((userId) =>
+              this.cipherService.ciphers$(userId).pipe(
+                map((ciphers) => ciphers?.[cipherId as CipherId]),
+                filter((c) => c !== undefined),
+                map((c) => ({ encrypted: new Cipher(c, null), ownerUserId: userId })),
+              ),
+            ),
+          ).pipe(
             timeout({
               first: 5000,
               with: () => {
@@ -170,9 +177,10 @@ export class Fido2AuthenticatorService<
                 throw new Fido2AuthenticatorError(Fido2AuthenticatorErrorCode.Unknown);
               },
             }),
-            map((c) => new Cipher(c, null)),
           ),
         );
+        const activeUserId = ownerUserId;
+        this.multiAccountScope?.remember(cipherId, ownerUserId);
 
         cipher = await this.cipherService.decrypt(encrypted, activeUserId);
 
@@ -328,10 +336,8 @@ export class Fido2AuthenticatorService<
         };
 
         if (selectedFido2Credential.counter > 0) {
-          const activeUserId = await firstValueFrom(
-            this.accountService.activeAccount$.pipe(getUserId),
-          );
-          await this.cipherService.updateWithServer(selectedCipher, activeUserId);
+          const ownerUserId = await this.ownerOfCipher(selectedCipher.id);
+          await this.cipherService.updateWithServer(selectedCipher, ownerUserId);
         }
 
         const authenticatorData = await generateAuthData({
@@ -418,8 +424,7 @@ export class Fido2AuthenticatorService<
       return [];
     }
 
-    const activeUserId = await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId));
-    const ciphers = await this.passkeyCiphers(activeUserId);
+    const ciphers = await this.passkeyCiphersInScope();
     return ciphers
       .filter(
         (cipher) =>
@@ -437,8 +442,7 @@ export class Fido2AuthenticatorService<
       return [];
     }
 
-    const activeUserId = await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId));
-    const ciphers = await this.passkeyCiphers(activeUserId);
+    const ciphers = await this.passkeyCiphersInScope();
     return ciphers.filter(
       (cipher) =>
         cipher.login.fido2Credentials[0].rpId === rpId &&
@@ -472,9 +476,38 @@ export class Fido2AuthenticatorService<
     return this.cipherService.getAllDecryptedForIds(userId, ids);
   }
 
+  /** Multiwarden: the accounts passkeys are read from, active account first. */
+  private async userIdsInScope(): Promise<UserId[]> {
+    if (this.multiAccountScope) {
+      const userIds = await this.multiAccountScope.unlockedUserIds();
+      if (userIds.length > 0) {
+        return userIds;
+      }
+    }
+    return [await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId))];
+  }
+
+  /** Multiwarden: passkey ciphers from every account in scope, remembering each one's owner. */
+  private async passkeyCiphersInScope(): Promise<CipherView[]> {
+    if (!this.multiAccountScope) {
+      const activeUserId = await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId));
+      return this.passkeyCiphers(activeUserId);
+    }
+    return this.multiAccountScope.collectItems((userId) => this.passkeyCiphers(userId));
+  }
+
+  /** Multiwarden: the account that owns a cipher, falling back to the active account. */
+  private async ownerOfCipher(cipherId: string): Promise<UserId> {
+    const owner = await this.multiAccountScope?.resolveOwner(
+      cipherId,
+      async (userId) =>
+        (await firstValueFrom(this.cipherService.ciphers$(userId)))?.[cipherId as CipherId] != null,
+    );
+    return owner ?? (await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId)));
+  }
+
   private async findCredentialsByRp(rpId: string): Promise<CipherView[]> {
-    const activeUserId = await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId));
-    const ciphers = await this.passkeyCiphers(activeUserId);
+    const ciphers = await this.passkeyCiphersInScope();
     return ciphers.filter(
       (cipher) =>
         cipher.login.fido2Credentials[0].rpId === rpId &&

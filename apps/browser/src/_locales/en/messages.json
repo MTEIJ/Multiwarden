@@ -9454,5 +9454,20 @@
   },
   "month": {
     "message": "month"
+  },
+  "multiwardenSaveToAccount": {
+    "message": "Save to account"
+  },
+  "multiwardenSaveNewLoginInAccount": {
+    "message": "Save as new login in $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "name@example.com"
+      }
+    }
+  },
+  "multiwardenAccount": {
+    "message": "Account"
   }
 }

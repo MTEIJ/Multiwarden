@@ -303,7 +303,12 @@ export class BrowserFido2UserInterfaceSession implements Fido2UserInterfaceSessi
   }
 
   async ensureUnlockedVault(): Promise<void> {
-    if ((await this.authService.getAuthStatus()) !== AuthenticationStatus.Unlocked) {
+    // Multiwarden: any unlocked account is enough, it does not have to be the active one.
+    const statuses = await firstValueFrom(this.authService.authStatuses$);
+    const anyUnlocked = Object.values(statuses ?? {}).some(
+      (status) => status === AuthenticationStatus.Unlocked,
+    );
+    if (!anyUnlocked) {
       await this.connect();
     }
   }

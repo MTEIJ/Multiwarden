@@ -1,4 +1,4 @@
-import { EMPTY, filter, firstValueFrom, switchMap, map, of } from "rxjs";
+import { EMPTY, filter, firstValueFrom, switchMap, map, of, timeout } from "rxjs";
 
 import { CollectionService } from "@bitwarden/admin-console/common";
 import {
@@ -21,6 +21,7 @@ import { DomainSettingsService } from "@bitwarden/common/autofill/services/domai
 import { UserNotificationSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/user-notification-settings.service";
 import { ProductTierType } from "@bitwarden/common/billing/enums/product-tier-type.enum";
 import { NeverDomains } from "@bitwarden/common/models/domain/domain-service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { ConfigService } from "@bitwarden/common/platform/abstractions/config/config.service";
 import { ServerConfig } from "@bitwarden/common/platform/abstractions/config/server-config";
 import { EnvironmentService } from "@bitwarden/common/platform/abstractions/environment.service";
@@ -65,6 +66,7 @@ import {
 import { CollectionView } from "../content/components/common-types";
 import { NotificationType } from "../enums/notification-type.enum";
 import { Fido2Background } from "../fido2/background/abstractions/fido2.background";
+import { getLastAccountForSite, setLastAccountForSite } from "../multiwarden/last-account";
 import { AutofillService } from "../services/abstractions/autofill.service";
 import {
   CipherUse,
@@ -152,9 +154,10 @@ export default class NotificationBackground {
     bgGetEnableChangedPasswordPrompt: () => this.getEnableChangedPasswordPrompt(),
     bgGetEnableAddedLoginPrompt: () => this.getEnableAddedLoginPrompt(),
     bgGetExcludedDomains: () => this.getExcludedDomains(),
-    bgGetFolderData: () => this.getFolderData(),
+    bgGetFolderData: ({ message }) => this.getFolderData(message),
     bgGetCollectionData: ({ message }) => this.getCollectionData(message),
-    bgGetOrgData: () => this.getOrgData(),
+    bgGetOrgData: ({ message }) => this.getOrgData(message),
+    bgGetMultiwardenAccounts: ({ sender }) => this.getMultiwardenAccounts(sender),
     bgNeverSave: ({ sender }) => this.withSenderTab(sender, (tab) => this.saveNever(tab)),
     bgOpenAddEditVaultItemPopout: ({ message, sender }) =>
       this.withSenderTab(sender, (tab) => this.openAddEditVaultItem(message, tab)),
@@ -254,11 +257,16 @@ export default class NotificationBackground {
    */
 
   async getNotificationCipherData(): Promise<NotificationCipherData[]> {
+    return this.withAccountLabels(await this.getNotificationCipherDataForScope());
+  }
+
+  /** Multiwarden: the upstream cipher list, read from every unlocked account. */
+  private async getNotificationCipherDataForScope(): Promise<NotificationCipherData[]> {
     const [currentTab, showFavicons, env, activeUserId] = await Promise.all([
       BrowserApi.getTabFromCurrentWindow(),
       firstValueFrom(this.domainSettingsService.showFavicons$),
       firstValueFrom(this.environmentService.environment$),
-      firstValueFrom(this.accountService.activeAccount$.pipe(getOptionalUserId)),
+      this.userIdForRequest(),
     ]);
 
     if (!currentTab?.url || !activeUserId) {
@@ -266,8 +274,8 @@ export default class NotificationBackground {
     }
 
     const [decryptedCiphers, organizations] = await Promise.all([
-      this.fillCipherPolicy.ciphersForUrl(currentTab.url, activeUserId, CipherUse.SavePrompt),
-      firstValueFrom(this.organizationService.organizations$(activeUserId)),
+      this.ciphersForUrlInScope(currentTab.url, activeUserId, CipherUse.SavePrompt),
+      this.organizationsInScope(activeUserId),
     ]);
 
     const iconsServerUrl: string | null = env.getIconsUrl() ?? null;
@@ -290,11 +298,16 @@ export default class NotificationBackground {
         const {
           data: { cipherIds },
         } = cipherQueueMessage;
-        const cipherViews = await this.fillCipherPolicy.ciphersForIds(
-          activeUserId,
-          cipherIds,
-          CipherUse.SavePrompt,
-        );
+        const scope = getMultiAccountScope();
+        const cipherViews = scope
+          ? await scope.collectItems((userId) =>
+              this.fillCipherPolicy.ciphersForIds(userId, cipherIds, CipherUse.SavePrompt),
+            )
+          : await this.fillCipherPolicy.ciphersForIds(
+              activeUserId,
+              cipherIds,
+              CipherUse.SavePrompt,
+            );
         return cipherViews.map((cipherView) => {
           const organizationType = getOrganizationType(cipherView.organizationId);
           return this.convertToNotificationCipherData(
@@ -442,7 +455,126 @@ export default class NotificationBackground {
    * @returns Promise<AuthenticationStatus> - The current authentication status of the user.
    */
   private async getAuthStatus() {
-    return await firstValueFrom(this.authService.activeAccountStatus$);
+    const activeStatus = await firstValueFrom(this.authService.activeAccountStatus$);
+    // Multiwarden: save prompts work while any account is unlocked.
+    if (activeStatus !== AuthenticationStatus.Unlocked) {
+      const scope = getMultiAccountScope();
+      if (scope && (await scope.unlockedUserIds()).length > 0) {
+        return AuthenticationStatus.Unlocked;
+      }
+    }
+    return activeStatus;
+  }
+
+  /**
+   * Multiwarden: the account a request should act on. That is the requested account when it is
+   * unlocked, otherwise the active account, otherwise the first unlocked account.
+   */
+  private async userIdForRequest(requested?: string | null): Promise<UserId | null> {
+    const scope = getMultiAccountScope();
+    const active = await firstValueFrom(this.accountService.activeAccount$.pipe(getOptionalUserId));
+    if (!scope) {
+      return active;
+    }
+    const unlocked = await scope.unlockedUserIds();
+    const requestedUserId = unlocked.find((userId) => userId === requested);
+    if (requestedUserId) {
+      return requestedUserId;
+    }
+    if (active && unlocked.includes(active)) {
+      return active;
+    }
+    return unlocked[0] ?? active;
+  }
+
+  /** Multiwarden: ciphers for a URL from every unlocked account. */
+  private async ciphersForUrlInScope(
+    url: string,
+    fallbackUserId: UserId,
+    use: CipherUse,
+  ): Promise<CipherView[]> {
+    const scope = getMultiAccountScope();
+    if (!scope) {
+      return this.fillCipherPolicy.ciphersForUrl(url, fallbackUserId, use);
+    }
+    return scope.collectItems((userId) => this.fillCipherPolicy.ciphersForUrl(url, userId, use));
+  }
+
+  /** Multiwarden: organizations of every unlocked account, for vault icons in the bar. */
+  private async organizationsInScope(fallbackUserId: UserId) {
+    const scope = getMultiAccountScope();
+    const userIds = scope ? await scope.unlockedUserIds() : [fallbackUserId];
+    const perAccount = await Promise.all(
+      userIds.map((userId) => firstValueFrom(this.organizationService.organizations$(userId))),
+    );
+    return perAccount.flat();
+  }
+
+  /** Multiwarden: the account that owns a cipher, or `fallback` if no unlocked account has it. */
+  private async ownerOfCipher(cipherId: string, fallback: UserId): Promise<UserId> {
+    const scope = getMultiAccountScope();
+    const owner = await scope?.resolveOwner(
+      cipherId,
+      async (userId) => (await this.cipherService.get(cipherId, userId)) != null,
+    );
+    return owner ?? fallback;
+  }
+
+  /** Multiwarden: appends the owning account's email to item names when several are unlocked. */
+  private async withAccountLabels(
+    ciphers: NotificationCipherData[],
+  ): Promise<NotificationCipherData[]> {
+    const scope = getMultiAccountScope();
+    if (!scope || !(await scope.hasMultipleUnlocked())) {
+      return ciphers;
+    }
+    return Promise.all(
+      ciphers.map(async (cipher) => {
+        const label = await scope.labelFor(scope.ownerOf(cipher.id));
+        return label ? { ...cipher, name: `${cipher.name} · ${label}` } : cipher;
+      }),
+    );
+  }
+
+  /**
+   * Multiwarden: some flows open the extension's add/edit page, which works on the active
+   * account. Switch to the target account first, the same way the account switcher does.
+   */
+  private async ensureActiveAccount(userId: UserId): Promise<void> {
+    const active = await firstValueFrom(this.accountService.activeAccount$.pipe(getOptionalUserId));
+    if (active === userId) {
+      return;
+    }
+    const switched = firstValueFrom(
+      this.accountService.activeAccount$.pipe(
+        filter((account) => account?.id === userId),
+        timeout({ first: 3000, with: () => of(null) }),
+      ),
+    );
+    this.messagingService.send("switchAccount", { userId });
+    await switched;
+  }
+
+  /**
+   * Multiwarden: the unlocked accounts the save prompt can save to, and the default choice:
+   * the account last used for this site, otherwise the active account.
+   */
+  private async getMultiwardenAccounts(sender: chrome.runtime.MessageSender): Promise<{
+    accounts: { userId: UserId; email: string }[];
+    defaultUserId: UserId | null;
+  }> {
+    const scope = getMultiAccountScope();
+    if (!scope) {
+      return { accounts: [], defaultUserId: null };
+    }
+    const accounts = (await scope.unlockedAccounts()).map(({ userId, email }) => ({
+      userId,
+      email,
+    }));
+    const site = sender.tab?.url ? Utils.getDomain(sender.tab.url) : null;
+    const remembered = await getLastAccountForSite(site);
+    const defaultUserId = await this.userIdForRequest(remembered);
+    return { accounts, defaultUserId };
   }
 
   /**
@@ -735,9 +867,8 @@ export default class NotificationBackground {
     }
 
     // If there is no active user, exit early
-    const activeUserId = await firstValueFrom(
-      this.accountService.activeAccount$.pipe(getOptionalUserId),
-    );
+    // Multiwarden: falls back to another unlocked account when the active one is locked.
+    const activeUserId = await this.userIdForRequest();
     if (activeUserId === null) {
       return false;
     }
@@ -776,7 +907,8 @@ export default class NotificationBackground {
       return true;
     }
 
-    const ciphersForURL: CipherView[] = await this.fillCipherPolicy.ciphersForUrl(
+    // Multiwarden: a login saved in any unlocked account counts as already saved.
+    const ciphersForURL: CipherView[] = await this.ciphersForUrlInScope(
       data.uri,
       activeUserId,
       CipherUse.SavePrompt,
@@ -1226,7 +1358,14 @@ export default class NotificationBackground {
       return;
     }
 
-    await this.saveOrUpdateCredentials(tab, message.cipherId, message?.edit, message.folder);
+    await this.saveOrUpdateCredentials(
+      tab,
+      message.cipherId,
+      message?.edit,
+      message.folder,
+      false,
+      message.multiwardenUserId,
+    );
   }
 
   async handleCipherUpdateRepromptResponse(message: NotificationBackgroundExtensionMessage) {
@@ -1257,6 +1396,7 @@ export default class NotificationBackground {
     edit?: boolean,
     folderId?: string,
     skipReprompt: boolean = false,
+    requestedUserId?: string,
   ) {
     const resolvedEdit = edit ?? false;
     for (let i = this.notificationQueue.length - 1; i >= 0; i--) {
@@ -1273,12 +1413,16 @@ export default class NotificationBackground {
         continue;
       }
 
-      const activeUserId = await firstValueFrom(
-        this.accountService.activeAccount$.pipe(getOptionalUserId),
-      );
-      if (activeUserId == null) {
+      // Multiwarden: new logins go to the account picked in the bar; updates go to the
+      // account that owns the cipher being updated.
+      const saveUserId = await this.userIdForRequest(requestedUserId);
+      if (saveUserId == null) {
         continue;
       }
+      const activeUserId =
+        queueMessage.type === NotificationType.ChangePassword
+          ? await this.ownerOfCipher(cipherId, saveUserId)
+          : saveUserId;
 
       if (
         !(await this.fillCipherPolicy.canOfferSave(
@@ -1315,7 +1459,7 @@ export default class NotificationBackground {
 
       // If the vault was locked, check if a cipher needs updating instead of creating a new one
       if (queueMessage.wasVaultLocked) {
-        const allCiphers = await this.fillCipherPolicy.ciphersForUrl(
+        const allCiphers = await this.ciphersForUrlInScope(
           queueMessage.data.uri,
           activeUserId,
           CipherUse.SavePrompt,
@@ -1331,7 +1475,8 @@ export default class NotificationBackground {
           if (password == null) {
             continue;
           }
-          await this.updatePassword(existingCipher, password, resolvedEdit, tab, activeUserId);
+          const ownerUserId = await this.ownerOfCipher(existingCipher.id, activeUserId);
+          await this.updatePassword(existingCipher, password, resolvedEdit, tab, ownerUserId);
           return;
         }
       }
@@ -1350,6 +1495,8 @@ export default class NotificationBackground {
 
       try {
         const resultCipher = await this.cipherService.createWithServer(newCipher, activeUserId);
+        // Fire and forget: remembering the account must never delay the save.
+        void setLastAccountForSite(Utils.getDomain(queueMessage.data.uri), activeUserId);
         await BrowserApi.tabSendMessageData(tab, "saveCipherAttemptCompleted", {
           itemName: newCipher?.name && String(newCipher?.name),
           cipherId: resultCipher?.id && String(resultCipher?.id),
@@ -1453,6 +1600,7 @@ export default class NotificationBackground {
    * @param senderTab - The tab that the message was sent from
    */
   private async editItem(cipherView: CipherView, userId: UserId, senderTab: chrome.tabs.Tab) {
+    await this.ensureActiveAccount(userId);
     await this.cipherService.setAddEditCipherInfo(
       {
         cipher: cipherView,
@@ -1469,7 +1617,11 @@ export default class NotificationBackground {
     senderTab: chrome.tabs.Tab,
   ) {
     const { cipherId, organizationId, folder } = message;
-    const userId = await firstValueFrom(this.accountService.activeAccount$.pipe(getOptionalUserId));
+    // Multiwarden: open the add/edit page in the account chosen in the bar.
+    const userId = await this.userIdForRequest(message.multiwardenUserId);
+    if (userId) {
+      await this.ensureActiveAccount(userId);
+    }
     if (cipherId) {
       await this.openAddEditVaultItemPopout(senderTab, { cipherId });
       return;
@@ -1585,10 +1737,8 @@ export default class NotificationBackground {
   /**
    * Returns the first value found from the folder service's folderViews$ observable.
    */
-  private async getFolderData() {
-    const activeUserId = await firstValueFrom(
-      this.accountService.activeAccount$.pipe(getOptionalUserId),
-    );
+  private async getFolderData(message?: NotificationBackgroundExtensionMessage) {
+    const activeUserId = await this.userIdForRequest(message?.multiwardenUserId);
     if (activeUserId == null) {
       return [];
     }
@@ -1598,9 +1748,12 @@ export default class NotificationBackground {
   private async getCollectionData(
     message: NotificationBackgroundExtensionMessage,
   ): Promise<CollectionView[]> {
+    const collectionsUserId = await this.userIdForRequest(message?.multiwardenUserId);
+    if (collectionsUserId == null) {
+      return [];
+    }
     const collections = await firstValueFrom(
-      this.accountService.activeAccount$.pipe(
-        getUserId,
+      of(collectionsUserId).pipe(
         switchMap((userId) => this.collectionService.decryptedCollections$(userId)),
         map((collections) =>
           collections.reduce<CollectionView[]>((acc, collection) => {
@@ -1638,10 +1791,8 @@ export default class NotificationBackground {
   /**
    * Returns enabled organizations from `organizations$` for the notification bar vault selector.
    */
-  private async getOrgData() {
-    const activeUserId = await firstValueFrom(
-      this.accountService.activeAccount$.pipe(getOptionalUserId),
-    );
+  private async getOrgData(message?: NotificationBackgroundExtensionMessage) {
+    const activeUserId = await this.userIdForRequest(message?.multiwardenUserId);
     if (activeUserId == null) {
       return [];
     }

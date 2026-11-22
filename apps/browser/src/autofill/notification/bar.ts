@@ -1,4 +1,4 @@
-import { render } from "lit";
+import { nothing, render } from "lit";
 
 import { Theme, ThemeTypes } from "@bitwarden/common/platform/enums";
 import { CipherView } from "@bitwarden/common/vault/models/view/cipher.view";
@@ -9,7 +9,14 @@ import { CollectionView, I18n, OrgView } from "../content/components/common-type
 import { AtRiskNotification } from "../content/components/notification/at-risk-password/container";
 import { NotificationConfirmationContainer } from "../content/components/notification/confirmation/container";
 import { NotificationContainer } from "../content/components/notification/container";
+import {
+  accountChange,
+  availableAccounts,
+  MultiwardenAccountOption,
+  selectedAccount as selectedAccountSignal,
+} from "../content/components/signals/selected-account";
 import { selectedCipher as selectedCipherSignal } from "../content/components/signals/selected-cipher";
+import { selectedCollection as selectedCollectionSignal } from "../content/components/signals/selected-collection";
 import { selectedFolder as selectedFolderSignal } from "../content/components/signals/selected-folder";
 import { selectedVault as selectedVaultSignal } from "../content/components/signals/selected-vault";
 
@@ -85,6 +92,7 @@ function getI18n() {
     updateLogin: chrome.i18n.getMessage("updateLogin"),
     updateLoginAction: chrome.i18n.getMessage("updateLoginAction"),
     vault: chrome.i18n.getMessage("vault"),
+    multiwardenAccount: chrome.i18n.getMessage("multiwardenAccount"),
     view: chrome.i18n.getMessage("view"),
   };
 }
@@ -255,45 +263,71 @@ async function initNotificationBar(message: NotificationBarWindowMessage) {
   }
 
   // Default scenario: add or update password
-  const orgId = selectedVaultSignal.get();
+  // Multiwarden: when several accounts are unlocked, a new login gets an account selector.
+  const multiwarden = await new Promise<{
+    accounts: MultiwardenAccountOption[];
+    defaultUserId: string | null;
+  } | null>((resolve) => sendPlatformMessage({ command: "bgGetMultiwardenAccounts" }, resolve));
+  availableAccounts.set(
+    notificationType === NotificationTypes.Add ? (multiwarden?.accounts ?? []) : [],
+  );
+  selectedAccountSignal.set(multiwarden?.defaultUserId ?? "");
+  accountChange.handler = () => {
+    // Folder, vault and collection ids belong to the previous account.
+    selectedFolderSignal.set("0");
+    selectedVaultSignal.set("0");
+    selectedCollectionSignal.set("0");
+    // Clear first so the selectors are rebuilt with the new account's options.
+    render(nothing, document.body);
+    void renderSaveOrUpdateNotification();
+  };
 
-  await Promise.all([
-    new Promise<OrgView[]>((resolve) => sendPlatformMessage({ command: "bgGetOrgData" }, resolve)),
-    new Promise<FolderView[]>((resolve) =>
-      sendPlatformMessage({ command: "bgGetFolderData" }, resolve),
-    ),
-    new Promise<NotificationCipherData[]>((resolve) =>
-      sendPlatformMessage({ command: "bgGetDecryptedCiphers" }, resolve),
-    ),
-    new Promise<CollectionView[]>((resolve) =>
-      sendPlatformMessage({ command: "bgGetCollectionData", orgId }, resolve),
-    ),
-  ]).then(([organizations, folders, ciphers, collections]) => {
-    notificationBarIframeInitData = {
-      ...notificationBarIframeInitData,
-      organizations,
-      folders,
-      ciphers,
-      collections,
-    };
+  await renderSaveOrUpdateNotification();
 
-    // @TODO use context to avoid prop drilling
-    return render(
-      NotificationContainer({
+  async function renderSaveOrUpdateNotification() {
+    const orgId = selectedVaultSignal.get();
+    const multiwardenUserId = selectedAccountSignal.get() || undefined;
+
+    await Promise.all([
+      new Promise<OrgView[]>((resolve) =>
+        sendPlatformMessage({ command: "bgGetOrgData", multiwardenUserId }, resolve),
+      ),
+      new Promise<FolderView[]>((resolve) =>
+        sendPlatformMessage({ command: "bgGetFolderData", multiwardenUserId }, resolve),
+      ),
+      new Promise<NotificationCipherData[]>((resolve) =>
+        sendPlatformMessage({ command: "bgGetDecryptedCiphers" }, resolve),
+      ),
+      new Promise<CollectionView[]>((resolve) =>
+        sendPlatformMessage({ command: "bgGetCollectionData", orgId, multiwardenUserId }, resolve),
+      ),
+    ]).then(([organizations, folders, ciphers, collections]) => {
+      notificationBarIframeInitData = {
         ...notificationBarIframeInitData,
-        headerMessage,
-        type: notificationType,
-        theme: resolvedTheme,
-        notificationTestId,
-        personalVaultIsAllowed: !personalVaultDisallowed,
-        handleCloseNotification,
-        handleSaveAction,
-        handleEditOrUpdateAction,
-        i18n,
-      }),
-      document.body,
-    );
-  });
+        organizations,
+        folders,
+        ciphers,
+        collections,
+      };
+
+      // @TODO use context to avoid prop drilling
+      return render(
+        NotificationContainer({
+          ...notificationBarIframeInitData,
+          headerMessage,
+          type: notificationType,
+          theme: resolvedTheme,
+          notificationTestId,
+          personalVaultIsAllowed: !personalVaultDisallowed,
+          handleCloseNotification,
+          handleSaveAction,
+          handleEditOrUpdateAction,
+          i18n,
+        }),
+        document.body,
+      );
+    });
+  }
 
   function handleEditOrUpdateAction(e: Event) {
     e.preventDefault();
@@ -326,6 +360,7 @@ function handleSaveAction(e: Event) {
   if (selectedVault.length > 1) {
     openAddEditVaultItemPopout(e, {
       organizationId: selectedVault,
+      multiwardenUserId: selectedAccountSignal.get() || undefined,
       ...(selectedFolder?.length > 1 ? { folder: selectedFolder } : {}),
     });
     handleCloseNotification(e);
@@ -345,6 +380,8 @@ function sendSaveCipherMessage(cipherId: CipherView["id"] | null, edit: boolean,
     cipherId,
     folder,
     edit,
+    // Multiwarden: the account chosen in the account selector, if any.
+    multiwardenUserId: selectedAccountSignal.get() || undefined,
   });
 }
 
@@ -354,6 +391,7 @@ function openAddEditVaultItemPopout(
     cipherId?: string;
     organizationId?: string;
     folder?: string;
+    multiwardenUserId?: string;
   },
 ) {
   e.preventDefault();

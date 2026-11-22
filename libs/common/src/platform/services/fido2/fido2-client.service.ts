@@ -389,6 +389,16 @@ export class Fido2ClientService<
     return this.generateAssertCredentialResult(getAssertionResult, clientDataJSONBytes);
   }
 
+  /** Multiwarden: true when the active account, or any other account, is unlocked. */
+  private async isAnyAccountUnlocked(): Promise<boolean> {
+    const activeStatus = await firstValueFrom(this.authService.activeAccountStatus$);
+    if (activeStatus === AuthenticationStatus.Unlocked || this.authService.authStatuses$ == null) {
+      return activeStatus === AuthenticationStatus.Unlocked;
+    }
+    const statuses = await firstValueFrom(this.authService.authStatuses$);
+    return Object.values(statuses ?? {}).some((status) => status === AuthenticationStatus.Unlocked);
+  }
+
   private async handleMediatedConditionalRequest(
     params: AssertCredentialParams,
     tab: ParentWindowReference,
@@ -398,11 +408,11 @@ export class Fido2ClientService<
     let getAssertionResult;
     let assumeUserPresence = false;
     while (!getAssertionResult) {
-      const authStatus = await firstValueFrom(this.authService.activeAccountStatus$);
-      const availableCredentials =
-        authStatus === AuthenticationStatus.Unlocked
-          ? await this.authenticator.silentCredentialDiscovery(params.rpId)
-          : [];
+      // Multiwarden: conditional (autofill-style) passkeys work while any account is unlocked.
+      const anyUnlocked = await this.isAnyAccountUnlocked();
+      const availableCredentials = anyUnlocked
+        ? await this.authenticator.silentCredentialDiscovery(params.rpId)
+        : [];
       this.logService?.info(
         `[Fido2Client] started mediated request, available credentials: ${availableCredentials.length}`,
       );

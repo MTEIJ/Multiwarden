@@ -6,6 +6,11 @@ import { Theme } from "@bitwarden/common/platform/enums";
 import { Option, OrgView, FolderView, I18n, CollectionView } from "../common-types";
 import { Business, Family, Folder, User, CollectionShared } from "../icons";
 import { ButtonRow } from "../rows/button-row";
+import {
+  accountChange,
+  availableAccounts,
+  selectedAccount as selectedAccountSignal,
+} from "../signals/selected-account";
 import { selectedCollection as selectedCollectionSignal } from "../signals/selected-collection";
 import { selectedFolder as selectedFolderSignal } from "../signals/selected-folder";
 import { selectedVault as selectedVaultSignal } from "../signals/selected-vault";
@@ -120,11 +125,31 @@ export function NotificationButtonRow({
     }
   }
 
+  // Multiwarden: pick which unlocked account the login is saved to.
+  const accounts = availableAccounts.get();
+  const accountOptions: Option[] = accounts.map(({ userId, email }) => ({
+    icon: User,
+    text: email,
+    value: userId,
+    default: userId === selectedAccountSignal.get(),
+  }));
+
   return html`
     ${ButtonRow({
       theme,
       primaryButton,
       selectButtons: [
+        ...(accountOptions.length > 1
+          ? [
+              {
+                id: "multiwarden-account",
+                label: i18n.multiwardenAccount,
+                options: accountOptions,
+                selectedSignal: selectedAccountSignal,
+                handleSelectionUpdate: (userId: string) => accountChange.handler?.(userId),
+              },
+            ]
+          : []),
         ...(vaultOptions.length > 1
           ? [
               {

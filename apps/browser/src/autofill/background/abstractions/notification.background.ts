@@ -192,4 +192,11 @@ export type NotificationBackgroundExtensionMessageHandlers = {
   bgGetActiveUserServerConfig: () => Promise<ServerConfig | null>;
   getWebVaultUrlForNotification: () => Promise<string>;
   showLoginSavedNotification: ({ message }: BackgroundMessageParam) => Promise<void>;
+  /** Multiwarden: organizations of the account picked in the save prompt. */
+  bgGetOrgData: ({ message }: BackgroundMessageParam) => Promise<unknown[]>;
+  /** Multiwarden: unlocked accounts for the save prompt's account selector. */
+  bgGetMultiwardenAccounts: ({ sender }: BackgroundSenderParam) => Promise<{
+    accounts: { userId: string; email: string }[];
+    defaultUserId: string | null;
+  }>;
 };

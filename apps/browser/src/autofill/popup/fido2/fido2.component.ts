@@ -18,11 +18,17 @@ import {
 import { JslibModule } from "@bitwarden/angular/jslib.module";
 import { NoResults } from "@bitwarden/assets/svg";
 import { AccountService } from "@bitwarden/common/auth/abstractions/account.service";
+import { AuthService } from "@bitwarden/common/auth/abstractions/auth.service";
 import { getUserId } from "@bitwarden/common/auth/services/account.service";
 import { DomainSettingsService } from "@bitwarden/common/autofill/services/domain-settings.service";
+import {
+  MultiAccountScope,
+  UnlockedAccount,
+} from "@bitwarden/common/multiwarden/multi-account-scope";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
 import { Fido2Utils } from "@bitwarden/common/platform/services/fido2/fido2-utils";
+import { UserId } from "@bitwarden/common/types/guid";
 import { CipherService } from "@bitwarden/common/vault/abstractions/cipher.service";
 import { SearchService } from "@bitwarden/common/vault/abstractions/search.service";
 import { SecureNoteType, CipherType } from "@bitwarden/common/vault/enums";
@@ -54,6 +60,10 @@ import {
   BrowserFido2UserInterfaceSession,
   BrowserFido2MessageTypes,
 } from "../../fido2/services/browser-fido2-user-interface.service";
+import {
+  getLastAccountForSite as getLastPasskeyAccount,
+  setLastAccountForSite as setLastPasskeyAccount,
+} from "../../multiwarden/last-account";
 import { CipherUse, FillCipherPolicy } from "../../services/abstractions/fill-cipher-policy";
 
 import { Fido2CipherRowComponent } from "./fido2-cipher-row.component";
@@ -114,6 +124,11 @@ export class Fido2Component implements OnInit, OnDestroy {
   protected sessionId: string | undefined = undefined;
   protected showNewPasskeyButton: boolean = false;
   protected url: string | undefined = undefined;
+  /** Multiwarden: unlocked accounts, and the one a new passkey login is saved to. */
+  protected accounts: UnlockedAccount[] = [];
+  protected selectedUserId: UserId | undefined = undefined;
+  protected accountLabels = new Map<string, string>();
+  private multiAccountScope!: MultiAccountScope;
 
   constructor(
     private router: Router,
@@ -128,9 +143,11 @@ export class Fido2Component implements OnInit, OnDestroy {
     private passwordRepromptService: PasswordRepromptService,
     private accountService: AccountService,
     private fillCipherPolicy: FillCipherPolicy,
+    private authService: AuthService,
   ) {}
 
   ngOnInit() {
+    this.multiAccountScope = new MultiAccountScope(this.accountService, this.authService);
     this.searchTypeSearch = !this.platformUtilsService.isSafari();
 
     const queryParams$ = this.activatedRoute.queryParamMap.pipe(
@@ -193,11 +210,12 @@ export class Fido2Component implements OnInit, OnDestroy {
               this.domainSettingsService.getUrlEquivalentDomains(url),
             );
 
-            const activeUserId = await firstValueFrom(
-              this.accountService.activeAccount$.pipe(getUserId),
-            );
+            // Multiwarden: offer matching logins from every unlocked account.
+            await this.loadAccounts(message.rpId);
             this.ciphers = (
-              await this.fillCipherPolicy.ciphers(activeUserId, CipherUse.Passkey)
+              await this.collectLabeled((userId) =>
+                this.fillCipherPolicy.ciphers(userId, CipherUse.Passkey),
+              )
             ).filter((cipher) => cipher.type === CipherType.Login && !cipher.isDeleted);
 
             this.displayedCiphers = this.ciphers.filter(
@@ -215,16 +233,8 @@ export class Fido2Component implements OnInit, OnDestroy {
           }
 
           case BrowserFido2MessageTypes.PickCredentialRequest: {
-            const activeUserId = await firstValueFrom(
-              this.accountService.activeAccount$.pipe(getUserId),
-            );
-
-            this.ciphers = await Promise.all(
-              message.cipherIds.map(async (cipherId) => {
-                const cipher = await this.cipherService.get(cipherId, activeUserId);
-                return this.cipherService.decrypt(cipher, activeUserId);
-              }),
-            );
+            await this.loadAccounts();
+            this.ciphers = await this.decryptFromOwners(message.cipherIds);
 
             this.displayedCiphers = [...this.ciphers];
 
@@ -234,16 +244,8 @@ export class Fido2Component implements OnInit, OnDestroy {
           }
 
           case BrowserFido2MessageTypes.InformExcludedCredentialRequest: {
-            const activeUserId = await firstValueFrom(
-              this.accountService.activeAccount$.pipe(getUserId),
-            );
-
-            this.ciphers = await Promise.all(
-              message.existingCipherIds.map(async (cipherId) => {
-                const cipher = await this.cipherService.get(cipherId, activeUserId);
-                return this.cipherService.decrypt(cipher, activeUserId);
-              }),
-            );
+            await this.loadAccounts();
+            this.ciphers = await this.decryptFromOwners(message.existingCipherIds);
 
             this.displayedCiphers = [...this.ciphers];
 
@@ -349,12 +351,24 @@ export class Fido2Component implements OnInit, OnDestroy {
 
   async handleCipherItemSelect(item: CipherView) {
     this.cipher = item;
+    const owner = this.multiAccountScope.ownerOf(item.id);
+    const data = this.message$.value;
+    if (owner && data?.type === BrowserFido2MessageTypes.ConfirmNewCredentialRequest) {
+      await setLastPasskeyAccount(data.rpId, owner);
+    }
 
     await this.submit();
   }
 
   async addCipher() {
     const data = this.message$.value;
+
+    // Multiwarden: the add-item page works on the active account. For another account,
+    // save the passkey as a new login directly in the chosen account instead.
+    if (this.selectedUserId && !this.isActiveAccount(this.selectedUserId)) {
+      await this.saveNewLogin();
+      return;
+    }
 
     if (
       data?.type === BrowserFido2MessageTypes.ConfirmNewCredentialRequest &&
@@ -470,7 +484,14 @@ export class Fido2Component implements OnInit, OnDestroy {
   }
 
   private async createNewCipher(name: string, username: string) {
-    const activeUserId = await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId));
+    // Multiwarden: save into the account picked in the popup.
+    const activeUserId =
+      this.selectedUserId ??
+      (await firstValueFrom(this.accountService.activeAccount$.pipe(getUserId)));
+    const data = this.message$.value;
+    if (data?.type === BrowserFido2MessageTypes.ConfirmNewCredentialRequest) {
+      await setLastPasskeyAccount(data.rpId, activeUserId);
+    }
 
     this.buildCipher(name, username);
     if (this.cipher == null) {
@@ -482,6 +503,67 @@ export class Fido2Component implements OnInit, OnDestroy {
     } catch (e) {
       this.logService.error(e);
     }
+  }
+
+  /** Multiwarden: loads unlocked accounts and picks the default save target for this site. */
+  private async loadAccounts(rpId?: string) {
+    this.accounts = await this.multiAccountScope.unlockedAccounts();
+    const last = rpId ? await getLastPasskeyAccount(rpId) : undefined;
+    const fallback = this.accounts.find((a) => a.isActive) ?? this.accounts[0];
+    this.selectedUserId = this.accounts.some((a) => a.userId === last) ? last : fallback?.userId;
+  }
+
+  protected get showAccountPicker(): boolean {
+    return this.accounts.length > 1;
+  }
+
+  protected accountLabel(cipher: CipherView): string | undefined {
+    return this.showAccountPicker ? this.accountLabels.get(cipher.id) : undefined;
+  }
+
+  protected selectedAccountEmail(): string {
+    return this.accounts.find((a) => a.userId === this.selectedUserId)?.email ?? "";
+  }
+
+  private isActiveAccount(userId: UserId): boolean {
+    return this.accounts.find((a) => a.userId === userId)?.isActive ?? true;
+  }
+
+  /** Multiwarden: loads ciphers from every unlocked account and labels each with its account. */
+  private async collectLabeled(load: (userId: UserId) => Promise<CipherView[]>) {
+    const results = await this.multiAccountScope.collect(load);
+    for (const { item, userId } of results) {
+      const email = this.accounts.find((a) => a.userId === userId)?.email;
+      if (email) {
+        this.accountLabels.set(item.id, email);
+      }
+    }
+    return results.map((r) => r.item);
+  }
+
+  /** Multiwarden: decrypts each cipher with the account that owns it. */
+  private async decryptFromOwners(cipherIds: string[]): Promise<CipherView[]> {
+    const ciphers = await Promise.all(
+      cipherIds.map(async (cipherId) => {
+        const owner = await this.multiAccountScope.resolveOwner(
+          cipherId,
+          async (userId) => (await this.cipherService.get(cipherId, userId)) != null,
+        );
+        if (owner == null) {
+          return null;
+        }
+        const cipher = await this.cipherService.get(cipherId, owner);
+        if (cipher == null) {
+          return null;
+        }
+        const email = this.accounts.find((a) => a.userId === owner)?.email;
+        if (email) {
+          this.accountLabels.set(cipherId, email);
+        }
+        return this.cipherService.decrypt(cipher, owner);
+      }),
+    );
+    return ciphers.filter((c): c is CipherView => c != null);
   }
 
   // TODO: Remove and use fido2 user verification service once user verification for passkeys is approved for production.

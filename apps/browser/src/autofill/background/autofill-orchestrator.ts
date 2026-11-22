@@ -16,6 +16,7 @@ import {
 import { AccountService } from "@bitwarden/common/auth/abstractions/account.service";
 import { getOptionalUserId } from "@bitwarden/common/auth/services/account.service";
 import { AutofillSettingsServiceAbstraction } from "@bitwarden/common/autofill/services/autofill-settings.service";
+import { getMultiAccountScope } from "@bitwarden/common/multiwarden/multi-account-scope";
 import { LogService } from "@bitwarden/common/platform/abstractions/log.service";
 import { PlatformUtilsService } from "@bitwarden/common/platform/abstractions/platform-utils.service";
 import { withLatestReady } from "@bitwarden/common/tools/rx";
@@ -504,7 +505,13 @@ export class DefaultAutofillOrchestrator implements AutofillOrchestrator {
     reason: FillReason,
   ): Promise<CipherView | undefined> {
     if (reason === FillReason.userCommand) {
-      return this.fillCipherPolicy.nextCipherForUrl(tabUrl, activeUserId);
+      const fromActive = await this.fillCipherPolicy.nextCipherForUrl(tabUrl, activeUserId);
+      if (fromActive != null) {
+        getMultiAccountScope()?.remember(fromActive.id, activeUserId);
+        return fromActive;
+      }
+      // Multiwarden: the keyboard shortcut falls back to the other unlocked accounts.
+      return this.nextCipherFromOtherAccounts(tabUrl, activeUserId);
     }
     const isAutomatic = reason === FillReason.automatic;
     const lastLaunchedCipher = await this.fillCipherPolicy.lastLaunchedForUrl(
@@ -521,6 +528,28 @@ export class DefaultAutofillOrchestrator implements AutofillOrchestrator {
       return lastLaunchedCipher;
     }
     return this.fillCipherPolicy.lastUsedForUrl(tabUrl, activeUserId, isAutomatic);
+  }
+
+  /** Multiwarden: the first fillable login for the URL in another unlocked account. */
+  private async nextCipherFromOtherAccounts(
+    tabUrl: string,
+    activeUserId: UserId,
+  ): Promise<CipherView | undefined> {
+    const scope = getMultiAccountScope();
+    if (scope == null) {
+      return undefined;
+    }
+    for (const userId of await scope.unlockedUserIds()) {
+      if (userId === activeUserId) {
+        continue;
+      }
+      const cipher = await this.fillCipherPolicy.nextCipherForUrl(tabUrl, userId);
+      if (cipher != null) {
+        scope.remember(cipher.id, userId);
+        return cipher;
+      }
+    }
+    return undefined;
   }
 
   /** Selects the next card or identity cipher and the cache key its rotation index advances under. */

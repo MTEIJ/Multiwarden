@@ -133,6 +133,10 @@ import {
   VaultTimeoutStringType,
 } from "@bitwarden/common/key-management/vault-timeout";
 import {
+  MultiAccountScope,
+  registerMultiAccountScope,
+} from "@bitwarden/common/multiwarden/multi-account-scope";
+import {
   AnimationControlService,
   DefaultAnimationControlService,
 } from "@bitwarden/common/platform/abstractions/animation-control.service";
@@ -475,6 +479,8 @@ export default class MainBackground {
   containerService: ContainerService;
   auditService: AuditServiceAbstraction;
   authService: AuthServiceAbstraction;
+  /** Multiwarden: every unlocked account is in scope for autofill, save prompts and passkeys. */
+  multiAccountScope: MultiAccountScope;
   loginEmailService: LoginEmailServiceAbstraction;
   importApiService: ImportApiServiceAbstraction;
   importMetadataService: ImportMetadataServiceAbstraction;
@@ -997,6 +1003,8 @@ export default class MainBackground {
       this.stateService,
       this.tokenService,
     );
+    this.multiAccountScope = new MultiAccountScope(this.accountService, this.authService);
+    registerMultiAccountScope(this.multiAccountScope);
 
     this.configApiService = new ConfigApiService(this.apiService);
 
@@ -1541,6 +1549,7 @@ export default class MainBackground {
       this.syncService,
       this.accountService,
       this.logService,
+      this.multiAccountScope,
     );
     this.fido2ActiveRequestManager = new Fido2ActiveRequestManager();
     this.fido2ClientService = new Fido2ClientService(
