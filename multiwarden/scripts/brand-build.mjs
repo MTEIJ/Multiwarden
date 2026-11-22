@@ -5,15 +5,21 @@
  * Branding is done after the build, not in Bitwarden's source files, so that upstream
  * changes to locales, manifests and images never conflict with Multiwarden's.
  *
- * Usage: node multiwarden/scripts/brand-build.mjs [buildDir]
+ * Usage: node multiwarden/scripts/brand-build.mjs [buildDir] [--store]
  *   buildDir defaults to apps/browser/build
+ *   --store  build for an extension store: leaves out the manifest "key" (stores refuse it
+ *            and give the listing its own ID)
  */
 import { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
-const buildDir = resolve(process.argv[2] ?? join(root, "apps/browser/build"));
+const args = process.argv.slice(2);
+const forStore = args.includes("--store");
+const buildDir = resolve(
+  args.find((arg) => !arg.startsWith("--")) ?? join(root, "apps/browser/build"),
+);
 const iconsDir = join(root, "multiwarden/branding/icons");
 
 const NAME = "Multiwarden";
@@ -56,6 +62,18 @@ if (manifest.browser_specific_settings?.gecko) {
 }
 if (manifest.applications?.gecko) {
   manifest.applications.gecko.id = GECKO_ID;
+}
+// Chromium: a fixed public key gives every GitHub build the same extension ID
+// (geefkjbbjaipgadampajlkghfamlljll), so updating an unpacked install keeps its data and
+// links to chrome-extension://<id>/ keep working. Firefox uses the gecko ID above instead.
+// BROWSER is the same variable the webpack build uses; it defaults to chrome.
+const isChromium =
+  ["chrome", "edge", "opera"].includes(process.env.BROWSER ?? "chrome") &&
+  !manifest.browser_specific_settings?.gecko &&
+  !manifest.applications?.gecko;
+delete manifest.key;
+if (isChromium && !forStore) {
+  manifest.key = readFileSync(join(root, "multiwarden/branding/extension-key.txt"), "utf8").trim();
 }
 writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
@@ -121,4 +139,7 @@ writeFileSync(
   ),
 );
 
-console.log(`Branded ${buildDir} as Multiwarden ${version}: ${locales} locales, ${icons} icons.`);
+console.log(
+  `Branded ${buildDir} as Multiwarden ${version}${forStore ? " (store build)" : ""}: ` +
+    `${locales} locales, ${icons} icons.`,
+);

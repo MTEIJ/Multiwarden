@@ -10,6 +10,12 @@ All new logic lives in Multiwarden-only files. Upstream files get small, comment
 call into them. Every hook is marked with a `Multiwarden:` comment, so
 `git grep -n "Multiwarden:"` lists them all.
 
+CI checks that no hook goes missing (for example in a sync that merged badly):
+`multiwarden/hooks.json` records how many `Multiwarden:` markers and references to Multiwarden
+code each upstream file has, and `multiwarden/scripts/check-hooks.mjs` fails when a file has
+fewer. After adding, moving or removing a hook on purpose, run
+`node multiwarden/scripts/check-hooks.mjs --update` and commit `hooks.json`.
+
 ### Multiwarden-only files
 
 | File                                                                        | What it does                                                                                                                                                                                                                                                                                                                |
@@ -69,20 +75,38 @@ built extension's name, description, manifest fields and icons after the build.
 
 ## Staying in sync with upstream
 
+Multiwarden follows Bitwarden's **released** browser extension (tags `browser-v<version>`), not
+their `main` branch.
+
 - `multiwarden/upstream-commit` holds the last upstream commit Multiwarden includes.
 - `.github/workflows/multiwarden-upstream-sync.yml` runs nightly (or on demand from the Actions
-  tab). It applies upstream's changes since that commit with a 3-way merge and opens a PR.
-  - Clean: CI builds and tests it; merge it.
+  tab, optionally with a specific version). When Bitwarden has released a newer browser
+  version, it applies upstream's changes from that commit to the release tag with a 3-way merge,
+  resets `release` in `multiwarden/version.json` to 1, and opens a PR on `sync/bitwarden-<version>`.
+  - Clean: CI builds and tests the branch. When everything passes, the **Merge sync** job merges
+    the PR and starts a release, which is then uploaded to the Chrome Web Store. Nothing to do.
   - `[conflicts]` PR: conflict markers are committed on the branch. Fix them with the hook table
-    above as a guide, push, and merge.
+    above as a guide, push, and merge. Then start a release by hand (see below).
+  - CI fails on a clean PR (a test, the build or the hook check): fix it on the branch, then run
+    Multiwarden CI on that branch from the Actions tab to merge it.
 - Manual sync, if you prefer:
 
   ```bash
   git remote add upstream https://github.com/bitwarden/clients.git   # once
-  git fetch upstream main
-  git diff --binary "$(cat multiwarden/upstream-commit)" upstream/main | git apply --3way --index
-  git rev-parse upstream/main > multiwarden/upstream-commit
+  git fetch upstream tag browser-v2026.12.0
+  git diff --binary "$(cat multiwarden/upstream-commit)" browser-v2026.12.0 | git apply --3way --index
+  git rev-parse "browser-v2026.12.0^{commit}" > multiwarden/upstream-commit
   ```
+
+### Repository settings the automation needs
+
+- **Settings → Actions → General → Workflow permissions**: tick "Allow GitHub Actions to create
+  and approve pull requests" (the sync opens PRs, Merge sync merges them).
+- **Settings → Branches**: a rule for `main` that requires the Multiwarden CI checks
+  (`Lint and test`, `Build chrome`, `Build edge`, `Build opera`, `Build firefox`,
+  `Build safari (unsigned)`) before merging, so changes go through pull requests.
+- **Settings → Secrets and variables → Actions**: the Chrome Web Store secrets, see
+  [store/chrome-web-store.md](store/chrome-web-store.md).
 
 ## Clients
 
@@ -123,7 +147,19 @@ To release:
 2. On GitHub, open **Actions → Multiwarden CI → Run workflow**, keep the branch on `main`, tick
    **release** and run it. (Pushing a tag like `v2026.11.0.2` does the same.)
 3. The workflow tests, builds every browser, creates the tag `v<version>` and publishes a GitHub
-   release with one zip per browser. It refuses to publish a version that already exists.
+   release with one zip per browser, plus `multiwarden-source-<version>.zip` (the source package
+   Firefox Add-ons asks for, with build steps in `AMO-BUILD.md`). It refuses to publish a version
+   that already exists.
+4. The Chrome Web Store job uploads `store-chrome-<version>.zip` and submits it for review, once
+   its secrets are set ([store/chrome-web-store.md](store/chrome-web-store.md)).
+
+Releases after an upstream sync happen automatically (see above).
+
+The Chromium zips on GitHub contain a manifest `key`
+(`multiwarden/branding/extension-key.txt`), so an unpacked install always has the ID
+`geefkjbbjaipgadampajlkghfamlljll` and keeps its data when you load a newer build over it.
+Store zips (`store-<browser>-<version>.zip`, CI artifacts) leave the key out, because stores
+refuse it; `brand-build.mjs --store` makes them.
 
 The build also writes `multiwarden.json` (version, Bitwarden version, upstream commit) into the
 extension; Settings → Multiwarden shows it.
